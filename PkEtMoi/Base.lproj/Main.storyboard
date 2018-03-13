@@ -553,10 +553,10 @@
             </objects>
             <point key="canvasLocation" x="2273" y="2508"/>
         </scene>
-        <!--Activité-->
+        <!--Ajout état-->
         <scene sceneID="B6U-J5-OeB">
             <objects>
-                <viewController title="Activité" id="7v4-l3-0cw" customClass="ViewController" customModule="PkEtMoi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Ajout état" id="7v4-l3-0cw" customClass="ViewController" customModule="PkEtMoi" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="irN-rb-K9o"/>
                         <viewControllerLayoutGuide type="bottom" id="tnv-lR-A7L"/>
@@ -692,10 +692,10 @@
             </objects>
             <point key="canvasLocation" x="4075" y="2731"/>
         </scene>
-        <!--Activité-->
+        <!--Alarme-->
         <scene sceneID="uut-Uh-aHA">
             <objects>
-                <viewController title="Activité" id="bBH-eh-Dnr" customClass="ViewController" customModule="PkEtMoi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Alarme" id="bBH-eh-Dnr" customClass="ViewController" customModule="PkEtMoi" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9S7-bO-jBG"/>
                         <viewControllerLayoutGuide type="bottom" id="OIZ-OS-9TC"/>
