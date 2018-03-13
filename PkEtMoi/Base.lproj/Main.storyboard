@@ -692,14 +692,17 @@
             </objects>
             <point key="canvasLocation" x="4075" y="2731"/>
         </scene>
-        <!--Alarme-->
+        <!-- -->
         <scene sceneID="uut-Uh-aHA">
             <objects>
-                <viewController title="Alarme" id="bBH-eh-Dnr" customClass="ViewController" customModule="PkEtMoi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="bBH-eh-Dnr" customClass="ViewController" customModule="PkEtMoi" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9S7-bO-jBG"/>
                         <viewControllerLayoutGuide type="bottom" id="OIZ-OS-9TC"/>
                     </layoutGuides>
+                    <string key="title" base64-UTF8="YES">
+CQ
+</string>
                     <view key="view" contentMode="scaleToFill" id="x2r-eC-yZM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
