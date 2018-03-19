@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03A0385D205FF59800EA9BDE /* ResumeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A0385C205FF59800EA9BDE /* ResumeViewController.swift */; };
+		03A03861206001F900EA9BDE /* ResumeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A03860206001F900EA9BDE /* ResumeTableViewCell.swift */; };
+		03A038652060071D00EA9BDE /* dateBrowserDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A038642060071D00EA9BDE /* dateBrowserDelegate.swift */; };
+		03A03867206014D300EA9BDE /* AbstractDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A03866206014D300EA9BDE /* AbstractDAO.swift */; };
+		03A03869206017AA00EA9BDE /* CoreDataDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A03868206017AA00EA9BDE /* CoreDataDAO.swift */; };
+		03A0386B2060198800EA9BDE /* ResumeDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A0386A2060198800EA9BDE /* ResumeDAO.swift */; };
+		03A0386D206019E600EA9BDE /* ResumeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A0386C206019E600EA9BDE /* ResumeModel.swift */; };
+		03A0386F20601B0C00EA9BDE /* CoreDataResumeDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A0386E20601B0C00EA9BDE /* CoreDataResumeDAO.swift */; };
 		1598F27D20468D050076BD66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1598F27C20468D050076BD66 /* AppDelegate.swift */; };
 		1598F27F20468D050076BD66 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1598F27E20468D050076BD66 /* ViewController.swift */; };
 		1598F28220468D050076BD66 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1598F28020468D050076BD66 /* Main.storyboard */; };
@@ -36,6 +44,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		03A0385C205FF59800EA9BDE /* ResumeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeViewController.swift; sourceTree = "<group>"; };
+		03A03860206001F900EA9BDE /* ResumeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ResumeTableViewCell.swift; path = ../ResumeTableViewCell.swift; sourceTree = "<group>"; };
+		03A038642060071D00EA9BDE /* dateBrowserDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dateBrowserDelegate.swift; sourceTree = "<group>"; };
+		03A03866206014D300EA9BDE /* AbstractDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractDAO.swift; sourceTree = "<group>"; };
+		03A03868206017AA00EA9BDE /* CoreDataDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataDAO.swift; sourceTree = "<group>"; };
+		03A0386A2060198800EA9BDE /* ResumeDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeDAO.swift; sourceTree = "<group>"; };
+		03A0386C206019E600EA9BDE /* ResumeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeModel.swift; sourceTree = "<group>"; };
+		03A0386E20601B0C00EA9BDE /* CoreDataResumeDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataResumeDAO.swift; sourceTree = "<group>"; };
 		1598F27920468D050076BD66 /* PkEtMoi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PkEtMoi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1598F27C20468D050076BD66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1598F27E20468D050076BD66 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +96,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03A0384B205FF3B900EA9BDE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				03A0385C205FF59800EA9BDE /* ResumeViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		03A0384C205FF3D400EA9BDE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1598F27E20468D050076BD66 /* ViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		03A0384D205FF3DF00EA9BDE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		1598F27020468D050076BD66 = {
 			isa = PBXGroup;
 			children = (
@@ -103,16 +142,25 @@
 		1598F27B20468D050076BD66 /* PkEtMoi */ = {
 			isa = PBXGroup;
 			children = (
+				03A0384D205FF3DF00EA9BDE /* Model */,
+				03A0384C205FF3D400EA9BDE /* View */,
+				03A0384B205FF3B900EA9BDE /* Controller */,
 				38F36E58205920D700854EB7 /* DLRadioButton.h */,
+				03A03860206001F900EA9BDE /* ResumeTableViewCell.swift */,
 				38F36E59205920D700854EB7 /* DLRadioButton.m */,
 				1598F27C20468D050076BD66 /* AppDelegate.swift */,
-				1598F27E20468D050076BD66 /* ViewController.swift */,
 				1598F28020468D050076BD66 /* Main.storyboard */,
 				1598F28620468D050076BD66 /* Assets.xcassets */,
 				1598F28820468D050076BD66 /* LaunchScreen.storyboard */,
 				1598F28B20468D050076BD66 /* Info.plist */,
 				1598F28320468D050076BD66 /* PkEtMoi.xcdatamodeld */,
 				38F36E57205920D600854EB7 /* PkEtMoi-Bridging-Header.h */,
+				03A038642060071D00EA9BDE /* dateBrowserDelegate.swift */,
+				03A03866206014D300EA9BDE /* AbstractDAO.swift */,
+				03A03868206017AA00EA9BDE /* CoreDataDAO.swift */,
+				03A0386A2060198800EA9BDE /* ResumeDAO.swift */,
+				03A0386C206019E600EA9BDE /* ResumeModel.swift */,
+				03A0386E20601B0C00EA9BDE /* CoreDataResumeDAO.swift */,
 			);
 			path = PkEtMoi;
 			sourceTree = "<group>";
@@ -271,9 +319,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				1598F27F20468D050076BD66 /* ViewController.swift in Sources */,
+				03A0386D206019E600EA9BDE /* ResumeModel.swift in Sources */,
 				38F36E5A205920D700854EB7 /* DLRadioButton.m in Sources */,
+				03A03861206001F900EA9BDE /* ResumeTableViewCell.swift in Sources */,
+				03A0385D205FF59800EA9BDE /* ResumeViewController.swift in Sources */,
+				03A03867206014D300EA9BDE /* AbstractDAO.swift in Sources */,
+				03A0386F20601B0C00EA9BDE /* CoreDataResumeDAO.swift in Sources */,
+				03A03869206017AA00EA9BDE /* CoreDataDAO.swift in Sources */,
+				03A038652060071D00EA9BDE /* dateBrowserDelegate.swift in Sources */,
 				1598F27D20468D050076BD66 /* AppDelegate.swift in Sources */,
 				1598F28520468D050076BD66 /* PkEtMoi.xcdatamodeld in Sources */,
+				03A0386B2060198800EA9BDE /* ResumeDAO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
