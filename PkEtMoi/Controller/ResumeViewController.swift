@@ -9,13 +9,17 @@
 import UIKit
 import CoreData
 
-class ResumeViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
+class ResumeViewController: UIViewController,UITableViewDataSource, UITableViewDelegate,isAbleToReceiveData {
+    func pass(data: String) {
+        print(data)
+    }
+    
 
     @IBOutlet weak var resumeTable: UITableView!
     @IBOutlet weak var dateLabel: UILabel!
     
-    var resume : [ResumeModel] = []
-    var date : dateBrowserDelegate = dateBrowserDelegate()
+    var notification : [Notification] = []
+    var date :DateHandler = DateHandler()
     
     @IBAction func nextDay(_ sender: UIButton) {
         dateLabel.text = date.nextDay()
@@ -28,6 +32,8 @@ class ResumeViewController: UIViewController,UITableViewDataSource, UITableViewD
         super.viewDidLoad()
         dateLabel.text = date.currentDate
         self.saveNewResume(with: "wow")
+        self.notification.append(ActiviteModel(label:"salut", date: Date()))
+        self.notification.append(RdvModel(label:"oula", date: Date()))
         resumeTable.delegate = self
         resumeTable.dataSource = self
     }
@@ -38,22 +44,43 @@ class ResumeViewController: UIViewController,UITableViewDataSource, UITableViewD
     }
     
     func saveNewResume(with resumeString: String){
-        var resumeAdded:ResumeModel? = AbstractDAO.getDAO()._getResumeDAO()?._insertResume(resume: ResumeModel(label: "OMG"))
-        if(resumeAdded != nil){
-            self.resume.append(resumeAdded!)
+        let notificationAdded:MedicamentModel? = AbstractDAO.getDAO()._getMedicamentDAO()?._insertMedicament(medicament: MedicamentModel(label: "OMG",date:Date())) as? MedicamentModel
+        if(notificationAdded != nil){
+            self.notification.append(notificationAdded!)
             self.resumeTable.reloadData()
         }
         
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.resume.count
+        return self.notification.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.resumeTable.dequeueReusableCell(withIdentifier: "resumeCell", for: indexPath) as! ResumeTableViewCell
-        cell.labelCell.text = self.resume[indexPath.row].label
+        cell.labelCell.text = self.notification[indexPath.row].getLabel() + self.date.toStringHour(date: self.notification[indexPath.row].getDate())
         return cell
     }
-
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var cell = tableView.cellForRow(at: indexPath)
+        tableView.deselectRow(at: indexPath, animated: true)
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        if(self.notification[indexPath.row] is MedicamentModel){
+            let myVC = storyboard.instantiateViewController(withIdentifier: "detailMedicament") as! DetailMedicamentViewController
+            myVC.nomMedicament = "hey"
+            myVC.descriptionMedicament = "wow"
+            navigationController?.pushViewController(myVC, animated: true)
+        }
+        else if(self.notification[indexPath.row] is RdvModel){
+            let myVC = storyboard.instantiateViewController(withIdentifier: "detailRdv") as! DetailRdvViewController
+            navigationController?.pushViewController(myVC, animated: true)
+        }
+        else if(self.notification[indexPath.row] is ActiviteModel){
+            let myVC = storyboard.instantiateViewController(withIdentifier: "detailActivite") as! DetailActiviteViewController
+            navigationController?.pushViewController(myVC, animated: true)
+        }
+        
+    }
+    
 }

@@ -13,8 +13,8 @@ class CoreDataDAO : AbstractDAO{
     
     public static let context: NSManagedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
-    override func _getResumeDAO() -> ResumeDAO {
-        return CoreDataResumeDAO()
+    override func _getMedicamentDAO() -> MedicamentDAO {
+        return CoreDataMedicamentDAO()
     }
     
 }

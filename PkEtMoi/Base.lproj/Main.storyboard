@@ -197,7 +197,7 @@
                                 <rect key="frame" x="16" y="153" width="343" height="416"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="default" indentationWidth="10" id="tCH-j2-RU0">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="tCH-j2-RU0">
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tCH-j2-RU0" id="qa0-wL-Vt2">
@@ -263,7 +263,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="yWD-hD-DbR" kind="show" id="4sY-7f-9wo"/>
+                        <segue destination="yWD-hD-DbR" kind="show" identifier="detailMedicamentSegue" id="4sY-7f-9wo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HNY-GO-la3" sceneMemberID="firstResponder"/>
@@ -273,7 +273,7 @@
         <!--Médicament-->
         <scene sceneID="a30-dH-iur">
             <objects>
-                <viewController title="Médicament" id="yWD-hD-DbR" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="detailMedicament" title="Médicament" id="yWD-hD-DbR" customClass="DetailMedicamentViewController" customModule="PkEtMoi" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rgN-GP-305"/>
                         <viewControllerLayoutGuide type="bottom" id="uON-TA-uDB"/>
@@ -326,7 +326,7 @@
                                 <rect key="frame" x="26" y="578" width="323" height="30"/>
                                 <state key="normal" title="Ajouter alarme"/>
                                 <connections>
-                                    <segue destination="WI5-Me-3XC" kind="show" id="PoM-ZU-rJJ"/>
+                                    <action selector="addAlarm:" destination="yWD-hD-DbR" eventType="touchUpInside" id="VyU-tT-AfS"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fxT-SC-jwg">
@@ -369,6 +369,10 @@
                             <constraint firstItem="jDI-Ml-moa" firstAttribute="leading" secondItem="BG2-EM-QaF" secondAttribute="leadingMargin" id="z2S-oW-aDR"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="fxT-SC-jwg" id="Kta-HZ-cBa"/>
+                        <outlet property="nomLabel" destination="k9C-cv-LYq" id="gEk-i7-WeD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZzX-HK-WMC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -837,7 +841,7 @@
                                 <rect key="frame" x="16" y="153" width="343" height="416"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="default" indentationWidth="10" id="APA-a0-2fl">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="APA-a0-2fl">
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="APA-a0-2fl" id="Gcz-V3-RQP">
@@ -913,7 +917,7 @@
         <!--Activité-->
         <scene sceneID="kyR-cs-PoN">
             <objects>
-                <viewController title="Activité" id="e6d-2x-wHn" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="detailActivite" title="Activité" id="e6d-2x-wHn" customClass="DetailActiviteViewController" customModule="PkEtMoi" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZeW-n7-f9P"/>
                         <viewControllerLayoutGuide type="bottom" id="nu2-o7-xxx"/>
@@ -1041,7 +1045,7 @@
                                 <rect key="frame" x="16" y="153" width="343" height="416"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="default" indentationWidth="10" id="Xbb-gc-nCe">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Xbb-gc-nCe">
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xbb-gc-nCe" id="bPU-iP-7ut">
@@ -1117,7 +1121,7 @@
         <!--RDV-->
         <scene sceneID="djD-pR-plM">
             <objects>
-                <viewController title="RDV" id="5cD-k4-XRT" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="detailRdv" title="RDV" id="5cD-k4-XRT" customClass="DetailRdvViewController" customModule="PkEtMoi" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FWI-x6-lZQ"/>
                         <viewControllerLayoutGuide type="bottom" id="1nT-9e-M2C"/>
@@ -1366,7 +1370,7 @@
         <!--Alarme-->
         <scene sceneID="uut-Uh-aHA">
             <objects>
-                <viewController title="Alarme" id="bBH-eh-Dnr" customClass="ViewController" customModule="PkEtMoi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="alarme" title="Alarme" id="bBH-eh-Dnr" customClass="AlarmViewController" customModule="PkEtMoi" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9S7-bO-jBG"/>
                         <viewControllerLayoutGuide type="bottom" id="OIZ-OS-9TC"/>
@@ -1376,53 +1380,47 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="nPa-jH-AxD">
-                                <rect key="frame" x="0.0" y="100" width="375" height="146.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="nPa-jH-AxD" secondAttribute="height" multiplier="23:9" id="Shg-SX-w1d"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="100" width="375" height="216"/>
                                 <date key="date" timeIntervalSinceReferenceDate="542656556.98830402">
                                     <!--2018-03-13 17:55:56 +0000-->
                                 </date>
                             </datePicker>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Av8-mq-jG9">
-                                <rect key="frame" x="20" y="603" width="374" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Av8-mq-jG9" secondAttribute="height" multiplier="187:15" id="wpc-V8-NYm"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Av8-mq-jG9">
+                                <rect key="frame" x="0.0" y="588" width="374" height="30"/>
                                 <state key="normal" title="Valider"/>
+                                <connections>
+                                    <action selector="validate:" destination="bBH-eh-Dnr" eventType="touchUpInside" id="Mhd-KQ-suI"/>
+                                    <action selector="valider:" destination="PV9-yM-wMx" eventType="touchUpInside" id="HhD-zl-yJN"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LTw-4a-1S0">
-                                <rect key="frame" x="159" y="293.5" width="57" height="13"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="LTw-4a-1S0" secondAttribute="height" multiplier="22:5" id="HCZ-Fi-ioA"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="Fpp-ec-Mmg">
-                                <rect key="frame" x="0.0" y="336" width="414" height="227"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="Fpp-ec-Mmg">
+                                <rect key="frame" x="0.0" y="364" width="374" height="214"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Fpp-ec-Mmg" secondAttribute="height" multiplier="127:75" id="g4u-S8-UZJ"/>
-                                </constraints>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LTw-4a-1S0">
+                                <rect key="frame" x="143.5" y="324" width="88" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="nPa-jH-AxD" firstAttribute="centerX" secondItem="x2r-eC-yZM" secondAttribute="centerX" id="3AL-V3-fK3"/>
-                            <constraint firstItem="nPa-jH-AxD" firstAttribute="leading" secondItem="x2r-eC-yZM" secondAttribute="leading" id="3g2-9B-sd5"/>
-                            <constraint firstItem="LTw-4a-1S0" firstAttribute="top" secondItem="nPa-jH-AxD" secondAttribute="bottom" constant="47" id="4AF-iJ-6u9"/>
-                            <constraint firstItem="nPa-jH-AxD" firstAttribute="top" secondItem="9S7-bO-jBG" secondAttribute="bottom" constant="36" id="Dps-Qy-VM4"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="LTw-4a-1S0" secondAttribute="trailing" constant="143" id="Dyu-6o-jbF"/>
-                            <constraint firstItem="LTw-4a-1S0" firstAttribute="top" secondItem="nPa-jH-AxD" secondAttribute="bottom" constant="46.670000000000002" id="GOg-z4-eEI"/>
-                            <constraint firstItem="Fpp-ec-Mmg" firstAttribute="centerX" secondItem="x2r-eC-yZM" secondAttribute="centerX" id="HLc-4e-dOs"/>
-                            <constraint firstItem="LTw-4a-1S0" firstAttribute="centerX" secondItem="x2r-eC-yZM" secondAttribute="centerX" id="Ua6-Dy-Cou"/>
-                            <constraint firstAttribute="trailing" secondItem="nPa-jH-AxD" secondAttribute="trailing" id="Yn7-6V-xk5"/>
-                            <constraint firstItem="LTw-4a-1S0" firstAttribute="leading" secondItem="x2r-eC-yZM" secondAttribute="leadingMargin" constant="143" id="ok0-83-BLV"/>
+                            <constraint firstItem="Fpp-ec-Mmg" firstAttribute="top" secondItem="LTw-4a-1S0" secondAttribute="bottom" constant="19.5" id="5Nn-ip-Wut"/>
+                            <constraint firstItem="Fpp-ec-Mmg" firstAttribute="leading" secondItem="x2r-eC-yZM" secondAttribute="leading" id="6Kt-Ii-jA7"/>
+                            <constraint firstItem="nPa-jH-AxD" firstAttribute="leading" secondItem="x2r-eC-yZM" secondAttribute="leading" id="8oG-Zq-7Dj"/>
+                            <constraint firstAttribute="trailing" secondItem="Fpp-ec-Mmg" secondAttribute="trailing" constant="1" id="APA-Zr-v05"/>
+                            <constraint firstItem="LTw-4a-1S0" firstAttribute="centerX" secondItem="x2r-eC-yZM" secondAttribute="centerX" id="Aq1-ZR-1U6"/>
+                            <constraint firstItem="LTw-4a-1S0" firstAttribute="top" secondItem="nPa-jH-AxD" secondAttribute="bottom" constant="8" id="Xa4-Eo-mPZ"/>
+                            <constraint firstItem="Av8-mq-jG9" firstAttribute="leading" secondItem="x2r-eC-yZM" secondAttribute="leading" id="Xnx-yl-LHs"/>
+                            <constraint firstAttribute="trailing" secondItem="Av8-mq-jG9" secondAttribute="trailing" constant="1" id="bDH-2M-RLP"/>
+                            <constraint firstItem="nPa-jH-AxD" firstAttribute="top" secondItem="9S7-bO-jBG" secondAttribute="bottom" constant="36" id="cWA-KE-SsT"/>
+                            <constraint firstAttribute="trailing" secondItem="nPa-jH-AxD" secondAttribute="trailing" id="dbL-Vs-7j7"/>
+                            <constraint firstItem="OIZ-OS-9TC" firstAttribute="top" secondItem="Av8-mq-jG9" secondAttribute="bottom" id="kPd-9H-fVW"/>
+                            <constraint firstItem="Av8-mq-jG9" firstAttribute="top" secondItem="Fpp-ec-Mmg" secondAttribute="bottom" constant="10" id="sN7-w3-Smv"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Activité" id="8Ft-gN-X5w"/>
@@ -1435,8 +1433,9 @@
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sNN-09-6Oa" sceneMemberID="firstResponder"/>
+                <exit id="PV9-yM-wMx" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="5171.0144927536239" y="2507.608695652174"/>
+            <point key="canvasLocation" x="5170.3999999999996" y="2507.4962518740631"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FQT-Xy-YAQ">

@@ -10,20 +10,21 @@ import Foundation
 import CoreData
 import UIKit
 
-class CoreDataResumeDAO : ResumeDAO{
+class CoreDataMedicamentDAO : MedicamentDAO{
     
     override init(){
         
     }
     
-    override func _insertResume(resume : ResumeModel)->ResumeModel?
+    override func _insertMedicament(medicament : MedicamentModel)->MedicamentModel?
     {
-        let resumeToAdd = NSEntityDescription.insertNewObject(forEntityName: "Resume", into: CoreDataDAO.context) as! Resume
+        let notificationToAdd = NSEntityDescription.insertNewObject(forEntityName: "Medicament", into: CoreDataDAO.context) as! Medicament
         
-        resumeToAdd.label = resume.label
+        notificationToAdd.label = medicament.getLabel()
+        notificationToAdd.date = medicament.getDate() as NSDate
         do{
             try CoreDataDAO.context.save()
-            return resume
+            return medicament
         }
         catch let error as NSError{
             print(error)

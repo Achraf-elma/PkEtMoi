@@ -1,5 +1,5 @@
 //
-//  ResumeModel.swift
+//  isAbleToPassData.swift
 //  PkEtMoi
 //
 //  Created by Kevin Giordani on 19/03/2018.
@@ -7,12 +7,6 @@
 //
 
 import Foundation
-class ResumeModel{
-    
-    var label :String
-    
-    init(label:String){
-        self.label = label
-    }
-    
-}
+protocol isAbleToReceiveData {
+    func pass(data: String)  //data: string is an example parameter
+} 

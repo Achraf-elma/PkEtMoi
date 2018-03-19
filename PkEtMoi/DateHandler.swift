@@ -8,7 +8,7 @@
 
 import Foundation
 
-class dateBrowserDelegate{
+class DateHandler{
     
     var date : Date
     var currentDate : String{
@@ -30,6 +30,16 @@ class dateBrowserDelegate{
     func previousDay() -> String{
         date.addTimeInterval(86400)
         return currentDate
+    }
+    
+    func toStringDay(date:Date) -> String{
+        dateFormatter.dateFormat = "MMM dd, yyyy"
+        return dateFormatter.string(from: date)
+    }
+    
+    func toStringHour(date:Date) -> String{
+        dateFormatter.dateFormat = "HH:mm"
+        return dateFormatter.string(from: date)
     }
     
 }
