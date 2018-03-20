@@ -9,9 +9,6 @@
 import Foundation
 protocol Notification{
     
-    func getLabel() -> String
-    func getDate() -> Date
-    func setLabel(label:String)
-    func setDate(date:Date)
+    func getLabel()->String
     
 }

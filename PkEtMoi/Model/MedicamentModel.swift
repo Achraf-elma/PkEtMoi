@@ -7,29 +7,43 @@
 //
 
 import Foundation
-class MedicamentModel: Notification{
+class MedicamentModel:Notification{
     
-    var label :String
-    var date :Date
+    var dao : MedicamentDAO
     
-    init(label:String, date:Date){
-        self.label = label
-        self.date = date
+    var nom :String{
+        get{
+            return dao._getName()!
+        }
+        set{
+            dao._setName(forname : newValue)
+        }
     }
+    
+    var description :String{
+        get{
+            return dao._getDescription()!
+        }
+        set{
+            dao._setDescription(forname : newValue)
+        }
+    }
+    /*
+    var doses : [DosesModel]{
+        get{
+            return dao._getDoses()!
+        }
+        set{
+            dao._setDoses(forname : newValue)
+        }
+    }*/
     
     func getLabel() -> String {
-        return label
+        return nom
     }
     
-    func getDate() -> Date {
-        return date
-    }
-    
-    func setLabel(label: String) {
-        self.label = label
-    }
-    
-    func setDate(date: Date) {
-        self.date = date
+    init(nom:String, description:String){
+        dao = AbstractDAO.getDAO()._getMedicamentDAO()!
+        dao._insertMedicament(nom:nom, description:description)
     }
 }

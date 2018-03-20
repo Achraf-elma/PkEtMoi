@@ -24,22 +24,24 @@ class DateHandler{
     
     func nextDay() -> String{
         date.addTimeInterval(86400)
+        dateFormatter.dateFormat = "MMM dd, yyyy"
         return currentDate
     }
     
     func previousDay() -> String{
-        date.addTimeInterval(86400)
+        date.addTimeInterval(-86400)
+        dateFormatter.dateFormat = "MMM dd, yyyy"
         return currentDate
     }
     
     func toStringDay(date:Date) -> String{
         dateFormatter.dateFormat = "MMM dd, yyyy"
-        return dateFormatter.string(from: date)
+        return currentDate
     }
     
     func toStringHour(date:Date) -> String{
         dateFormatter.dateFormat = "HH:mm"
-        return dateFormatter.string(from: date)
+        return currentDate
     }
     
 }

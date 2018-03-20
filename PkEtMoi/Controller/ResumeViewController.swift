@@ -10,11 +10,11 @@ import UIKit
 import CoreData
 
 class ResumeViewController: UIViewController,UITableViewDataSource, UITableViewDelegate,isAbleToReceiveData {
+    
     func pass(data: String) {
         print(data)
     }
     
-
     @IBOutlet weak var resumeTable: UITableView!
     @IBOutlet weak var dateLabel: UILabel!
     
@@ -31,9 +31,11 @@ class ResumeViewController: UIViewController,UITableViewDataSource, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         dateLabel.text = date.currentDate
+        notification.append(MedicamentModel(nom: "Hey", description: "wow"))
+        /*
         self.saveNewResume(with: "wow")
         self.notification.append(ActiviteModel(label:"salut", date: Date()))
-        self.notification.append(RdvModel(label:"oula", date: Date()))
+        self.notification.append(RdvModel(label:"oula", date: Date()))*/
         resumeTable.delegate = self
         resumeTable.dataSource = self
     }
@@ -44,7 +46,7 @@ class ResumeViewController: UIViewController,UITableViewDataSource, UITableViewD
     }
     
     func saveNewResume(with resumeString: String){
-        let notificationAdded:MedicamentModel? = AbstractDAO.getDAO()._getMedicamentDAO()?._insertMedicament(medicament: MedicamentModel(label: "OMG",date:Date())) as? MedicamentModel
+        let notificationAdded:MedicamentModel? = AbstractDAO.getDAO()._getMedicamentDAO()?._insertMedicament(nom: "OMG",description:"salut") as? MedicamentModel
         if(notificationAdded != nil){
             self.notification.append(notificationAdded!)
             self.resumeTable.reloadData()
@@ -58,7 +60,7 @@ class ResumeViewController: UIViewController,UITableViewDataSource, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.resumeTable.dequeueReusableCell(withIdentifier: "resumeCell", for: indexPath) as! ResumeTableViewCell
-        cell.labelCell.text = self.notification[indexPath.row].getLabel() + self.date.toStringHour(date: self.notification[indexPath.row].getDate())
+        cell.labelCell.text = self.notification[indexPath.row].getLabel()
         return cell
     }
     
