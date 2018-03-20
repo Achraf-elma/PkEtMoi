@@ -9,6 +9,6 @@
 import Foundation
 protocol Notification{
     
-    func getLabel()->String
+    func getLabel()->String?
     
 }

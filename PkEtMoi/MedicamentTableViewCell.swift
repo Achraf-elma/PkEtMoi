@@ -1,14 +1,14 @@
 //
-//  ActiviteTableViewCell.swift
+//  MedicamentTableViewCell.swift
 //  PkEtMoi
 //
-//  Created by Kevin Giordani on 21/03/2018.
+//  Created by Kevin Giordani on 20/03/2018.
 //  Copyright © 2018 Kevin GIORDANI. All rights reserved.
 //
 
 import UIKit
 
-class ActiviteTableViewCell: UITableViewCell {
+class MedicamentTableViewCell: UITableViewCell {
 
     @IBOutlet weak var labelCell: UILabel!
     override func awakeFromNib() {

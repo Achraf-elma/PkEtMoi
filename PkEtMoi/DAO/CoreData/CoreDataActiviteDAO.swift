@@ -10,44 +10,43 @@ import Foundation
 import CoreData
 import UIKit
 
-class CoreDataMedicamentDAO : MedicamentDAO{
+class CoreDataActiviteDAO : ActiviteDAO{
     
-    var instanceCoreData: Medicament? = nil
+    var instanceCoreData: Activite? = nil
     
-    init(medicament : Medicament){
-        self.instanceCoreData = medicament
+    init(activite : Activite){
+        self.instanceCoreData = activite
     }
     
     override init(){
         
     }
     
-    override func _getAll() -> MedicamentSet? {
-        var medicament  = [Medicament]()
+    override func _getAll() -> ActiviteSet? {
+        var activite  = [Activite]()
         
-        var fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Medicament")
+        var fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Activite")
         do{
-            try medicament = CoreDataDAO.context.fetch(fetchRequest) as! [Medicament]
+            try activite = CoreDataDAO.context.fetch(fetchRequest) as! [Activite]
         }
         catch let error as NSError{
             print(error)
             return nil
         }
-        var result = MedicamentSet()
-        for med in medicament {
-            result.insert(medicament: MedicamentModel(medicament: CoreDataMedicamentDAO(medicament:med)))
+        var result = ActiviteSet()
+        for act in activite {
+            result.insert(activite: ActiviteModel(activite: CoreDataActiviteDAO(activite:act)))
         }
         return result
     }
     
-    override func _insertMedicament(nom:String,description:String)->Bool
+    override func _insert(nom:String,description:String)->Bool
     {
-        let newMedicament = NSEntityDescription.insertNewObject(forEntityName: "Medicament", into: CoreDataDAO.context) as! Medicament
-        newMedicament.nom = nom
-        newMedicament.presentation = description
+        let newActivite = NSEntityDescription.insertNewObject(forEntityName: "Activite", into: CoreDataDAO.context) as! Activite
+        newActivite.nom = nom
         do{
             try CoreDataDAO.context.save()
-            self.instanceCoreData = newMedicament
+            self.instanceCoreData = newActivite
             return true
         }
         catch let error as NSError{
@@ -56,7 +55,7 @@ class CoreDataMedicamentDAO : MedicamentDAO{
         }
     }
     
-    override internal func _deleteMedicament()->Bool
+    override internal func _delete()->Bool
     {
         do{
             CoreDataDAO.context.delete(self.instanceCoreData!)
@@ -90,15 +89,5 @@ class CoreDataMedicamentDAO : MedicamentDAO{
         fatalError(#function + "Must be overridden");
     }
     
-    override func _getDoses()->[DosesModel]?
-    {
-        fatalError(#function + "Must be overridden");
-        return nil;
-    }
-    
-    override func _setDoses(forname:[DosesModel])
-    {
-        fatalError(#function + "Must be overridden");
-    }
-    
 }
+

@@ -7,31 +7,25 @@
 //
 
 import Foundation
-class MedicamentDAO: NSObject {
+class ActiviteDAO: NSObject {
     
     override init(){
         
     }
     
-    internal func _insertMedicament(nom:String,description:String)->Bool
+    internal func _insert(nom:String,description:String)->Bool
     {
         fatalError(#function + "Must be overridden");
         return false;
     }
     
-    internal func _deleteMedicament()->Bool
+    internal func _delete()->Bool
     {
         fatalError(#function + "Must be overridden");
         return false;
     }
     
-    internal func _deleteMedicament(medicament : MedicamentModel)->Bool?
-    {
-        fatalError(#function + "Must be overridden");
-        return nil;
-    }
-    
-    internal func _updateMedicament(medicament : MedicamentModel)->MedicamentModel?
+    internal func _update(activite : ActiviteModel)->ActiviteModel?
     {
         fatalError(#function + "Must be overridden");
         return nil;
@@ -43,34 +37,25 @@ class MedicamentDAO: NSObject {
         fatalError(#function + "Must be overridden");
         return nil;
     }
-     func _setName(forname:String)
+    func _setName(forname:String)
     {
         fatalError(#function + "Must be overridden");
     }
     
-     func _getDescription()->String?
+    func _getDescription()->String?
     {
         fatalError(#function + "Must be overridden");
         return nil;
     }
-     func _setDescription(forname:String)
+    func _setDescription(forname:String)
     {
         fatalError(#function + "Must be overridden");
     }
     
-     func _getDoses()->[DosesModel]?
-    {
-        fatalError(#function + "Must be overridden");
-        return nil;
-    }
-     func _setDoses(forname:[DosesModel])
-    {
-        fatalError(#function + "Must be overridden");
-    }
-    
-    func _getAll()-> MedicamentSet?{
+    func _getAll() -> ActiviteSet? {
         fatalError(#function + "Must be overridden");
         return nil
     }
     
 }
+

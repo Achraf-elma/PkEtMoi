@@ -10,27 +10,49 @@ import Foundation
 class ActiviteModel : Notification{
    
     
-    var label :String
-    var date :Date
+    var dao : ActiviteDAO
     
-    init(label:String, date:Date){
-        self.label = label
-        self.date = date
+    var nom :String?{
+        get{
+            return dao._getName()
+        }
+        set{
+            dao._setName(forname : newValue as! String)
+        }
     }
     
-    func getLabel() -> String {
-        return label
+    var description :String?{
+        get{
+            return dao._getDescription()
+        }
+        set{
+            dao._setDescription(forname : newValue as! String)
+        }
+    }
+    /*
+     var doses : [DosesModel]{
+     get{
+     return dao._getDoses()!
+     }
+     set{
+     dao._setDoses(forname : newValue)
+     }
+     }*/
+    
+    init(activite: ActiviteDAO){
+        self.dao = activite
     }
     
-    func getDate() -> Date {
-        return date
+    func getLabel() -> String? {
+        return nom
     }
     
-    func setLabel(label: String) {
-        self.label = label
+    init(nom:String, description:String){
+        dao = AbstractDAO.getDAO()._getActiviteDAO()!
+        dao._insert(nom:nom, description:description)
     }
     
-    func setDate(date: Date) {
-        self.date = date
+    func delete() ->Bool{
+        return dao._delete()
     }
 }

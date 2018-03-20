@@ -17,7 +17,7 @@ class RdvModel: Notification{
         self.date = date
     }
     
-    func getLabel() -> String {
+    func getLabel() -> String? {
         return label
     }
     

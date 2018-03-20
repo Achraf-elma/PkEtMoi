@@ -17,4 +17,9 @@ class CoreDataDAO : AbstractDAO{
         return CoreDataMedicamentDAO()
     }
     
+    override func _getActiviteDAO()->ActiviteDAO?
+    {
+        return CoreDataActiviteDAO()
+    }
+    
 }

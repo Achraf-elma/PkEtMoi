@@ -11,21 +11,21 @@ class MedicamentModel:Notification{
     
     var dao : MedicamentDAO
     
-    var nom :String{
+    var nom :String?{
         get{
-            return dao._getName()!
+            return dao._getName()
         }
         set{
-            dao._setName(forname : newValue)
+            dao._setName(forname : newValue as! String)
         }
     }
     
-    var description :String{
+    var description :String?{
         get{
-            return dao._getDescription()!
+            return dao._getDescription()
         }
         set{
-            dao._setDescription(forname : newValue)
+            dao._setDescription(forname : newValue as! String)
         }
     }
     /*
@@ -38,7 +38,11 @@ class MedicamentModel:Notification{
         }
     }*/
     
-    func getLabel() -> String {
+    init(medicament: MedicamentDAO){
+        self.dao = medicament
+    }
+    
+    func getLabel() -> String? {
         return nom
     }
     
@@ -46,4 +50,9 @@ class MedicamentModel:Notification{
         dao = AbstractDAO.getDAO()._getMedicamentDAO()!
         dao._insertMedicament(nom:nom, description:description)
     }
+    
+    func delete() ->Bool{
+        return dao._deleteMedicament()
+    }
+    
 }

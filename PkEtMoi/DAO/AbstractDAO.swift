@@ -28,4 +28,10 @@ class AbstractDAO: NSObject {
         fatalError(#function + "Must be overridden");
         return nil;
     }
+    
+    func _getActiviteDAO()->ActiviteDAO?
+    {
+        fatalError(#function + "Must be overridden");
+        return nil;
+    }
 }

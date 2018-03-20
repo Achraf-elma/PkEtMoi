@@ -23,6 +23,18 @@
 		03F699E020604C060037904A /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F699DF20604C060037904A /* Notification.swift */; };
 		03F699E2206054630037904A /* DetailRdvViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F699E1206054630037904A /* DetailRdvViewController.swift */; };
 		03F699E4206054790037904A /* DetailActiviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F699E3206054790037904A /* DetailActiviteViewController.swift */; };
+		03F8E1472061B3B2001FB8D5 /* MedicamentSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F8E1462061B3B2001FB8D5 /* MedicamentSet.swift */; };
+		03F8E1492061C210001FB8D5 /* MedicamentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F8E1482061C210001FB8D5 /* MedicamentViewController.swift */; };
+		03F8E14B2061C422001FB8D5 /* MedicamentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F8E14A2061C422001FB8D5 /* MedicamentTableViewCell.swift */; };
+		03F8E14E2061CA34001FB8D5 /* RdvSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F8E14D2061CA34001FB8D5 /* RdvSet.swift */; };
+		03F8E1502061CA40001FB8D5 /* ActiviteSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F8E14F2061CA40001FB8D5 /* ActiviteSet.swift */; };
+		03F8E1522061CA58001FB8D5 /* EventSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F8E1512061CA58001FB8D5 /* EventSet.swift */; };
+		03F8E1542061CAF9001FB8D5 /* ActiviteDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F8E1532061CAF9001FB8D5 /* ActiviteDAO.swift */; };
+		03F8E1562061CB06001FB8D5 /* RdvDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F8E1552061CB06001FB8D5 /* RdvDAO.swift */; };
+		03F8E1582061CB4E001FB8D5 /* CoreDataActiviteDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F8E1572061CB4E001FB8D5 /* CoreDataActiviteDAO.swift */; };
+		03F8E15A2061CB66001FB8D5 /* CoreDataRdvDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F8E1592061CB66001FB8D5 /* CoreDataRdvDAO.swift */; };
+		03F8E15E2061CFCA001FB8D5 /* ActiviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F8E15D2061CFCA001FB8D5 /* ActiviteViewController.swift */; };
+		03F8E1622061D19F001FB8D5 /* ActiviteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F8E1612061D19F001FB8D5 /* ActiviteTableViewCell.swift */; };
 		1516873720612A7300BC451F /* DosesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1516873620612A7300BC451F /* DosesModel.swift */; };
 		1598F27D20468D050076BD66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1598F27C20468D050076BD66 /* AppDelegate.swift */; };
 		1598F27F20468D050076BD66 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1598F27E20468D050076BD66 /* ViewController.swift */; };
@@ -69,6 +81,18 @@
 		03F699DF20604C060037904A /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		03F699E1206054630037904A /* DetailRdvViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRdvViewController.swift; sourceTree = "<group>"; };
 		03F699E3206054790037904A /* DetailActiviteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailActiviteViewController.swift; sourceTree = "<group>"; };
+		03F8E1462061B3B2001FB8D5 /* MedicamentSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicamentSet.swift; sourceTree = "<group>"; };
+		03F8E1482061C210001FB8D5 /* MedicamentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicamentViewController.swift; sourceTree = "<group>"; };
+		03F8E14A2061C422001FB8D5 /* MedicamentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicamentTableViewCell.swift; sourceTree = "<group>"; };
+		03F8E14D2061CA34001FB8D5 /* RdvSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RdvSet.swift; sourceTree = "<group>"; };
+		03F8E14F2061CA40001FB8D5 /* ActiviteSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiviteSet.swift; sourceTree = "<group>"; };
+		03F8E1512061CA58001FB8D5 /* EventSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSet.swift; sourceTree = "<group>"; };
+		03F8E1532061CAF9001FB8D5 /* ActiviteDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiviteDAO.swift; sourceTree = "<group>"; };
+		03F8E1552061CB06001FB8D5 /* RdvDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RdvDAO.swift; sourceTree = "<group>"; };
+		03F8E1572061CB4E001FB8D5 /* CoreDataActiviteDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataActiviteDAO.swift; sourceTree = "<group>"; };
+		03F8E1592061CB66001FB8D5 /* CoreDataRdvDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRdvDAO.swift; sourceTree = "<group>"; };
+		03F8E15D2061CFCA001FB8D5 /* ActiviteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiviteViewController.swift; sourceTree = "<group>"; };
+		03F8E1612061D19F001FB8D5 /* ActiviteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiviteTableViewCell.swift; sourceTree = "<group>"; };
 		1516873620612A7300BC451F /* DosesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DosesModel.swift; sourceTree = "<group>"; };
 		1598F27920468D050076BD66 /* PkEtMoi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PkEtMoi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1598F27C20468D050076BD66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +147,8 @@
 				03F699D92060463A0037904A /* isAbleToReceiveData.swift */,
 				03F699E1206054630037904A /* DetailRdvViewController.swift */,
 				03F699E3206054790037904A /* DetailActiviteViewController.swift */,
+				03F8E1482061C210001FB8D5 /* MedicamentViewController.swift */,
+				03F8E15D2061CFCA001FB8D5 /* ActiviteViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -138,6 +164,7 @@
 		03A0384D205FF3DF00EA9BDE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				03F8E14C2061CA20001FB8D5 /* Sets */,
 				03F699CF206034790037904A /* MedicamentModel.swift */,
 				03F699D1206034870037904A /* RdvModel.swift */,
 				03F699D3206034F50037904A /* ActiviteModel.swift */,
@@ -161,6 +188,8 @@
 			isa = PBXGroup;
 			children = (
 				03A0386A2060198800EA9BDE /* MedicamentDAO.swift */,
+				03F8E1532061CAF9001FB8D5 /* ActiviteDAO.swift */,
+				03F8E1552061CB06001FB8D5 /* RdvDAO.swift */,
 			);
 			path = AbstractDAO;
 			sourceTree = "<group>";
@@ -170,8 +199,21 @@
 			children = (
 				03A03868206017AA00EA9BDE /* CoreDataDAO.swift */,
 				03A0386E20601B0C00EA9BDE /* CoreDataMedicamentDAO.swift */,
+				03F8E1572061CB4E001FB8D5 /* CoreDataActiviteDAO.swift */,
+				03F8E1592061CB66001FB8D5 /* CoreDataRdvDAO.swift */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		03F8E14C2061CA20001FB8D5 /* Sets */ = {
+			isa = PBXGroup;
+			children = (
+				03F8E1462061B3B2001FB8D5 /* MedicamentSet.swift */,
+				03F8E14D2061CA34001FB8D5 /* RdvSet.swift */,
+				03F8E14F2061CA40001FB8D5 /* ActiviteSet.swift */,
+				03F8E1512061CA58001FB8D5 /* EventSet.swift */,
+			);
+			path = Sets;
 			sourceTree = "<group>";
 		};
 		1598F27020468D050076BD66 = {
@@ -212,6 +254,8 @@
 				1598F28320468D050076BD66 /* PkEtMoi.xcdatamodeld */,
 				38F36E57205920D600854EB7 /* PkEtMoi-Bridging-Header.h */,
 				03A038642060071D00EA9BDE /* DateHandler.swift */,
+				03F8E14A2061C422001FB8D5 /* MedicamentTableViewCell.swift */,
+				03F8E1612061D19F001FB8D5 /* ActiviteTableViewCell.swift */,
 			);
 			path = PkEtMoi;
 			sourceTree = "<group>";
@@ -374,22 +418,34 @@
 				38F36E5A205920D700854EB7 /* DLRadioButton.m in Sources */,
 				03F699D0206034790037904A /* MedicamentModel.swift in Sources */,
 				03A03861206001F900EA9BDE /* ResumeTableViewCell.swift in Sources */,
+				03F8E14E2061CA34001FB8D5 /* RdvSet.swift in Sources */,
 				03A0385D205FF59800EA9BDE /* ResumeViewController.swift in Sources */,
 				03A03867206014D300EA9BDE /* AbstractDAO.swift in Sources */,
 				03A0386F20601B0C00EA9BDE /* CoreDataMedicamentDAO.swift in Sources */,
+				03F8E1492061C210001FB8D5 /* MedicamentViewController.swift in Sources */,
 				03F699E4206054790037904A /* DetailActiviteViewController.swift in Sources */,
+				03F8E1622061D19F001FB8D5 /* ActiviteTableViewCell.swift in Sources */,
 				03F699D62060393A0037904A /* DetailMedicamentViewController.swift in Sources */,
 				03A03869206017AA00EA9BDE /* CoreDataDAO.swift in Sources */,
+				03F8E1542061CAF9001FB8D5 /* ActiviteDAO.swift in Sources */,
 				1516873720612A7300BC451F /* DosesModel.swift in Sources */,
+				03F8E15E2061CFCA001FB8D5 /* ActiviteViewController.swift in Sources */,
 				03F699E2206054630037904A /* DetailRdvViewController.swift in Sources */,
 				03A038652060071D00EA9BDE /* DateHandler.swift in Sources */,
+				03F8E1562061CB06001FB8D5 /* RdvDAO.swift in Sources */,
 				03F699E020604C060037904A /* Notification.swift in Sources */,
 				1598F27D20468D050076BD66 /* AppDelegate.swift in Sources */,
 				03F699DA2060463A0037904A /* isAbleToReceiveData.swift in Sources */,
+				03F8E1522061CA58001FB8D5 /* EventSet.swift in Sources */,
+				03F8E14B2061C422001FB8D5 /* MedicamentTableViewCell.swift in Sources */,
+				03F8E1472061B3B2001FB8D5 /* MedicamentSet.swift in Sources */,
+				03F8E1582061CB4E001FB8D5 /* CoreDataActiviteDAO.swift in Sources */,
+				03F8E15A2061CB66001FB8D5 /* CoreDataRdvDAO.swift in Sources */,
 				03F699D4206034F50037904A /* ActiviteModel.swift in Sources */,
 				1598F28520468D050076BD66 /* PkEtMoi.xcdatamodeld in Sources */,
 				03F699D2206034870037904A /* RdvModel.swift in Sources */,
 				03A0386B2060198800EA9BDE /* MedicamentDAO.swift in Sources */,
+				03F8E1502061CA40001FB8D5 /* ActiviteSet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
