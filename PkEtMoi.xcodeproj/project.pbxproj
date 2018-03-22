@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0334F4512063E74A004C3C5E /* AlarmeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0334F4502063E74A004C3C5E /* AlarmeModel.swift */; };
+		0334F4532063E77F004C3C5E /* AlarmeDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0334F4522063E77F004C3C5E /* AlarmeDAO.swift */; };
+		0385600320640EBA00493840 /* ActivitePerformanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0385600220640EBA00493840 /* ActivitePerformanceTableViewCell.swift */; };
+		0386C7FC20629016006454AB /* PkEtMoi.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0386C7FA20629015006454AB /* PkEtMoi.xcdatamodeld */; };
+		0386C7FE20629FAE006454AB /* rdvTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0386C7FD20629FAE006454AB /* rdvTableViewCell.swift */; };
 		03A0385D205FF59800EA9BDE /* ResumeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A0385C205FF59800EA9BDE /* ResumeViewController.swift */; };
 		03A03861206001F900EA9BDE /* ResumeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A03860206001F900EA9BDE /* ResumeTableViewCell.swift */; };
 		03A038652060071D00EA9BDE /* DateHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A038642060071D00EA9BDE /* DateHandler.swift */; };
@@ -14,17 +19,24 @@
 		03A03869206017AA00EA9BDE /* CoreDataDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A03868206017AA00EA9BDE /* CoreDataDAO.swift */; };
 		03A0386B2060198800EA9BDE /* MedicamentDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A0386A2060198800EA9BDE /* MedicamentDAO.swift */; };
 		03A0386F20601B0C00EA9BDE /* CoreDataMedicamentDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A0386E20601B0C00EA9BDE /* CoreDataMedicamentDAO.swift */; };
+		03AB95DB2062C5E800FFE431 /* AlarmeMedicamentDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AB95DA2062C5E800FFE431 /* AlarmeMedicamentDAO.swift */; };
+		03AB95DF2062DA5C00FFE431 /* MedicamentDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AB95DE2062DA5C00FFE431 /* MedicamentDetailTableViewCell.swift */; };
+		03AB95E12062DA6700FFE431 /* RdvDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AB95E02062DA6700FFE431 /* RdvDetailTableViewCell.swift */; };
+		03AB95E32062DA7F00FFE431 /* ActiviteDetailAlarmeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AB95E22062DA7F00FFE431 /* ActiviteDetailAlarmeTableViewCell.swift */; };
+		03AB95E72062DD4B00FFE431 /* AlarmeMedicamentSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AB95E62062DD4B00FFE431 /* AlarmeMedicamentSet.swift */; };
+		03AB95EB2062E8E200FFE431 /* MedecinSyntheseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AB95EA2062E8E200FFE431 /* MedecinSyntheseViewController.swift */; };
+		03EBFCF52063E94B0083433E /* CoreDataAlarmDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EBFCF42063E94B0083433E /* CoreDataAlarmDAO.swift */; };
+		03EBFCF72063E9F30083433E /* AlarmeSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EBFCF62063E9F30083433E /* AlarmeSet.swift */; };
 		03F699D0206034790037904A /* MedicamentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F699CF206034790037904A /* MedicamentModel.swift */; };
 		03F699D2206034870037904A /* RdvModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F699D1206034870037904A /* RdvModel.swift */; };
 		03F699D4206034F50037904A /* ActiviteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F699D3206034F50037904A /* ActiviteModel.swift */; };
 		03F699D62060393A0037904A /* DetailMedicamentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F699D52060393A0037904A /* DetailMedicamentViewController.swift */; };
 		03F699D82060449F0037904A /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F699D72060449F0037904A /* AlarmViewController.swift */; };
 		03F699DA2060463A0037904A /* isAbleToReceiveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F699D92060463A0037904A /* isAbleToReceiveData.swift */; };
-		03F699E020604C060037904A /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F699DF20604C060037904A /* Notification.swift */; };
+		03F699E020604C060037904A /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F699DF20604C060037904A /* EventModel.swift */; };
 		03F699E2206054630037904A /* DetailRdvViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F699E1206054630037904A /* DetailRdvViewController.swift */; };
 		03F699E4206054790037904A /* DetailActiviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F699E3206054790037904A /* DetailActiviteViewController.swift */; };
 		03F8E1472061B3B2001FB8D5 /* MedicamentSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F8E1462061B3B2001FB8D5 /* MedicamentSet.swift */; };
-		03F8E1492061C210001FB8D5 /* MedicamentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F8E1482061C210001FB8D5 /* MedicamentViewController.swift */; };
 		03F8E14B2061C422001FB8D5 /* MedicamentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F8E14A2061C422001FB8D5 /* MedicamentTableViewCell.swift */; };
 		03F8E14E2061CA34001FB8D5 /* RdvSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F8E14D2061CA34001FB8D5 /* RdvSet.swift */; };
 		03F8E1502061CA40001FB8D5 /* ActiviteSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F8E14F2061CA40001FB8D5 /* ActiviteSet.swift */; };
@@ -39,7 +51,6 @@
 		1598F27D20468D050076BD66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1598F27C20468D050076BD66 /* AppDelegate.swift */; };
 		1598F27F20468D050076BD66 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1598F27E20468D050076BD66 /* ViewController.swift */; };
 		1598F28220468D050076BD66 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1598F28020468D050076BD66 /* Main.storyboard */; };
-		1598F28520468D050076BD66 /* PkEtMoi.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1598F28320468D050076BD66 /* PkEtMoi.xcdatamodeld */; };
 		1598F28720468D050076BD66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1598F28620468D050076BD66 /* Assets.xcassets */; };
 		1598F28A20468D050076BD66 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1598F28820468D050076BD66 /* LaunchScreen.storyboard */; };
 		1598F29520468D060076BD66 /* PkEtMoiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1598F29420468D060076BD66 /* PkEtMoiTests.swift */; };
@@ -65,24 +76,36 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0334F4502063E74A004C3C5E /* AlarmeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmeModel.swift; sourceTree = "<group>"; };
+		0334F4522063E77F004C3C5E /* AlarmeDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmeDAO.swift; sourceTree = "<group>"; };
+		0385600220640EBA00493840 /* ActivitePerformanceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitePerformanceTableViewCell.swift; sourceTree = "<group>"; };
+		0386C7FB20629015006454AB /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		0386C7FD20629FAE006454AB /* rdvTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rdvTableViewCell.swift; sourceTree = "<group>"; };
 		03A0385C205FF59800EA9BDE /* ResumeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeViewController.swift; sourceTree = "<group>"; };
-		03A03860206001F900EA9BDE /* ResumeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ResumeTableViewCell.swift; path = ../ResumeTableViewCell.swift; sourceTree = "<group>"; };
+		03A03860206001F900EA9BDE /* ResumeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeTableViewCell.swift; sourceTree = "<group>"; };
 		03A038642060071D00EA9BDE /* DateHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHandler.swift; sourceTree = "<group>"; };
 		03A03866206014D300EA9BDE /* AbstractDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractDAO.swift; sourceTree = "<group>"; };
 		03A03868206017AA00EA9BDE /* CoreDataDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataDAO.swift; sourceTree = "<group>"; };
 		03A0386A2060198800EA9BDE /* MedicamentDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicamentDAO.swift; sourceTree = "<group>"; };
 		03A0386E20601B0C00EA9BDE /* CoreDataMedicamentDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataMedicamentDAO.swift; sourceTree = "<group>"; };
+		03AB95DA2062C5E800FFE431 /* AlarmeMedicamentDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmeMedicamentDAO.swift; sourceTree = "<group>"; };
+		03AB95DE2062DA5C00FFE431 /* MedicamentDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicamentDetailTableViewCell.swift; sourceTree = "<group>"; };
+		03AB95E02062DA6700FFE431 /* RdvDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RdvDetailTableViewCell.swift; sourceTree = "<group>"; };
+		03AB95E22062DA7F00FFE431 /* ActiviteDetailAlarmeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiviteDetailAlarmeTableViewCell.swift; sourceTree = "<group>"; };
+		03AB95E62062DD4B00FFE431 /* AlarmeMedicamentSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmeMedicamentSet.swift; sourceTree = "<group>"; };
+		03AB95EA2062E8E200FFE431 /* MedecinSyntheseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedecinSyntheseViewController.swift; sourceTree = "<group>"; };
+		03EBFCF42063E94B0083433E /* CoreDataAlarmDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataAlarmDAO.swift; sourceTree = "<group>"; };
+		03EBFCF62063E9F30083433E /* AlarmeSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmeSet.swift; sourceTree = "<group>"; };
 		03F699CF206034790037904A /* MedicamentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicamentModel.swift; sourceTree = "<group>"; };
 		03F699D1206034870037904A /* RdvModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RdvModel.swift; sourceTree = "<group>"; };
 		03F699D3206034F50037904A /* ActiviteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiviteModel.swift; sourceTree = "<group>"; };
 		03F699D52060393A0037904A /* DetailMedicamentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMedicamentViewController.swift; sourceTree = "<group>"; };
 		03F699D72060449F0037904A /* AlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
 		03F699D92060463A0037904A /* isAbleToReceiveData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = isAbleToReceiveData.swift; sourceTree = "<group>"; };
-		03F699DF20604C060037904A /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		03F699DF20604C060037904A /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
 		03F699E1206054630037904A /* DetailRdvViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRdvViewController.swift; sourceTree = "<group>"; };
 		03F699E3206054790037904A /* DetailActiviteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailActiviteViewController.swift; sourceTree = "<group>"; };
 		03F8E1462061B3B2001FB8D5 /* MedicamentSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicamentSet.swift; sourceTree = "<group>"; };
-		03F8E1482061C210001FB8D5 /* MedicamentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicamentViewController.swift; sourceTree = "<group>"; };
 		03F8E14A2061C422001FB8D5 /* MedicamentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicamentTableViewCell.swift; sourceTree = "<group>"; };
 		03F8E14D2061CA34001FB8D5 /* RdvSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RdvSet.swift; sourceTree = "<group>"; };
 		03F8E14F2061CA40001FB8D5 /* ActiviteSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiviteSet.swift; sourceTree = "<group>"; };
@@ -98,7 +121,6 @@
 		1598F27C20468D050076BD66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1598F27E20468D050076BD66 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1598F28120468D050076BD66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		1598F28420468D050076BD66 /* PkEtMoi.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PkEtMoi.xcdatamodel; sourceTree = "<group>"; };
 		1598F28620468D050076BD66 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1598F28920468D050076BD66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1598F28B20468D050076BD66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -141,14 +163,12 @@
 		03A0384B205FF3B900EA9BDE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				03AB95DC2062D6C200FFE431 /* Details */,
 				03A0385C205FF59800EA9BDE /* ResumeViewController.swift */,
-				03F699D52060393A0037904A /* DetailMedicamentViewController.swift */,
 				03F699D72060449F0037904A /* AlarmViewController.swift */,
 				03F699D92060463A0037904A /* isAbleToReceiveData.swift */,
-				03F699E1206054630037904A /* DetailRdvViewController.swift */,
-				03F699E3206054790037904A /* DetailActiviteViewController.swift */,
-				03F8E1482061C210001FB8D5 /* MedicamentViewController.swift */,
 				03F8E15D2061CFCA001FB8D5 /* ActiviteViewController.swift */,
+				03AB95EA2062E8E200FFE431 /* MedecinSyntheseViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -156,6 +176,7 @@
 		03A0384C205FF3D400EA9BDE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				03AB95DD2062DA2800FFE431 /* TableViewCell */,
 				1598F27E20468D050076BD66 /* ViewController.swift */,
 			);
 			path = View;
@@ -166,12 +187,46 @@
 			children = (
 				03F8E14C2061CA20001FB8D5 /* Sets */,
 				03F699CF206034790037904A /* MedicamentModel.swift */,
+				0334F4502063E74A004C3C5E /* AlarmeModel.swift */,
 				03F699D1206034870037904A /* RdvModel.swift */,
 				03F699D3206034F50037904A /* ActiviteModel.swift */,
-				03F699DF20604C060037904A /* Notification.swift */,
+				03F699DF20604C060037904A /* EventModel.swift */,
 				1516873620612A7300BC451F /* DosesModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		03AB95DC2062D6C200FFE431 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				03F699D52060393A0037904A /* DetailMedicamentViewController.swift */,
+				03F699E1206054630037904A /* DetailRdvViewController.swift */,
+				03F699E3206054790037904A /* DetailActiviteViewController.swift */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
+		03AB95DD2062DA2800FFE431 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				03EBFCF8206400B20083433E /* Detail */,
+				03A03860206001F900EA9BDE /* ResumeTableViewCell.swift */,
+				0386C7FD20629FAE006454AB /* rdvTableViewCell.swift */,
+				03F8E14A2061C422001FB8D5 /* MedicamentTableViewCell.swift */,
+				03F8E1612061D19F001FB8D5 /* ActiviteTableViewCell.swift */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		03EBFCF8206400B20083433E /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				03AB95DE2062DA5C00FFE431 /* MedicamentDetailTableViewCell.swift */,
+				03AB95E02062DA6700FFE431 /* RdvDetailTableViewCell.swift */,
+				03AB95E22062DA7F00FFE431 /* ActiviteDetailAlarmeTableViewCell.swift */,
+				0385600220640EBA00493840 /* ActivitePerformanceTableViewCell.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		03F699CB206033950037904A /* DAO */ = {
@@ -190,6 +245,8 @@
 				03A0386A2060198800EA9BDE /* MedicamentDAO.swift */,
 				03F8E1532061CAF9001FB8D5 /* ActiviteDAO.swift */,
 				03F8E1552061CB06001FB8D5 /* RdvDAO.swift */,
+				03AB95DA2062C5E800FFE431 /* AlarmeMedicamentDAO.swift */,
+				0334F4522063E77F004C3C5E /* AlarmeDAO.swift */,
 			);
 			path = AbstractDAO;
 			sourceTree = "<group>";
@@ -201,6 +258,7 @@
 				03A0386E20601B0C00EA9BDE /* CoreDataMedicamentDAO.swift */,
 				03F8E1572061CB4E001FB8D5 /* CoreDataActiviteDAO.swift */,
 				03F8E1592061CB66001FB8D5 /* CoreDataRdvDAO.swift */,
+				03EBFCF42063E94B0083433E /* CoreDataAlarmDAO.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -212,6 +270,8 @@
 				03F8E14D2061CA34001FB8D5 /* RdvSet.swift */,
 				03F8E14F2061CA40001FB8D5 /* ActiviteSet.swift */,
 				03F8E1512061CA58001FB8D5 /* EventSet.swift */,
+				03AB95E62062DD4B00FFE431 /* AlarmeMedicamentSet.swift */,
+				03EBFCF62063E9F30083433E /* AlarmeSet.swift */,
 			);
 			path = Sets;
 			sourceTree = "<group>";
@@ -244,18 +304,15 @@
 				03A0384C205FF3D400EA9BDE /* View */,
 				03A0384B205FF3B900EA9BDE /* Controller */,
 				38F36E58205920D700854EB7 /* DLRadioButton.h */,
-				03A03860206001F900EA9BDE /* ResumeTableViewCell.swift */,
 				38F36E59205920D700854EB7 /* DLRadioButton.m */,
 				1598F27C20468D050076BD66 /* AppDelegate.swift */,
 				1598F28020468D050076BD66 /* Main.storyboard */,
 				1598F28620468D050076BD66 /* Assets.xcassets */,
 				1598F28820468D050076BD66 /* LaunchScreen.storyboard */,
 				1598F28B20468D050076BD66 /* Info.plist */,
-				1598F28320468D050076BD66 /* PkEtMoi.xcdatamodeld */,
+				0386C7FA20629015006454AB /* PkEtMoi.xcdatamodeld */,
 				38F36E57205920D600854EB7 /* PkEtMoi-Bridging-Header.h */,
 				03A038642060071D00EA9BDE /* DateHandler.swift */,
-				03F8E14A2061C422001FB8D5 /* MedicamentTableViewCell.swift */,
-				03F8E1612061D19F001FB8D5 /* ActiviteTableViewCell.swift */,
 			);
 			path = PkEtMoi;
 			sourceTree = "<group>";
@@ -413,36 +470,47 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03EBFCF72063E9F30083433E /* AlarmeSet.swift in Sources */,
+				03AB95DF2062DA5C00FFE431 /* MedicamentDetailTableViewCell.swift in Sources */,
 				1598F27F20468D050076BD66 /* ViewController.swift in Sources */,
 				03F699D82060449F0037904A /* AlarmViewController.swift in Sources */,
 				38F36E5A205920D700854EB7 /* DLRadioButton.m in Sources */,
+				03EBFCF52063E94B0083433E /* CoreDataAlarmDAO.swift in Sources */,
+				0386C7FC20629016006454AB /* PkEtMoi.xcdatamodeld in Sources */,
+				03AB95EB2062E8E200FFE431 /* MedecinSyntheseViewController.swift in Sources */,
 				03F699D0206034790037904A /* MedicamentModel.swift in Sources */,
 				03A03861206001F900EA9BDE /* ResumeTableViewCell.swift in Sources */,
 				03F8E14E2061CA34001FB8D5 /* RdvSet.swift in Sources */,
+				0385600320640EBA00493840 /* ActivitePerformanceTableViewCell.swift in Sources */,
 				03A0385D205FF59800EA9BDE /* ResumeViewController.swift in Sources */,
 				03A03867206014D300EA9BDE /* AbstractDAO.swift in Sources */,
 				03A0386F20601B0C00EA9BDE /* CoreDataMedicamentDAO.swift in Sources */,
-				03F8E1492061C210001FB8D5 /* MedicamentViewController.swift in Sources */,
 				03F699E4206054790037904A /* DetailActiviteViewController.swift in Sources */,
 				03F8E1622061D19F001FB8D5 /* ActiviteTableViewCell.swift in Sources */,
+				0334F4532063E77F004C3C5E /* AlarmeDAO.swift in Sources */,
+				03AB95E12062DA6700FFE431 /* RdvDetailTableViewCell.swift in Sources */,
 				03F699D62060393A0037904A /* DetailMedicamentViewController.swift in Sources */,
 				03A03869206017AA00EA9BDE /* CoreDataDAO.swift in Sources */,
 				03F8E1542061CAF9001FB8D5 /* ActiviteDAO.swift in Sources */,
+				0386C7FE20629FAE006454AB /* rdvTableViewCell.swift in Sources */,
 				1516873720612A7300BC451F /* DosesModel.swift in Sources */,
 				03F8E15E2061CFCA001FB8D5 /* ActiviteViewController.swift in Sources */,
+				0334F4512063E74A004C3C5E /* AlarmeModel.swift in Sources */,
 				03F699E2206054630037904A /* DetailRdvViewController.swift in Sources */,
 				03A038652060071D00EA9BDE /* DateHandler.swift in Sources */,
 				03F8E1562061CB06001FB8D5 /* RdvDAO.swift in Sources */,
-				03F699E020604C060037904A /* Notification.swift in Sources */,
+				03AB95DB2062C5E800FFE431 /* AlarmeMedicamentDAO.swift in Sources */,
+				03F699E020604C060037904A /* EventModel.swift in Sources */,
 				1598F27D20468D050076BD66 /* AppDelegate.swift in Sources */,
+				03AB95E32062DA7F00FFE431 /* ActiviteDetailAlarmeTableViewCell.swift in Sources */,
 				03F699DA2060463A0037904A /* isAbleToReceiveData.swift in Sources */,
 				03F8E1522061CA58001FB8D5 /* EventSet.swift in Sources */,
 				03F8E14B2061C422001FB8D5 /* MedicamentTableViewCell.swift in Sources */,
 				03F8E1472061B3B2001FB8D5 /* MedicamentSet.swift in Sources */,
+				03AB95E72062DD4B00FFE431 /* AlarmeMedicamentSet.swift in Sources */,
 				03F8E1582061CB4E001FB8D5 /* CoreDataActiviteDAO.swift in Sources */,
 				03F8E15A2061CB66001FB8D5 /* CoreDataRdvDAO.swift in Sources */,
 				03F699D4206034F50037904A /* ActiviteModel.swift in Sources */,
-				1598F28520468D050076BD66 /* PkEtMoi.xcdatamodeld in Sources */,
 				03F699D2206034870037904A /* RdvModel.swift in Sources */,
 				03A0386B2060198800EA9BDE /* MedicamentDAO.swift in Sources */,
 				03F8E1502061CA40001FB8D5 /* ActiviteSet.swift in Sources */,
@@ -720,12 +788,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		1598F28320468D050076BD66 /* PkEtMoi.xcdatamodeld */ = {
+		0386C7FA20629015006454AB /* PkEtMoi.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				1598F28420468D050076BD66 /* PkEtMoi.xcdatamodel */,
+				0386C7FB20629015006454AB /* Model.xcdatamodel */,
 			);
-			currentVersion = 1598F28420468D050076BD66 /* PkEtMoi.xcdatamodel */;
+			currentVersion = 0386C7FB20629015006454AB /* Model.xcdatamodel */;
 			path = PkEtMoi.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

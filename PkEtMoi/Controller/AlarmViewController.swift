@@ -10,7 +10,9 @@ import UIKit
 
 class AlarmViewController: UIViewController{
     
-    var delegate: isAbleToReceiveData? = nil
+    var delegate: isAbleToReceiveAlarm? = nil
+    
+    @IBOutlet weak var datePicker: UIDatePicker!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,16 +29,7 @@ class AlarmViewController: UIViewController{
     }
 
     override func viewWillDisappear(_ animated: Bool) {
-        self.delegate?.pass(data: "someData")
+        self.delegate?.pass(nom:"dummy",date: self.datePicker.date)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

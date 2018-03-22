@@ -7,55 +7,25 @@
 //
 
 import Foundation
-class ActiviteDAO: NSObject {
+protocol ActiviteDAO{
     
-    override init(){
-        
-    }
-    
-    internal func _insert(nom:String,description:String)->Bool
-    {
-        fatalError(#function + "Must be overridden");
-        return false;
-    }
-    
-    internal func _delete()->Bool
-    {
-        fatalError(#function + "Must be overridden");
-        return false;
-    }
-    
-    internal func _update(activite : ActiviteModel)->ActiviteModel?
-    {
-        fatalError(#function + "Must be overridden");
-        return nil;
-    }
+    func _getAll() -> ActiviteSet?
+    func _insert(nom:String,niveau:Int16,experience:Int16)->Bool
+    func _delete()->Bool
+    func _update(activite : ActiviteModel)->ActiviteModel?
     
     
     func _getName()->String?
-    {
-        fatalError(#function + "Must be overridden");
-        return nil;
-    }
     func _setName(forname:String)
-    {
-        fatalError(#function + "Must be overridden");
-    }
     
-    func _getDescription()->String?
-    {
-        fatalError(#function + "Must be overridden");
-        return nil;
-    }
-    func _setDescription(forname:String)
-    {
-        fatalError(#function + "Must be overridden");
-    }
+    func _getExperience()->Int16?
+    func _setExperience(experience:Int16)
     
-    func _getAll() -> ActiviteSet? {
-        fatalError(#function + "Must be overridden");
-        return nil
-    }
+    func _getNiveau()->Int16?
+    func _setNiveau(niveau:Int16)
     
+    func _getAlarmes()->[AlarmeActivite]?
+    func _addAlarme(date:Date)
+    func _deleteAlarme(date:Date)
 }
 

@@ -7,8 +7,9 @@
 //
 
 import Foundation
-protocol Notification{
+protocol EventModel{
     
     func getLabel()->String?
+    func delete()->Bool
     
 }

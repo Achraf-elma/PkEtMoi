@@ -1,15 +1,18 @@
 //
-//  DetailActiviteViewController.swift
+//  MedecinSyntheseViewController.swift
 //  PkEtMoi
 //
-//  Created by Kevin Giordani on 19/03/2018.
+//  Created by Kevin Giordani on 21/03/2018.
 //  Copyright © 2018 Kevin GIORDANI. All rights reserved.
 //
 
 import UIKit
 
-class DetailActiviteViewController: UIViewController {
+class MedecinSyntheseViewController: UIViewController {
 
+    @IBAction func backToPatient(_ sender: UIBarButtonItem) {
+        self.navigationController?.popViewController(animated: true)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 

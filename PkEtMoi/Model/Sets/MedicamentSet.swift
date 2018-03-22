@@ -32,7 +32,8 @@ class MedicamentSet{
     
     func delete(medicament : MedicamentModel)->Bool{
         if let i = self.medicaments.index(where: {$0.nom == medicament.nom}) {
-             self.medicaments.remove(at: i)
+            self.medicaments[i].delete()
+            self.medicaments.remove(at: i)
             return true
         }
         return false

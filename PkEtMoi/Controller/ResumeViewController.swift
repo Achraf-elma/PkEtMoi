@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class ResumeViewController: UIViewController,UITableViewDataSource, UITableViewDelegate,isAbleToReceiveData {
+class ResumeViewController: UIViewController,UITableViewDataSource, UITableViewDelegate{
     
     func pass(data: String) {
         print(data)
@@ -18,25 +18,36 @@ class ResumeViewController: UIViewController,UITableViewDataSource, UITableViewD
     @IBOutlet weak var resumeTable: UITableView!
     @IBOutlet weak var dateLabel: UILabel!
     
-    var medicamentSet : MedicamentSet = (AbstractDAO.getDAO()._getMedicamentDAO()?._getAll()!)!
     var date :DateHandler = DateHandler()
+    var alarmeSet : AlarmeSet = (AbstractDAO.getDAO()._getAlarmeDAO()?._getAllAlarmes())!
+
     
     @IBAction func nextDay(_ sender: UIButton) {
         dateLabel.text = date.nextDay()
+        alarmeSet = (AbstractDAO.getDAO()._getAlarmeDAO()?._getAlarmes(date: date.date))!
+        resumeTable.reloadData()
     }
     @IBAction func previousDay(_ sender: UIButton) {
         dateLabel.text = date.previousDay()
+        alarmeSet = (AbstractDAO.getDAO()._getAlarmeDAO()?._getAlarmes(date: date.date))!
+        resumeTable.reloadData()
     }
    
+    override func viewDidAppear(_ animated: Bool) {
+        resumeTable.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        if !launchedBefore  {
+            ActiviteModel(nom: "Musculation", niveau: 0, experience: 0)
+            MedicamentModel(nom: "CoDoliprane", description: "Pour la tete").addAlarme(date: Date())
+            RdvModel(firstname: "Fabrice", lastname: "Monique", adresse: "68 rue dupone", date: Date(), telephone: 9837293)
+            UserDefaults.standard.set(true, forKey: "launchedBefore")
+        }
+        alarmeSet = (AbstractDAO.getDAO()._getAlarmeDAO()?._getAlarmes(date: date.date))!
         dateLabel.text = date.currentDate
-        medicamentSet.insert(medicament: MedicamentModel(nom: "Hey", description: "wow"))
-        medicamentSet.delete(medicament: medicamentSet.searchByName(name: "Hey")!)
-        /*
-        self.saveNewResume(with: "wow")
-        self.notification.append(ActiviteModel(label:"salut", date: Date()))
-        self.notification.append(RdvModel(label:"oula", date: Date()))*/
         resumeTable.delegate = self
         resumeTable.dataSource = self
     }
@@ -46,44 +57,38 @@ class ResumeViewController: UIViewController,UITableViewDataSource, UITableViewD
         // Dispose of any resources that can be recreated.
     }
     
-    func saveNewResume(with resumeString: String){
-        let notificationAdded:MedicamentModel? = AbstractDAO.getDAO()._getMedicamentDAO()?._insertMedicament(nom: "OMG",description:"salut") as? MedicamentModel
-        if(notificationAdded != nil){
-            self.medicamentSet.insert(medicament: notificationAdded!)
-            self.resumeTable.reloadData()
-        }
-        
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.medicamentSet.count
+        return self.alarmeSet.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.resumeTable.dequeueReusableCell(withIdentifier: "resumeCell", for: indexPath) as! ResumeTableViewCell
-        cell.labelCell.text = self.medicamentSet.get(i: indexPath.row)?.getLabel()
+        cell.labelCell.text = self.alarmeSet.get(i: indexPath.row)?.getLabel()
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            alarmeSet.delete(alarme: alarmeSet.get(i: indexPath.row)!)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         var cell = tableView.cellForRow(at: indexPath)
         tableView.deselectRow(at: indexPath, animated: true)
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        if(self.medicamentSet.get(i: indexPath.row) is MedicamentModel){
-            let myVC = storyboard.instantiateViewController(withIdentifier: "detailMedicament") as! DetailMedicamentViewController
-            myVC.nomMedicament = "hey"
-            myVC.descriptionMedicament = "wow"
-            navigationController?.pushViewController(myVC, animated: true)
+        if(self.alarmeSet.get(i: indexPath.row) is MedicamentModel){
+            
         }
-        else if(self.medicamentSet.get(i: indexPath.row) is RdvModel){
-            let myVC = storyboard.instantiateViewController(withIdentifier: "detailRdv") as! DetailRdvViewController
-            navigationController?.pushViewController(myVC, animated: true)
+        else if(self.alarmeSet.get(i: indexPath.row) is RdvModel){
+            
         }
-        else if(self.medicamentSet.get(i: indexPath.row) is ActiviteModel){
-            let myVC = storyboard.instantiateViewController(withIdentifier: "detailActivite") as! DetailActiviteViewController
-            navigationController?.pushViewController(myVC, animated: true)
+        else if(self.alarmeSet.get(i: indexPath.row) is ActiviteModel){
+            
         }
-        
     }
     
 }

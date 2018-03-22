@@ -32,6 +32,7 @@ class ActiviteSet{
     
     func delete(activites : ActiviteModel)->Bool{
         if let i = self.activites.index(where: {$0.nom == activites.nom}) {
+             self.activites[i].delete()
             self.activites.remove(at: i)
             return true
         }

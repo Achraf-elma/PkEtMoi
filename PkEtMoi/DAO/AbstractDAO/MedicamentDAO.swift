@@ -7,70 +7,26 @@
 //
 
 import Foundation
-class MedicamentDAO: NSObject {
+protocol MedicamentDAO {
+
+    func _getAll()-> MedicamentSet?
+    func _getAllAlarms()->AlarmeMedicamentSet?
     
-    override init(){
-        
-    }
-    
-    internal func _insertMedicament(nom:String,description:String)->Bool
-    {
-        fatalError(#function + "Must be overridden");
-        return false;
-    }
-    
-    internal func _deleteMedicament()->Bool
-    {
-        fatalError(#function + "Must be overridden");
-        return false;
-    }
-    
-    internal func _deleteMedicament(medicament : MedicamentModel)->Bool?
-    {
-        fatalError(#function + "Must be overridden");
-        return nil;
-    }
-    
-    internal func _updateMedicament(medicament : MedicamentModel)->MedicamentModel?
-    {
-        fatalError(#function + "Must be overridden");
-        return nil;
-    }
-    
+    func _insertMedicament(nom:String,description:String)->Bool
+    func _deleteMedicament()->Bool
     
     func _getName()->String?
-    {
-        fatalError(#function + "Must be overridden");
-        return nil;
-    }
-     func _setName(forname:String)
-    {
-        fatalError(#function + "Must be overridden");
-    }
+    func _setName(forname:String)
+
+    func _getDescription()->String?
+    func _setDescription(forname:String)
+
     
-     func _getDescription()->String?
-    {
-        fatalError(#function + "Must be overridden");
-        return nil;
-    }
-     func _setDescription(forname:String)
-    {
-        fatalError(#function + "Must be overridden");
-    }
+    func _getDoses()->[DosesModel]?
+    func _setDoses(forname:[DosesModel])
     
-     func _getDoses()->[DosesModel]?
-    {
-        fatalError(#function + "Must be overridden");
-        return nil;
-    }
-     func _setDoses(forname:[DosesModel])
-    {
-        fatalError(#function + "Must be overridden");
-    }
-    
-    func _getAll()-> MedicamentSet?{
-        fatalError(#function + "Must be overridden");
-        return nil
-    }
+    func _getAlarmes()->[AlarmeMedicament]?
+    func _addAlarme(date:Date)
+    func _deleteAlarme(date:Date)
     
 }

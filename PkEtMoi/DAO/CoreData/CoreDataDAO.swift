@@ -22,4 +22,14 @@ class CoreDataDAO : AbstractDAO{
         return CoreDataActiviteDAO()
     }
     
+    override func _getRdvDAO()->RdvDAO?
+    {
+        return CoreDataRdvDAO()
+    }
+    
+    override func _getAlarmeDAO()->AlarmeDAO?
+    {
+        return CoreDataAlarmeDAO()
+    }
+    
 }

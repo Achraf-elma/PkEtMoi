@@ -49,11 +49,8 @@
         <attribute name="prenom" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="telephone" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="associer" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="AlarmeRDV" inverseName="associer" inverseEntity="AlarmeRDV" syncable="YES"/>
+        <relationship name="peutAvoir" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Synthese" inverseName="correspond" inverseEntity="Synthese" syncable="YES"/>
         <relationship name="planifier" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Medecin" inverseName="planifier" inverseEntity="Medecin" syncable="YES"/>
-    </entity>
-    <entity name="RDVClassique" representedClassName="RDVClassique" parentEntity="RDV" syncable="YES" codeGenerationType="class"/>
-    <entity name="RDVNeurologue" representedClassName="RDVNeurologue" parentEntity="RDV" syncable="YES" codeGenerationType="class">
-        <relationship name="avoir" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Synthese" inverseName="concerner" inverseEntity="Synthese" syncable="YES"/>
     </entity>
     <entity name="Specialite" representedClassName="Specialite" syncable="YES" codeGenerationType="class">
         <attribute name="nom" optional="YES" attributeType="String" syncable="YES"/>
@@ -62,7 +59,7 @@
     <entity name="Synthese" representedClassName="Synthese" syncable="YES" codeGenerationType="class">
         <attribute name="debutPlageHoraire" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="finPlageHoraire" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="concerner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RDVNeurologue" inverseName="avoir" inverseEntity="RDVNeurologue" syncable="YES"/>
+        <relationship name="correspond" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RDV" inverseName="peutAvoir" inverseEntity="RDV" syncable="YES"/>
         <relationship name="renseigner" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Etat" inverseName="renseigner" inverseEntity="Etat" syncable="YES"/>
     </entity>
     <elements>
@@ -72,13 +69,11 @@
         <element name="AlarmeMedicament" positionX="133" positionY="-153" width="128" height="58"/>
         <element name="AlarmeRDV" positionX="360" positionY="-156" width="128" height="58"/>
         <element name="Dosage" positionX="108" positionY="221" width="128" height="73"/>
-        <element name="Etat" positionX="277" positionY="554" width="128" height="103"/>
+        <element name="Etat" positionX="360" positionY="491" width="128" height="103"/>
         <element name="Medecin" positionX="585" positionY="12" width="128" height="133"/>
         <element name="Medicament" positionX="124" positionY="5" width="128" height="103"/>
-        <element name="RDV" positionX="369" positionY="3" width="128" height="148"/>
-        <element name="RDVClassique" positionX="441" positionY="270" width="128" height="43"/>
-        <element name="RDVNeurologue" positionX="268" positionY="269" width="128" height="58"/>
+        <element name="RDV" positionX="369" positionY="3" width="128" height="163"/>
         <element name="Specialite" positionX="610" positionY="260" width="128" height="73"/>
-        <element name="Synthese" positionX="270" positionY="401" width="128" height="103"/>
+        <element name="Synthese" positionX="322" positionY="270" width="128" height="103"/>
     </elements>
 </model>

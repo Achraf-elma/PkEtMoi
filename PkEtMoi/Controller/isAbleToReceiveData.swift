@@ -7,6 +7,6 @@
 //
 
 import Foundation
-protocol isAbleToReceiveData {
-    func pass(data: String)  //data: string is an example parameter
+protocol isAbleToReceiveAlarm {
+    func pass(nom:String,date: Date)
 } 

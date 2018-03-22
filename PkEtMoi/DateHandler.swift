@@ -22,6 +22,12 @@ class DateHandler{
         dateFormatter.dateFormat = "MMM dd, yyyy"
     }
     
+    init(date:Date,formatter:String){
+        self.date = date
+        self.dateFormatter  = DateFormatter()
+        dateFormatter.dateFormat = formatter
+    }
+    
     func nextDay() -> String{
         date.addTimeInterval(86400)
         dateFormatter.dateFormat = "MMM dd, yyyy"

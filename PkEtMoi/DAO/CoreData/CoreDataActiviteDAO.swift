@@ -11,18 +11,19 @@ import CoreData
 import UIKit
 
 class CoreDataActiviteDAO : ActiviteDAO{
-    
+
+
     var instanceCoreData: Activite? = nil
     
     init(activite : Activite){
         self.instanceCoreData = activite
     }
     
-    override init(){
+    init(){
         
     }
     
-    override func _getAll() -> ActiviteSet? {
+    func _getAll() -> ActiviteSet? {
         var activite  = [Activite]()
         
         var fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Activite")
@@ -40,10 +41,12 @@ class CoreDataActiviteDAO : ActiviteDAO{
         return result
     }
     
-    override func _insert(nom:String,description:String)->Bool
+    func _insert(nom: String, niveau: Int16, experience: Int16)->Bool
     {
         let newActivite = NSEntityDescription.insertNewObject(forEntityName: "Activite", into: CoreDataDAO.context) as! Activite
         newActivite.nom = nom
+        newActivite.niveau = niveau
+        newActivite.experience = experience
         do{
             try CoreDataDAO.context.save()
             self.instanceCoreData = newActivite
@@ -55,7 +58,7 @@ class CoreDataActiviteDAO : ActiviteDAO{
         }
     }
     
-    override internal func _delete()->Bool
+    internal func _delete()->Bool
     {
         do{
             CoreDataDAO.context.delete(self.instanceCoreData!)
@@ -68,25 +71,52 @@ class CoreDataActiviteDAO : ActiviteDAO{
         }
     }
     
-    override func _getName()->String?
-    {
-        return instanceCoreData?.nom;
+    func _update(activite: ActiviteModel) -> ActiviteModel? {
+        return nil
     }
     
-    override func _setName(forname:String)
-    {
-        fatalError(#function + "Must be overridden");
+    func _getName() -> String? {
+        return instanceCoreData?.nom
     }
     
-    override  func _getDescription()->String?
-    {
-        fatalError(#function + "Must be overridden");
-        return nil;
+    func _setName(forname: String) {
+        
     }
     
-    override func _setDescription(forname:String)
-    {
-        fatalError(#function + "Must be overridden");
+    func _getExperience() -> Int16? {
+        return instanceCoreData?.experience
+    }
+    
+    func _setExperience(experience: Int16) {
+        
+    }
+    
+    func _getNiveau() -> Int16? {
+        return instanceCoreData?.niveau
+    }
+    
+    func _setNiveau(niveau: Int16) {
+        
+    }
+    
+    func _getAlarmes() -> [AlarmeActivite]? {
+        return instanceCoreData?.concerner?.allObjects as! [AlarmeActivite]
+    }
+    
+    func _addAlarme(date: Date) {
+        let newAlarme = NSEntityDescription.insertNewObject(forEntityName: "AlarmeActivite", into: CoreDataDAO.context) as! AlarmeActivite
+        newAlarme.date = date as NSDate
+        newAlarme.concerner = instanceCoreData
+        do{
+            try CoreDataDAO.context.save()
+        }
+        catch let error as NSError{
+            print(error)
+        }
+    }
+    
+    func _deleteAlarme(date: Date) {
+        
     }
     
 }

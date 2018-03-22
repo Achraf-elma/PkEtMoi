@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class ActiviteModel : Notification{
+class ActiviteModel : EventModel{
    
     
     var dao : ActiviteDAO
@@ -21,23 +21,29 @@ class ActiviteModel : Notification{
         }
     }
     
-    var description :String?{
+    var niveau :Int16?{
         get{
-            return dao._getDescription()
+            return dao._getNiveau()
         }
         set{
-            dao._setDescription(forname : newValue as! String)
+            dao._setNiveau(niveau : newValue as! Int16)
         }
     }
-    /*
-     var doses : [DosesModel]{
-     get{
-     return dao._getDoses()!
-     }
-     set{
-     dao._setDoses(forname : newValue)
-     }
-     }*/
+    
+    var experience :Int16?{
+        get{
+            return dao._getExperience()
+        }
+        set{
+            dao._setExperience(experience : newValue as! Int16)
+        }
+    }
+    
+    var alarmes : [AlarmeActivite]{
+        get{
+            return dao._getAlarmes()!
+        }
+    }
     
     init(activite: ActiviteDAO){
         self.dao = activite
@@ -47,12 +53,16 @@ class ActiviteModel : Notification{
         return nom
     }
     
-    init(nom:String, description:String){
+    init(nom:String,niveau:Int16, experience:Int16){
         dao = AbstractDAO.getDAO()._getActiviteDAO()!
-        dao._insert(nom:nom, description:description)
+        dao._insert(nom:nom, niveau:niveau, experience: experience)
     }
     
     func delete() ->Bool{
         return dao._delete()
+    }
+    
+    func addAlarme(date:Date){
+        dao._addAlarme(date: date)
     }
 }

@@ -1,5 +1,5 @@
 //
-//  RdvModel.swift
+//  MedicamentModel.swift
 //  PkEtMoi
 //
 //  Created by Kevin Giordani on 19/03/2018.
@@ -7,29 +7,100 @@
 //
 
 import Foundation
-class RdvModel: Notification{
+class RdvModel:EventModel{
     
-    var label :String
-    var date :Date
+    var dao : RdvDAO
     
-    init(label:String, date:Date){
-        self.label = label
-        self.date = date
+    var firstname :String?{
+        get{
+            return dao._getFirstName()
+        }
+        set{
+            dao._setFirstName(forname : newValue as! String)
+        }
+    }
+    
+    var lastname :String?{
+        get{
+            return dao._getLastName()
+        }
+        set{
+            dao._setLastName(forname : newValue as! String)
+        }
+    }
+    var fullname :String?{
+        get{
+            return firstname! + " " + lastname!
+        }
+    }
+    
+    var adresse :String?{
+        get{
+            return dao._getAdresse()
+        }
+        set{
+            dao._setAdresse(forname : newValue as! String)
+        }
+    }
+    
+    var date :Date?{
+        get{
+            return dao._getDate()
+        }
+        set{
+            dao._setDate(forname : newValue as! Date)
+        }
+    }
+    
+    var telephone : Int32?{
+        get{
+            return dao._getPhone()
+        }
+        set{
+            dao._setPhone(forname: newValue as! Int32)
+        }
+    }
+    
+    var type:String?{
+        get{
+            return dao._getMedecin()?.exercer?.nom
+        }
+    }
+    
+    var alarmes : [AlarmeRDV]{
+        get{
+            return dao._getAlarmes()!
+        }
+    }
+    
+    init(rdv: RdvDAO){
+        self.dao = rdv
     }
     
     func getLabel() -> String? {
-        return label
+        var dateFormatter  = DateFormatter()
+        dateFormatter.dateFormat = "MMM dd, yyyy HH:mm"
+        return firstname! + " " + lastname! + dateFormatter.string(from: date!)
     }
     
-    func getDate() -> Date {
-        return date
+    init(firstname:String,lastname:String,adresse:String,date:Date,telephone:Int32){
+        dao = AbstractDAO.getDAO()._getRdvDAO()!
+        dao._insert(adresse: adresse, date: date, nom: lastname, prenom: firstname, telephone: telephone)
     }
     
-    func setLabel(label: String) {
-        self.label = label
+    func delete() ->Bool{
+        return dao._delete()
     }
     
-    func setDate(date: Date) {
-        self.date = date
+    func addAlarme(date:Date){
+        dao._addAlarme(date: date)
     }
+    
+    func getDateString()->String?{
+        var dateFormatter  = DateFormatter()
+        dateFormatter.dateFormat = "MMM dd, yyyy HH:mm"
+        return dateFormatter.string(from: date!)
+    }
+    
 }
+

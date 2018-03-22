@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class MedicamentModel:Notification{
+class MedicamentModel:EventModel{
     
     var dao : MedicamentDAO
     
@@ -28,15 +28,21 @@ class MedicamentModel:Notification{
             dao._setDescription(forname : newValue as! String)
         }
     }
-    /*
-    var doses : [DosesModel]{
+    
+    var doses :[DosesModel]?{
         get{
-            return dao._getDoses()!
+            return dao._getDoses()
         }
         set{
-            dao._setDoses(forname : newValue)
+            dao._setDoses(forname : newValue as! [DosesModel])
         }
-    }*/
+    }
+    
+    var alarmes : [AlarmeMedicament]?{
+        get{
+            return dao._getAlarmes()
+        }
+    }
     
     init(medicament: MedicamentDAO){
         self.dao = medicament
@@ -53,6 +59,10 @@ class MedicamentModel:Notification{
     
     func delete() ->Bool{
         return dao._deleteMedicament()
+    }
+    
+    func addAlarme(date:Date){
+        dao._addAlarme(date: date)
     }
     
 }

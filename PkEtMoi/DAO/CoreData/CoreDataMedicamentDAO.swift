@@ -11,18 +11,18 @@ import CoreData
 import UIKit
 
 class CoreDataMedicamentDAO : MedicamentDAO{
-    
+
     var instanceCoreData: Medicament? = nil
     
     init(medicament : Medicament){
         self.instanceCoreData = medicament
     }
     
-    override init(){
+    init(){
         
     }
     
-    override func _getAll() -> MedicamentSet? {
+    func _getAll() -> MedicamentSet? {
         var medicament  = [Medicament]()
         
         var fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Medicament")
@@ -40,8 +40,11 @@ class CoreDataMedicamentDAO : MedicamentDAO{
         return result
     }
     
-    override func _insertMedicament(nom:String,description:String)->Bool
-    {
+    func _getAllAlarms() -> AlarmeMedicamentSet? {
+        return nil
+    }
+    
+    func _insertMedicament(nom:String,description:String)->Bool    {
         let newMedicament = NSEntityDescription.insertNewObject(forEntityName: "Medicament", into: CoreDataDAO.context) as! Medicament
         newMedicament.nom = nom
         newMedicament.presentation = description
@@ -56,8 +59,7 @@ class CoreDataMedicamentDAO : MedicamentDAO{
         }
     }
     
-    override internal func _deleteMedicament()->Bool
-    {
+    func _deleteMedicament()->Bool    {
         do{
             CoreDataDAO.context.delete(self.instanceCoreData!)
             try CoreDataDAO.context.save()
@@ -69,36 +71,48 @@ class CoreDataMedicamentDAO : MedicamentDAO{
         }
     }
     
-    override func _getName()->String?
-    {
+    func _getName()->String?    {
         return instanceCoreData?.nom;
     }
     
-    override func _setName(forname:String)
-    {
-        fatalError(#function + "Must be overridden");
+    func _setName(forname: String) {
+        
     }
     
-    override  func _getDescription()->String?
-    {
-        fatalError(#function + "Must be overridden");
-        return nil;
+    func _getDescription() -> String? {
+        return instanceCoreData?.presentation
     }
     
-    override func _setDescription(forname:String)
-    {
-        fatalError(#function + "Must be overridden");
+    func _setDescription(forname: String) {
+        
     }
     
-    override func _getDoses()->[DosesModel]?
-    {
-        fatalError(#function + "Must be overridden");
-        return nil;
+    func _getDoses() -> [DosesModel]? {
+        return instanceCoreData?.contenir?.allObjects as! [DosesModel]
     }
     
-    override func _setDoses(forname:[DosesModel])
-    {
-        fatalError(#function + "Must be overridden");
+    func _setDoses(forname: [DosesModel]) {
+        
+    }
+    
+    func _getAlarmes() -> [AlarmeMedicament]? {
+        return instanceCoreData?.correspondre?.allObjects as! [AlarmeMedicament]
+    }
+    
+    func _addAlarme(date: Date) {
+        let newAlarme = NSEntityDescription.insertNewObject(forEntityName: "AlarmeMedicament", into: CoreDataDAO.context) as! AlarmeMedicament
+        newAlarme.date = date as NSDate
+        newAlarme.correspondre = instanceCoreData
+        do{
+            try CoreDataDAO.context.save()
+        }
+        catch let error as NSError{
+            print(error)
+        }
+    }
+    
+    func _deleteAlarme(date: Date) {
+        
     }
     
 }
