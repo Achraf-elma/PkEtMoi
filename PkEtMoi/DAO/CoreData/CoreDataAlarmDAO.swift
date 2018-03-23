@@ -23,7 +23,7 @@ class CoreDataAlarmeDAO : AlarmeDAO{
     func _getAllAlarmes() -> AlarmeSet? {
         var alarme  = [Alarme]()
         
-        var fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Alarme")
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Alarme")
         do{
             try alarme = CoreDataDAO.context.fetch(fetchRequest) as! [Alarme]
         }
@@ -31,8 +31,8 @@ class CoreDataAlarmeDAO : AlarmeDAO{
             print(error)
             return nil
         }
-        let sortedAlarme = alarme.sorted(by: { $0.date?.compare($1.date as! Date) == .orderedDescending})
-        var result = AlarmeSet()
+        let sortedAlarme = alarme.sorted(by: { $0.date?.compare($1.date! as Date) == .orderedDescending})
+        let result = AlarmeSet()
         for a in sortedAlarme {
             result.insert(alarme: AlarmeModel(alarme: CoreDataAlarmeDAO(alarme:a)))
         }
@@ -52,7 +52,7 @@ class CoreDataAlarmeDAO : AlarmeDAO{
     }
     
     func _getDate() -> Date? {
-        return instanceCoreData?.date as! Date
+        return instanceCoreData?.date! as Date?
     }
     
     func _isMedicamentAlarm() -> Bool {
@@ -70,7 +70,7 @@ class CoreDataAlarmeDAO : AlarmeDAO{
     func _getAlarmes(date: Date) -> AlarmeSet? {
         var alarme  = [Alarme]()
         
-        var fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Alarme")
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Alarme")
         do{
             try alarme = CoreDataDAO.context.fetch(fetchRequest) as! [Alarme]
         }
@@ -78,10 +78,10 @@ class CoreDataAlarmeDAO : AlarmeDAO{
             print(error)
             return nil
         }
-        alarme = alarme.sorted(by: { $0.date?.compare($1.date as! Date) == .orderedAscending})
-        var result = AlarmeSet()
+        alarme = alarme.sorted(by: { $0.date?.compare($1.date! as Date) == .orderedAscending})
+        let result = AlarmeSet()
         for a in alarme {
-            if(Calendar.current.isDate(a.date as! Date, inSameDayAs:date)){
+            if(Calendar.current.isDate(a.date! as Date, inSameDayAs:date)){
                 result.insert(alarme: AlarmeModel(alarme: CoreDataAlarmeDAO(alarme:a)))
             }
         }

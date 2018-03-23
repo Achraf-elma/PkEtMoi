@@ -10,6 +10,6 @@ import Foundation
 protocol EventModel{
     
     func getLabel()->String?
-    func delete()->Bool
+    @discardableResult  func delete()->Bool
     
 }

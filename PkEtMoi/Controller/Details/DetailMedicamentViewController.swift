@@ -54,7 +54,7 @@ class DetailMedicamentViewController: UIViewController,UITableViewDataSource, UI
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.alarmeTable.dequeueReusableCell(withIdentifier: "medicamentDetail", for: indexPath) as! MedicamentDetailTableViewCell
-        var text : DateHandler = DateHandler(date: (self.medicament?.alarmes!.get(i: indexPath.row)!.date)! as! Date, formatter: "MMM dd, yyyy HH:mm")
+        let text : DateHandler = DateHandler(date: (self.medicament?.alarmes!.get(i: indexPath.row)!.date)! , formatter: "MMM dd, yyyy HH:mm")
         print(text.currentDate)
         cell.labelCell.text = text.currentDate
         return cell

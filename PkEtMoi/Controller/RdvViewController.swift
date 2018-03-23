@@ -46,7 +46,7 @@ class RdvViewController: UIViewController,UITableViewDataSource, UITableViewDele
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
 
         let myVC = storyboard.instantiateViewController(withIdentifier: "detailRdv") as! DetailRdvViewController
-        myVC.rdv = eventSet?.get(i: indexPath.row) as! RdvModel
+        myVC.rdv = eventSet?.get(i: indexPath.row) as? RdvModel
         navigationController?.pushViewController(myVC, animated: true)
         
     }

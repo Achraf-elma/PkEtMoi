@@ -21,7 +21,7 @@ class AlarmeModel{
         self.dao = alarme
     }
     
-    func delete() ->Bool{
+    @discardableResult  func delete() ->Bool{
         return dao._deleteAlarm()
     }
     

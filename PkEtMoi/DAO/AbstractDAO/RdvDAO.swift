@@ -10,9 +10,9 @@ import Foundation
 protocol RdvDAO{
     
     func _getAll() -> RdvSet?
-    func _insert(adresse:String,date:Date,nom:String,prenom:String,telephone:String)->Bool
-    func _delete()->Bool
-    func _update(rdv : RdvModel)->RdvModel?
+    @discardableResult func _insert(adresse:String,date:Date,nom:String,prenom:String,telephone:String)->Bool
+    @discardableResult func _delete()->Bool
+    @discardableResult func _update(rdv : RdvModel)->RdvModel?
     
     func _getFirstName()->String?
     func _setFirstName(forname:String)

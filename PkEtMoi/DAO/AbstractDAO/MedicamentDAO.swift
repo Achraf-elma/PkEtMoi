@@ -10,10 +10,9 @@ import Foundation
 protocol MedicamentDAO {
 
     func _getAll()-> MedicamentSet?
-    func _getAllAlarms()->AlarmeMedicamentSet?
     
-    func _insertMedicament(nom:String,description:String)->Bool
-    func _deleteMedicament()->Bool
+    @discardableResult func _insertMedicament(nom:String,description:String)->Bool
+    @discardableResult func _deleteMedicament()->Bool
     
     func _getName()->String?
     func _setName(forname:String)

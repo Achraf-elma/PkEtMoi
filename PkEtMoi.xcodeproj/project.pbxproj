@@ -23,7 +23,6 @@
 		03AB95DF2062DA5C00FFE431 /* MedicamentDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AB95DE2062DA5C00FFE431 /* MedicamentDetailTableViewCell.swift */; };
 		03AB95E12062DA6700FFE431 /* RdvDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AB95E02062DA6700FFE431 /* RdvDetailTableViewCell.swift */; };
 		03AB95E32062DA7F00FFE431 /* ActiviteDetailAlarmeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AB95E22062DA7F00FFE431 /* ActiviteDetailAlarmeTableViewCell.swift */; };
-		03AB95E72062DD4B00FFE431 /* AlarmeMedicamentSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AB95E62062DD4B00FFE431 /* AlarmeMedicamentSet.swift */; };
 		03AB95EB2062E8E200FFE431 /* MedecinSyntheseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AB95EA2062E8E200FFE431 /* MedecinSyntheseViewController.swift */; };
 		03EBFCF52063E94B0083433E /* CoreDataAlarmDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EBFCF42063E94B0083433E /* CoreDataAlarmDAO.swift */; };
 		03EBFCF72063E9F30083433E /* AlarmeSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EBFCF62063E9F30083433E /* AlarmeSet.swift */; };
@@ -94,7 +93,6 @@
 		03AB95DE2062DA5C00FFE431 /* MedicamentDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicamentDetailTableViewCell.swift; sourceTree = "<group>"; };
 		03AB95E02062DA6700FFE431 /* RdvDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RdvDetailTableViewCell.swift; sourceTree = "<group>"; };
 		03AB95E22062DA7F00FFE431 /* ActiviteDetailAlarmeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiviteDetailAlarmeTableViewCell.swift; sourceTree = "<group>"; };
-		03AB95E62062DD4B00FFE431 /* AlarmeMedicamentSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmeMedicamentSet.swift; sourceTree = "<group>"; };
 		03AB95EA2062E8E200FFE431 /* MedecinSyntheseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedecinSyntheseViewController.swift; sourceTree = "<group>"; };
 		03EBFCF42063E94B0083433E /* CoreDataAlarmDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataAlarmDAO.swift; sourceTree = "<group>"; };
 		03EBFCF62063E9F30083433E /* AlarmeSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmeSet.swift; sourceTree = "<group>"; };
@@ -276,7 +274,6 @@
 				03F8E14D2061CA34001FB8D5 /* RdvSet.swift */,
 				03F8E14F2061CA40001FB8D5 /* ActiviteSet.swift */,
 				03F8E1512061CA58001FB8D5 /* EventSet.swift */,
-				03AB95E62062DD4B00FFE431 /* AlarmeMedicamentSet.swift */,
 				03EBFCF62063E9F30083433E /* AlarmeSet.swift */,
 			);
 			path = Sets;
@@ -404,7 +401,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Kevin GIORDANI";
 				TargetAttributes = {
 					1598F27820468D050076BD66 = {
@@ -515,7 +512,6 @@
 				03F8E1522061CA58001FB8D5 /* EventSet.swift in Sources */,
 				03F8E14B2061C422001FB8D5 /* MedicamentTableViewCell.swift in Sources */,
 				03F8E1472061B3B2001FB8D5 /* MedicamentSet.swift in Sources */,
-				03AB95E72062DD4B00FFE431 /* AlarmeMedicamentSet.swift in Sources */,
 				03F8E1582061CB4E001FB8D5 /* CoreDataActiviteDAO.swift in Sources */,
 				03F8E15A2061CB66001FB8D5 /* CoreDataRdvDAO.swift in Sources */,
 				03F699D4206034F50037904A /* ActiviteModel.swift in Sources */,
@@ -586,7 +582,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -594,7 +592,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -637,7 +639,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -645,7 +649,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

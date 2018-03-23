@@ -23,7 +23,7 @@ class CoreDataRdvDAO:RdvDAO{
     func _getAll() -> RdvSet? {
         var rdv  = [RDV]()
         
-        var fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "RDV")
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "RDV")
         do{
             try rdv = CoreDataDAO.context.fetch(fetchRequest) as! [RDV]
         }
@@ -31,7 +31,7 @@ class CoreDataRdvDAO:RdvDAO{
             print(error)
             return nil
         }
-        var result = RdvSet()
+        let result = RdvSet()
         for r in rdv {
             result.insert(rdv: RdvModel(rdv: CoreDataRdvDAO(rdv:r)))
         }
@@ -57,15 +57,15 @@ class CoreDataRdvDAO:RdvDAO{
     }
     
     func _delete() -> Bool {
+        CoreDataDAO.context.delete(self.instanceCoreData!)
         do{
-            CoreDataDAO.context.delete(self.instanceCoreData!)
             try CoreDataDAO.context.save()
-            return true
         }
         catch let error as NSError{
             print(error)
             return false
         }
+        return true
     }
     
     func _update(rdv: RdvModel) -> RdvModel? {
@@ -97,7 +97,7 @@ class CoreDataRdvDAO:RdvDAO{
     }
     
     func _getDate() -> Date? {
-        return instanceCoreData?.date as! Date
+        return instanceCoreData?.date as Date?
     }
     
     func _setDate(forname: Date) {
@@ -113,11 +113,9 @@ class CoreDataRdvDAO:RdvDAO{
     }
     
     func _getAlarmes() -> AlarmeSet? {
-        var result : AlarmeSet = AlarmeSet()
-        guard var alarme = instanceCoreData?.associer?.allObjects as? [AlarmeRDV], alarme != nil else {
-            return AlarmeSet()
-        }
-        alarme = alarme.sorted(by: { $0.date?.compare($1.date as! Date) == .orderedAscending})
+        let result : AlarmeSet = AlarmeSet()
+        var alarme = instanceCoreData?.associer?.allObjects as! [AlarmeRDV]
+        alarme = alarme.sorted(by: { $0.date?.compare($1.date! as Date) == .orderedAscending})
         for a in alarme {
             result.insert(alarme: AlarmeModel(alarme: CoreDataAlarmeDAO(alarme:a)))
         }
@@ -138,9 +136,7 @@ class CoreDataRdvDAO:RdvDAO{
     }
     
     func _deleteAlarme(date: Date) {
-        guard  let alarmesRdv = instanceCoreData?.associer?.allObjects as! [AlarmeRDV]?, alarmesRdv != nil else{
-            return
-        }
+        let alarmesRdv = instanceCoreData?.associer?.allObjects as! [AlarmeRDV]
         for alarme in alarmesRdv {
             if alarme.date?.compare(date) == .orderedSame{
                 do{

@@ -16,7 +16,7 @@ class MedicamentModel:EventModel{
             return dao._getName()
         }
         set{
-            dao._setName(forname : newValue as! String)
+            dao._setName(forname : newValue!)
         }
     }
     
@@ -34,7 +34,7 @@ class MedicamentModel:EventModel{
             return dao._getDoses()
         }
         set{
-            dao._setDoses(forname : newValue as! [DosesModel])
+            dao._setDoses(forname : newValue!)
         }
     }
     
@@ -57,7 +57,7 @@ class MedicamentModel:EventModel{
         dao._insertMedicament(nom:nom, description:description)
     }
     
-    func delete() ->Bool{
+    @discardableResult  func delete() ->Bool{
         return dao._deleteMedicament()
     }
     

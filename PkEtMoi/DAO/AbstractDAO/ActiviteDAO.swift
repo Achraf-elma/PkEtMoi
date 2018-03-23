@@ -10,9 +10,9 @@ import Foundation
 protocol ActiviteDAO{
     
     func _getAll() -> ActiviteSet?
-    func _insert(nom:String,niveau:Int16,experience:Int16)->Bool
-    func _delete()->Bool
-    func _update(activite : ActiviteModel)->ActiviteModel?
+    @discardableResult func _insert(nom:String,niveau:Int16,experience:Int16)->Bool
+    @discardableResult func _delete()->Bool
+    @discardableResult func _update(activite : ActiviteModel)->ActiviteModel?
     
     
     func _getName()->String?

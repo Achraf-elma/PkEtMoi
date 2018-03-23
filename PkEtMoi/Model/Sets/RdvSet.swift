@@ -25,12 +25,12 @@ class RdvSet{
         self.rdv = rdv
     }
     
-    func insert(rdv : RdvModel)->Bool{
+    @discardableResult func insert(rdv : RdvModel)->Bool{
         self.rdv.append(rdv)
         return true
     }
     
-    func delete(rdv : RdvModel)->Bool{
+    @discardableResult func delete(rdv : RdvModel)->Bool{
         if let i = self.rdv.index(where: {$0.adresse == rdv.adresse}) {
              self.rdv[i].delete()
             self.rdv.remove(at: i)

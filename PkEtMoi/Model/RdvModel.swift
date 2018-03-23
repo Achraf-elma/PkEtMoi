@@ -16,7 +16,7 @@ class RdvModel:EventModel{
             return dao._getFirstName()
         }
         set{
-            dao._setFirstName(forname : newValue as! String)
+            dao._setFirstName(forname : newValue!)
         }
     }
     
@@ -25,7 +25,7 @@ class RdvModel:EventModel{
             return dao._getLastName()
         }
         set{
-            dao._setLastName(forname : newValue as! String)
+            dao._setLastName(forname : newValue!)
         }
     }
     var fullname :String?{
@@ -39,7 +39,7 @@ class RdvModel:EventModel{
             return dao._getAdresse()
         }
         set{
-            dao._setAdresse(forname : newValue as! String)
+            dao._setAdresse(forname : newValue!)
         }
     }
     
@@ -48,7 +48,7 @@ class RdvModel:EventModel{
             return dao._getDate()
         }
         set{
-            dao._setDate(forname : newValue as! Date)
+            dao._setDate(forname : newValue!)
         }
     }
     
@@ -57,7 +57,7 @@ class RdvModel:EventModel{
             return dao._getPhone()
         }
         set{
-            dao._setPhone(forname: newValue as! String)
+            dao._setPhone(forname: newValue!)
         }
     }
     
@@ -78,7 +78,7 @@ class RdvModel:EventModel{
     }
     
     func getLabel() -> String? {
-        var dateFormatter  = DateFormatter()
+        let dateFormatter  = DateFormatter()
         dateFormatter.dateFormat = "MMM dd, yyyy HH:mm"
         return firstname! + " " + lastname! + dateFormatter.string(from: date!)
     }
@@ -88,7 +88,7 @@ class RdvModel:EventModel{
         dao._insert(adresse: adresse, date: date, nom: lastname, prenom: firstname, telephone: telephone)
     }
     
-    func delete() ->Bool{
+    @discardableResult  func delete() ->Bool{
         return dao._delete()
     }
     
@@ -97,7 +97,7 @@ class RdvModel:EventModel{
     }
     
     func getDateString()->String?{
-        var dateFormatter  = DateFormatter()
+        let dateFormatter  = DateFormatter()
         dateFormatter.dateFormat = "MMM dd, yyyy HH:mm"
         return dateFormatter.string(from: date!)
     }

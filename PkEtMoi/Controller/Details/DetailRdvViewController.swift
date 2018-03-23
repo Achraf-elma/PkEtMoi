@@ -60,7 +60,7 @@ class DetailRdvViewController: UIViewController,UITableViewDataSource, UITableVi
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.alarmeTable.dequeueReusableCell(withIdentifier: "rdvDetailCell", for: indexPath) as! RdvDetailTableViewCell
-        var text : DateHandler = DateHandler(date: (self.rdv?.alarmes.get(i:indexPath.row)!.date)! as! Date, formatter: "MMM dd, yyyy HH:mm")
+        let text : DateHandler = DateHandler(date: (self.rdv?.alarmes.get(i:indexPath.row)!.date)! , formatter: "MMM dd, yyyy HH:mm")
         cell.labelCell.text = text.currentDate
         return cell
     }

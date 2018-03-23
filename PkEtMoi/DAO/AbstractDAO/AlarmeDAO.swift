@@ -11,7 +11,7 @@ protocol AlarmeDAO{
     
     func _getAllAlarmes()->AlarmeSet?
     func _getAlarmes(date:Date)->AlarmeSet?
-    func _deleteAlarm()->Bool
+    @discardableResult func _deleteAlarm()->Bool
     func _getDate()->Date?
     func _isMedicamentAlarm()->Bool
     func _isRdvAlarme()->Bool

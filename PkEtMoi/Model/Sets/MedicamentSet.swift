@@ -25,12 +25,12 @@ class MedicamentSet{
         self.medicaments = medicaments
     }
     
-    func insert(medicament : MedicamentModel)->Bool{
+    @discardableResult func insert(medicament : MedicamentModel)->Bool{
         self.medicaments.append(medicament)
         return true
     }
     
-    func delete(medicament : MedicamentModel)->Bool{
+    @discardableResult func delete(medicament : MedicamentModel)->Bool{
         if let i = self.medicaments.index(where: {$0.nom == medicament.nom}) {
             self.medicaments[i].delete()
             self.medicaments.remove(at: i)

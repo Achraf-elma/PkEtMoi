@@ -25,12 +25,12 @@ class ActiviteSet{
         self.activites = activite
     }
     
-    func insert(activite : ActiviteModel)->Bool{
+    @discardableResult func insert(activite : ActiviteModel)->Bool{
         self.activites.append(activite)
         return true
     }
     
-    func delete(activites : ActiviteModel)->Bool{
+    @discardableResult func delete(activites : ActiviteModel)->Bool{
         if let i = self.activites.index(where: {$0.nom == activites.nom}) {
              self.activites[i].delete()
             self.activites.remove(at: i)

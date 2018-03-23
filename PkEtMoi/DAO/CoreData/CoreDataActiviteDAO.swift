@@ -26,7 +26,7 @@ class CoreDataActiviteDAO : ActiviteDAO{
     func _getAll() -> ActiviteSet? {
         var activite  = [Activite]()
         
-        var fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Activite")
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Activite")
         do{
             try activite = CoreDataDAO.context.fetch(fetchRequest) as! [Activite]
         }
@@ -34,7 +34,7 @@ class CoreDataActiviteDAO : ActiviteDAO{
             print(error)
             return nil
         }
-        var result = ActiviteSet()
+        let result = ActiviteSet()
         for act in activite {
             result.insert(activite: ActiviteModel(activite: CoreDataActiviteDAO(activite:act)))
         }
@@ -112,11 +112,9 @@ class CoreDataActiviteDAO : ActiviteDAO{
     }
     
     func _getAlarmes() -> AlarmeSet? {
-        var result : AlarmeSet = AlarmeSet()
-        guard var alarme = instanceCoreData?.concerner?.allObjects as? [AlarmeActivite], alarme != nil else {
-            return AlarmeSet()
-        }
-        alarme = alarme.sorted(by: { $0.date?.compare($1.date as! Date) == .orderedAscending})
+        let result : AlarmeSet = AlarmeSet()
+        var alarme = instanceCoreData?.concerner?.allObjects as! [AlarmeActivite]
+        alarme = alarme.sorted(by: { $0.date?.compare($1.date! as Date) == .orderedAscending})
         for a in alarme {
             result.insert(alarme: AlarmeModel(alarme: CoreDataAlarmeDAO(alarme:a)))
         }
@@ -136,9 +134,7 @@ class CoreDataActiviteDAO : ActiviteDAO{
     }
     
     func _deleteAlarme(date: Date) {
-        guard  let alarmesAct = instanceCoreData?.concerner?.allObjects as! [AlarmeActivite]?, alarmesAct != nil else{
-            return
-        }
+        let alarmesAct = instanceCoreData?.concerner?.allObjects as! [AlarmeActivite]
         for alarme in alarmesAct {
             if alarme.date?.compare(date) == .orderedSame{
                 do{

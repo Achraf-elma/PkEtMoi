@@ -87,6 +87,7 @@ class ResumeViewController: UIViewController,UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        /*
         var cell = tableView.cellForRow(at: indexPath)
         tableView.deselectRow(at: indexPath, animated: true)
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
@@ -99,6 +100,7 @@ class ResumeViewController: UIViewController,UITableViewDataSource, UITableViewD
         else if(self.alarmeSet.get(i: indexPath.row) is ActiviteModel){
             
         }
+        */
     }
     
 }

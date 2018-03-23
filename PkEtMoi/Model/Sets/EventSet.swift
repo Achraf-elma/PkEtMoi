@@ -50,12 +50,12 @@ class EventSet{
         self.event = event
     }
     
-    func insert(event : EventModel)->Bool{
+    @discardableResult func insert(event : EventModel)->Bool{
         self.event.append(event)
         return true
     }
     
-    func delete(eventToDelete : EventModel)->Bool{
+    @discardableResult func delete(eventToDelete : EventModel)->Bool{
         if let i = self.event.index(where: {(act) -> Bool in act.getLabel() == eventToDelete.getLabel()}) {
             if eventToDelete is MedicamentModel{
                 let current = eventToDelete as! MedicamentModel

@@ -76,7 +76,7 @@ class DetailActiviteViewController: UIViewController,UITableViewDataSource, UITa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == self.alarmeTable {
             let cell = self.alarmeTable.dequeueReusableCell(withIdentifier: "activiteAlarmeCell", for: indexPath) as! ActiviteDetailAlarmeTableViewCell
-            var text : DateHandler = DateHandler(date: (self.activite?.alarmes.get(i: indexPath.row)!.date)! as! Date, formatter: "MMM dd, yyyy HH:mm")
+            let text : DateHandler = DateHandler(date: (self.activite?.alarmes.get(i: indexPath.row)!.date)! , formatter: "MMM dd, yyyy HH:mm")
             cell.labelCell.text = text.currentDate
             return cell
         }

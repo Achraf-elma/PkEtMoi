@@ -26,23 +26,19 @@ class AbstractDAO: NSObject {
     func _getMedicamentDAO()->MedicamentDAO?
     {
         fatalError(#function + "Must be overridden");
-        return nil;
     }
     
     func _getActiviteDAO()->ActiviteDAO?
     {
         fatalError(#function + "Must be overridden");
-        return nil;
     }
     
     func _getRdvDAO()->RdvDAO?
     {
         fatalError(#function + "Must be overridden");
-        return nil;
     }
     
     func _getAlarmeDAO()->AlarmeDAO?{
         fatalError(#function + "Must be overridden");
-        return nil;
     }
 }

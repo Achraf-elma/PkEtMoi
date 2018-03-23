@@ -44,7 +44,7 @@ class ActiviteViewController: UIViewController,UITableViewDataSource, UITableVie
         tableView.deselectRow(at: indexPath, animated: true)
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
                   let myVC = storyboard.instantiateViewController(withIdentifier: "detailActivite") as! DetailActiviteViewController
-            myVC.activite = eventSet?.get(i: indexPath.row) as! ActiviteModel
+        myVC.activite = eventSet?.get(i: indexPath.row) as? ActiviteModel
             navigationController?.pushViewController(myVC, animated: true)
     }
     

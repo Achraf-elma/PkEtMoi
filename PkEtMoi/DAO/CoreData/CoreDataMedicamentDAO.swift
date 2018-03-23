@@ -25,7 +25,7 @@ class CoreDataMedicamentDAO : MedicamentDAO{
     func _getAll() -> MedicamentSet? {
         var medicament  = [Medicament]()
         
-        var fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Medicament")
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Medicament")
         do{
             try medicament = CoreDataDAO.context.fetch(fetchRequest) as! [Medicament]
         }
@@ -33,15 +33,11 @@ class CoreDataMedicamentDAO : MedicamentDAO{
             print(error)
             return nil
         }
-        var result = MedicamentSet()
+        let result = MedicamentSet()
         for med in medicament {
             result.insert(medicament: MedicamentModel(medicament: CoreDataMedicamentDAO(medicament:med)))
         }
         return result
-    }
-    
-    func _getAllAlarms() -> AlarmeMedicamentSet? {
-        return nil
     }
     
     func _insertMedicament(nom:String,description:String)->Bool    {
@@ -88,7 +84,7 @@ class CoreDataMedicamentDAO : MedicamentDAO{
     }
     
     func _getDoses() -> [DosesModel]? {
-        return instanceCoreData?.contenir?.allObjects as! [DosesModel]
+        return instanceCoreData?.contenir?.allObjects as? [DosesModel]
     }
     
     func _setDoses(forname: [DosesModel]) {
@@ -96,11 +92,9 @@ class CoreDataMedicamentDAO : MedicamentDAO{
     }
     
     func _getAlarmes() -> AlarmeSet? {
-        var result : AlarmeSet = AlarmeSet()
-        guard var alarme = instanceCoreData?.correspondre?.allObjects as? [AlarmeMedicament], alarme != nil else {
-            return result
-        }
-        alarme = alarme.sorted(by: { $0.date?.compare($1.date as! Date) == .orderedAscending})
+        let result : AlarmeSet = AlarmeSet()
+        var alarme = instanceCoreData?.correspondre?.allObjects as! [AlarmeMedicament]
+        alarme = alarme.sorted(by: { $0.date?.compare($1.date! as Date) == .orderedAscending})
         for a in alarme {
             result.insert(alarme: AlarmeModel(alarme: CoreDataAlarmeDAO(alarme:a)))
         }
@@ -120,9 +114,7 @@ class CoreDataMedicamentDAO : MedicamentDAO{
     }
     
     func _deleteAlarme(date: Date) {
-        guard  let alarmesMeds = instanceCoreData?.correspondre?.allObjects as! [AlarmeMedicament]?, alarmesMeds != nil else{
-            return
-        }
+        let alarmesMeds = instanceCoreData?.correspondre?.allObjects as! [AlarmeMedicament]
         for alarme in alarmesMeds {
             if alarme.date?.compare(date) == .orderedSame{
                 do{

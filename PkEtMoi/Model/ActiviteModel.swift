@@ -17,7 +17,7 @@ class ActiviteModel : EventModel{
             return dao._getName()
         }
         set{
-            dao._setName(forname : newValue as! String)
+            dao._setName(forname : newValue!)
         }
     }
     
@@ -26,7 +26,7 @@ class ActiviteModel : EventModel{
             return dao._getNiveau()
         }
         set{
-            dao._setNiveau(niveau : newValue as! Int16)
+            dao._setNiveau(niveau : newValue)
         }
     }
     
@@ -35,8 +35,7 @@ class ActiviteModel : EventModel{
             return dao._getExperience()
         }
         set{
-            dao._setExperience(experience : newValue as! Int16)
-        }
+            dao._setExperience(experience : newValue)}
     }
     
     var alarmes : AlarmeSet{
@@ -58,7 +57,7 @@ class ActiviteModel : EventModel{
         dao._insert(nom:nom, niveau:niveau, experience: experience)
     }
     
-    func delete() ->Bool{
+    @discardableResult  func delete() ->Bool{
         return dao._delete()
     }
     

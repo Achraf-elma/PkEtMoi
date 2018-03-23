@@ -25,12 +25,12 @@ class AlarmeSet{
         self.alarme = alarme
     }
     
-    func insert(alarme : AlarmeModel)->Bool{
+    @discardableResult func insert(alarme : AlarmeModel)->Bool{
         self.alarme.append(alarme)
         return true
     }
     
-    func delete(alarme : AlarmeModel)->Bool{
+    @discardableResult func delete(alarme : AlarmeModel)->Bool{
         if let i = self.alarme.index(where: {$0.date == alarme.date}) {
             self.alarme[i].delete()
             self.alarme.remove(at: i)
