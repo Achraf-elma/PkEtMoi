@@ -1,38 +1,41 @@
-//
-//  MedecinSyntheseViewController.swift
-//  PkEtMoi
-//
-//  Created by Kevin Giordani on 21/03/2018.
-//  Copyright © 2018 Kevin GIORDANI. All rights reserved.
-//
-
 import UIKit
-
+import UserNotifications
 class MedecinSyntheseViewController: UIViewController {
-
-    @IBAction func backToPatient(_ sender: UIBarButtonItem) {
-        self.navigationController?.popViewController(animated: true)
-    }
+    
+    let myNotification = Notification.Name(rawValue:"MyNotification")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let content = UNMutableNotificationContent()
+        content.title = "Don't forget"
+        content.body = "Buy some milk"
+        content.sound = UNNotificationSound.default()
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5,
+                                                        repeats: false)
+        let identifier = "UYLLocalNotification"
+        let request = UNNotificationRequest(identifier: identifier,
+                                            content: content, trigger: trigger)
+        AppDelegate.center.add(request, withCompletionHandler: { (error) in
+            if let error = error {
+                print(error)
+            }
+        })
+        
+        let snoozeAction = UNNotificationAction(identifier: "Snooze",
+                                                title: "Snooze", options: [])
+        let deleteAction = UNNotificationAction(identifier: "UYLDeleteAction",
+                                                title: "Delete", options: [.destructive])
+        let category = UNNotificationCategory(identifier: "UYLReminderCategory",
+                                              actions: [snoozeAction,deleteAction],
+                                              intentIdentifiers: [], options: [])
+        AppDelegate.center.setNotificationCategories([category])
+        AppDelegate.center.setNotificationCategories([category])
+        
     }
-    */
 
 }

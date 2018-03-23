@@ -25,7 +25,7 @@ protocol MedicamentDAO {
     func _getDoses()->[DosesModel]?
     func _setDoses(forname:[DosesModel])
     
-    func _getAlarmes()->[AlarmeMedicament]?
+    func _getAlarmes()->AlarmeSet?
     func _addAlarme(date:Date)
     func _deleteAlarme(date:Date)
     

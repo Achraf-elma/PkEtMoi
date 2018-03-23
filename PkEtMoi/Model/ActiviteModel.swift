@@ -21,7 +21,7 @@ class ActiviteModel : EventModel{
         }
     }
     
-    var niveau :Int16?{
+    var niveau :Int16{
         get{
             return dao._getNiveau()
         }
@@ -30,7 +30,7 @@ class ActiviteModel : EventModel{
         }
     }
     
-    var experience :Int16?{
+    var experience :Int16{
         get{
             return dao._getExperience()
         }
@@ -39,7 +39,7 @@ class ActiviteModel : EventModel{
         }
     }
     
-    var alarmes : [AlarmeActivite]{
+    var alarmes : AlarmeSet{
         get{
             return dao._getAlarmes()!
         }
@@ -54,7 +54,7 @@ class ActiviteModel : EventModel{
     }
     
     init(nom:String,niveau:Int16, experience:Int16){
-        dao = AbstractDAO.getDAO()._getActiviteDAO()!
+        dao = (AbstractDAO.getDAO()?._getActiviteDAO()!)!
         dao._insert(nom:nom, niveau:niveau, experience: experience)
     }
     
@@ -64,5 +64,19 @@ class ActiviteModel : EventModel{
     
     func addAlarme(date:Date){
         dao._addAlarme(date: date)
+    }
+    
+    func deleteAlarme(date:Date){
+        dao._deleteAlarme(date: date)
+    }
+    
+    func incExperience(){
+        if experience == 9{
+            experience = 0
+            niveau = niveau + 1
+        }
+        else{
+            experience = experience + 1
+        }
     }
 }

@@ -25,7 +25,7 @@ class MedicamentModel:EventModel{
             return dao._getDescription()
         }
         set{
-            dao._setDescription(forname : newValue as! String)
+            dao._setDescription(forname : newValue!)
         }
     }
     
@@ -38,7 +38,7 @@ class MedicamentModel:EventModel{
         }
     }
     
-    var alarmes : [AlarmeMedicament]?{
+    var alarmes : AlarmeSet?{
         get{
             return dao._getAlarmes()
         }
@@ -53,7 +53,7 @@ class MedicamentModel:EventModel{
     }
     
     init(nom:String, description:String){
-        dao = AbstractDAO.getDAO()._getMedicamentDAO()!
+        dao = (AbstractDAO.getDAO()?._getMedicamentDAO()!)!
         dao._insertMedicament(nom:nom, description:description)
     }
     
@@ -63,6 +63,10 @@ class MedicamentModel:EventModel{
     
     func addAlarme(date:Date){
         dao._addAlarme(date: date)
+    }
+    
+    func deleteAlarme(date:Date){
+        dao._deleteAlarme(date: date)
     }
     
 }

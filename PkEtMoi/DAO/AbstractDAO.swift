@@ -13,13 +13,13 @@ class AbstractDAO: NSObject {
     static let type : String = "coreData"
     static let coreDataDAO : AbstractDAO  = CoreDataDAO()
     
-    public static func getDAO()->AbstractDAO
+    public static func getDAO()->AbstractDAO?
     {
         if(self.type == "coreData")
         {
             return self.coreDataDAO
         }else{
-            return CoreDataDAO()
+            return nil
         }
     }
     

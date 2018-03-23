@@ -18,13 +18,13 @@ protocol ActiviteDAO{
     func _getName()->String?
     func _setName(forname:String)
     
-    func _getExperience()->Int16?
+    func _getExperience()->Int16
     func _setExperience(experience:Int16)
     
-    func _getNiveau()->Int16?
+    func _getNiveau()->Int16
     func _setNiveau(niveau:Int16)
     
-    func _getAlarmes()->[AlarmeActivite]?
+    func _getAlarmes()->AlarmeSet?
     func _addAlarme(date:Date)
     func _deleteAlarme(date:Date)
 }

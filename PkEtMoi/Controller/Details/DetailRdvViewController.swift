@@ -36,7 +36,7 @@ class DetailRdvViewController: UIViewController,UITableViewDataSource, UITableVi
         self.adresse.text = rdv?.adresse
         self.date.text = rdv?.getDateString()
         self.type.text = rdv!.type
-        self.telephone.text = String(describing: rdv?.telephone)
+        self.telephone.text = rdv?.telephone
         alarmeTable.delegate = self
         alarmeTable.dataSource = self
         // Do any additional setup after loading the view.
@@ -60,9 +60,17 @@ class DetailRdvViewController: UIViewController,UITableViewDataSource, UITableVi
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.alarmeTable.dequeueReusableCell(withIdentifier: "rdvDetailCell", for: indexPath) as! RdvDetailTableViewCell
-        var text : DateHandler = DateHandler(date: (self.rdv?.alarmes[indexPath.row].date)! as! Date, formatter: "MMM dd, yyyy HH:mm")
+        var text : DateHandler = DateHandler(date: (self.rdv?.alarmes.get(i:indexPath.row)!.date)! as! Date, formatter: "MMM dd, yyyy HH:mm")
         cell.labelCell.text = text.currentDate
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            self.rdv?.deleteAlarme(date:(self.rdv?.alarmes.get(i: indexPath.row)?.date)!)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
     }
     
 }

@@ -95,8 +95,16 @@ class CoreDataMedicamentDAO : MedicamentDAO{
         
     }
     
-    func _getAlarmes() -> [AlarmeMedicament]? {
-        return instanceCoreData?.correspondre?.allObjects as! [AlarmeMedicament]
+    func _getAlarmes() -> AlarmeSet? {
+        var result : AlarmeSet = AlarmeSet()
+        guard var alarme = instanceCoreData?.correspondre?.allObjects as? [AlarmeMedicament], alarme != nil else {
+            return result
+        }
+        alarme = alarme.sorted(by: { $0.date?.compare($1.date as! Date) == .orderedAscending})
+        for a in alarme {
+            result.insert(alarme: AlarmeModel(alarme: CoreDataAlarmeDAO(alarme:a)))
+        }
+        return result
     }
     
     func _addAlarme(date: Date) {
@@ -112,6 +120,20 @@ class CoreDataMedicamentDAO : MedicamentDAO{
     }
     
     func _deleteAlarme(date: Date) {
+        guard  let alarmesMeds = instanceCoreData?.correspondre?.allObjects as! [AlarmeMedicament]?, alarmesMeds != nil else{
+            return
+        }
+        for alarme in alarmesMeds {
+            if alarme.date?.compare(date) == .orderedSame{
+                do{
+                    CoreDataDAO.context.delete(alarme)
+                    try CoreDataDAO.context.save()
+                }
+                catch let error as NSError{
+                    print(error)
+                }
+            }
+        }
         
     }
     

@@ -38,7 +38,7 @@ class CoreDataRdvDAO:RdvDAO{
         return result
     }
     
-    func _insert(adresse: String, date: Date, nom: String, prenom: String, telephone: Int32) -> Bool {
+    func _insert(adresse: String, date: Date, nom: String, prenom: String, telephone: String) -> Bool {
         let newRdv = NSEntityDescription.insertNewObject(forEntityName: "RDV", into: CoreDataDAO.context) as! RDV
         newRdv.adresse = adresse
         newRdv.date = date as NSDate
@@ -104,16 +104,24 @@ class CoreDataRdvDAO:RdvDAO{
         
     }
     
-    func _getPhone() -> Int32? {
+    func _getPhone() -> String? {
         return instanceCoreData?.telephone
     }
     
-    func _setPhone(forname: Int32) {
+    func _setPhone(forname: String) {
         
     }
     
-    func _getAlarmes() -> [AlarmeRDV]? {
-        return instanceCoreData?.associer?.allObjects as? [AlarmeRDV]
+    func _getAlarmes() -> AlarmeSet? {
+        var result : AlarmeSet = AlarmeSet()
+        guard var alarme = instanceCoreData?.associer?.allObjects as? [AlarmeRDV], alarme != nil else {
+            return AlarmeSet()
+        }
+        alarme = alarme.sorted(by: { $0.date?.compare($1.date as! Date) == .orderedAscending})
+        for a in alarme {
+            result.insert(alarme: AlarmeModel(alarme: CoreDataAlarmeDAO(alarme:a)))
+        }
+        return result
     }
     
     func _addAlarme(date: Date) {
@@ -130,7 +138,20 @@ class CoreDataRdvDAO:RdvDAO{
     }
     
     func _deleteAlarme(date: Date) {
-        
+        guard  let alarmesRdv = instanceCoreData?.associer?.allObjects as! [AlarmeRDV]?, alarmesRdv != nil else{
+            return
+        }
+        for alarme in alarmesRdv {
+            if alarme.date?.compare(date) == .orderedSame{
+                do{
+                    CoreDataDAO.context.delete(alarme)
+                    try CoreDataDAO.context.save()
+                }
+                catch let error as NSError{
+                    print(error)
+                }
+            }
+        }
     }
     
     func _getSynthese() -> Synthese? {

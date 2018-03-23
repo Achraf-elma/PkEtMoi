@@ -55,6 +55,8 @@
 		1598F28A20468D050076BD66 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1598F28820468D050076BD66 /* LaunchScreen.storyboard */; };
 		1598F29520468D060076BD66 /* PkEtMoiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1598F29420468D060076BD66 /* PkEtMoiTests.swift */; };
 		1598F2A020468D060076BD66 /* PkEtMoiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1598F29F20468D060076BD66 /* PkEtMoiUITests.swift */; };
+		15B16D6B2064FFA300585D1C /* MedicamentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B16D6A2064FFA300585D1C /* MedicamentViewController.swift */; };
+		15B16D6D2064FFB800585D1C /* RdvViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B16D6C2064FFB800585D1C /* RdvViewController.swift */; };
 		38F36E5A205920D700854EB7 /* DLRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F36E59205920D700854EB7 /* DLRadioButton.m */; };
 /* End PBXBuildFile section */
 
@@ -130,6 +132,8 @@
 		1598F29B20468D060076BD66 /* PkEtMoiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PkEtMoiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1598F29F20468D060076BD66 /* PkEtMoiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PkEtMoiUITests.swift; sourceTree = "<group>"; };
 		1598F2A120468D060076BD66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		15B16D6A2064FFA300585D1C /* MedicamentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicamentViewController.swift; sourceTree = "<group>"; };
+		15B16D6C2064FFB800585D1C /* RdvViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RdvViewController.swift; sourceTree = "<group>"; };
 		38F36E57205920D600854EB7 /* PkEtMoi-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PkEtMoi-Bridging-Header.h"; sourceTree = "<group>"; };
 		38F36E58205920D700854EB7 /* DLRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRadioButton.h; sourceTree = "<group>"; };
 		38F36E59205920D700854EB7 /* DLRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRadioButton.m; sourceTree = "<group>"; };
@@ -169,6 +173,8 @@
 				03F699D92060463A0037904A /* isAbleToReceiveData.swift */,
 				03F8E15D2061CFCA001FB8D5 /* ActiviteViewController.swift */,
 				03AB95EA2062E8E200FFE431 /* MedecinSyntheseViewController.swift */,
+				15B16D6A2064FFA300585D1C /* MedicamentViewController.swift */,
+				15B16D6C2064FFB800585D1C /* RdvViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -481,6 +487,7 @@
 				03F699D0206034790037904A /* MedicamentModel.swift in Sources */,
 				03A03861206001F900EA9BDE /* ResumeTableViewCell.swift in Sources */,
 				03F8E14E2061CA34001FB8D5 /* RdvSet.swift in Sources */,
+				15B16D6D2064FFB800585D1C /* RdvViewController.swift in Sources */,
 				0385600320640EBA00493840 /* ActivitePerformanceTableViewCell.swift in Sources */,
 				03A0385D205FF59800EA9BDE /* ResumeViewController.swift in Sources */,
 				03A03867206014D300EA9BDE /* AbstractDAO.swift in Sources */,
@@ -489,6 +496,7 @@
 				03F8E1622061D19F001FB8D5 /* ActiviteTableViewCell.swift in Sources */,
 				0334F4532063E77F004C3C5E /* AlarmeDAO.swift in Sources */,
 				03AB95E12062DA6700FFE431 /* RdvDetailTableViewCell.swift in Sources */,
+				15B16D6B2064FFA300585D1C /* MedicamentViewController.swift in Sources */,
 				03F699D62060393A0037904A /* DetailMedicamentViewController.swift in Sources */,
 				03A03869206017AA00EA9BDE /* CoreDataDAO.swift in Sources */,
 				03F8E1542061CAF9001FB8D5 /* ActiviteDAO.swift in Sources */,

@@ -31,8 +31,9 @@ class CoreDataAlarmeDAO : AlarmeDAO{
             print(error)
             return nil
         }
+        let sortedAlarme = alarme.sorted(by: { $0.date?.compare($1.date as! Date) == .orderedDescending})
         var result = AlarmeSet()
-        for a in alarme {
+        for a in sortedAlarme {
             result.insert(alarme: AlarmeModel(alarme: CoreDataAlarmeDAO(alarme:a)))
         }
         return result
@@ -77,6 +78,7 @@ class CoreDataAlarmeDAO : AlarmeDAO{
             print(error)
             return nil
         }
+        alarme = alarme.sorted(by: { $0.date?.compare($1.date as! Date) == .orderedAscending})
         var result = AlarmeSet()
         for a in alarme {
             if(Calendar.current.isDate(a.date as! Date, inSameDayAs:date)){

@@ -52,12 +52,12 @@ class RdvModel:EventModel{
         }
     }
     
-    var telephone : Int32?{
+    var telephone : String?{
         get{
             return dao._getPhone()
         }
         set{
-            dao._setPhone(forname: newValue as! Int32)
+            dao._setPhone(forname: newValue as! String)
         }
     }
     
@@ -67,7 +67,7 @@ class RdvModel:EventModel{
         }
     }
     
-    var alarmes : [AlarmeRDV]{
+    var alarmes : AlarmeSet{
         get{
             return dao._getAlarmes()!
         }
@@ -83,8 +83,8 @@ class RdvModel:EventModel{
         return firstname! + " " + lastname! + dateFormatter.string(from: date!)
     }
     
-    init(firstname:String,lastname:String,adresse:String,date:Date,telephone:Int32){
-        dao = AbstractDAO.getDAO()._getRdvDAO()!
+    init(firstname:String,lastname:String,adresse:String,date:Date,telephone:String){
+        dao = (AbstractDAO.getDAO()?._getRdvDAO()!)!
         dao._insert(adresse: adresse, date: date, nom: lastname, prenom: firstname, telephone: telephone)
     }
     
@@ -100,6 +100,10 @@ class RdvModel:EventModel{
         var dateFormatter  = DateFormatter()
         dateFormatter.dateFormat = "MMM dd, yyyy HH:mm"
         return dateFormatter.string(from: date!)
+    }
+    
+    func deleteAlarme(date:Date){
+        dao._deleteAlarme(date: date)
     }
     
 }

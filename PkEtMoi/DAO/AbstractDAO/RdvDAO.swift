@@ -10,7 +10,7 @@ import Foundation
 protocol RdvDAO{
     
     func _getAll() -> RdvSet?
-    func _insert(adresse:String,date:Date,nom:String,prenom:String,telephone:Int32)->Bool
+    func _insert(adresse:String,date:Date,nom:String,prenom:String,telephone:String)->Bool
     func _delete()->Bool
     func _update(rdv : RdvModel)->RdvModel?
     
@@ -20,8 +20,8 @@ protocol RdvDAO{
     func _getLastName()->String?
     func _setLastName(forname:String)
     
-    func _getPhone()->Int32?
-    func _setPhone(forname:Int32)
+    func _getPhone()->String?
+    func _setPhone(forname:String)
     
     func _getAdresse()->String?
     func _setAdresse(forname:String)
@@ -29,7 +29,7 @@ protocol RdvDAO{
     func _getDate()->Date?
     func _setDate(forname:Date)
     
-    func _getAlarmes()->[AlarmeRDV]?
+    func _getAlarmes()->AlarmeSet?
     func _addAlarme(date:Date)
     func _deleteAlarme(date:Date)
     

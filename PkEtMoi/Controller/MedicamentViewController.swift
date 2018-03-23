@@ -9,19 +9,18 @@
 import UIKit
 import CoreData
 
-class ActiviteViewController: UIViewController,UITableViewDataSource, UITableViewDelegate{
+class MedicamentViewController: UIViewController,UITableViewDataSource, UITableViewDelegate{
     
-
+    
     var eventSet : EventSet? = nil
     
-    @IBOutlet weak var activiteTable: UITableView!
-
+    @IBOutlet weak var medicamentTable: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.eventSet = EventSet(activiteSet:(AbstractDAO.getDAO()?._getActiviteDAO()?._getAll())!)
-        activiteTable?.delegate = self
-        activiteTable?.dataSource = self
+        self.eventSet = EventSet(medicamentSet:(AbstractDAO.getDAO()?._getMedicamentDAO()?._getAll()))
+        medicamentTable?.delegate = self
+        medicamentTable?.dataSource = self
     }
     
     override func didReceiveMemoryWarning() {
@@ -33,18 +32,19 @@ class ActiviteViewController: UIViewController,UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-            let cell = self.activiteTable?.dequeueReusableCell(withIdentifier: "activiteCell", for: indexPath) as! ActiviteTableViewCell
+            let cell = self.medicamentTable?.dequeueReusableCell(withIdentifier: "medicamentCell", for: indexPath) as! MedicamentTableViewCell
             cell.labelCell.text = self.eventSet?.get(i: indexPath.row)?.getLabel()
             return cell
-    }
+        }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //var cell = tableView.cellForRow(at: indexPath)
         tableView.deselectRow(at: indexPath, animated: true)
+        
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-                  let myVC = storyboard.instantiateViewController(withIdentifier: "detailActivite") as! DetailActiviteViewController
-            myVC.activite = eventSet?.get(i: indexPath.row) as! ActiviteModel
+
+            let myVC = storyboard.instantiateViewController(withIdentifier: "detailMedicament") as! DetailMedicamentViewController
+            myVC.medicament = eventSet?.get(i: indexPath.row) as! MedicamentModel
             navigationController?.pushViewController(myVC, animated: true)
     }
     
@@ -55,7 +55,7 @@ class ActiviteViewController: UIViewController,UITableViewDataSource, UITableVie
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
-
+    
 }
 
 

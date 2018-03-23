@@ -17,15 +17,21 @@ class DetailActiviteViewController: UIViewController,UITableViewDataSource, UITa
     
 
     @IBOutlet weak var nomActivite: UILabel!
+    @IBOutlet weak var exp: UILabel!
+    @IBOutlet weak var nivea: UILabel!
     
     var activite :ActiviteModel? = nil
     
     @IBOutlet weak var activiteTable: UITableView!
     @IBOutlet weak var alarmeTable: UITableView!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         nomActivite.text = activite?.nom
+        exp.text = "Exp : \(String(describing: activite!.experience))/10"
+        nivea.text = "Level : \(String(describing: activite!.niveau))"
+        
         alarmeTable.delegate = self
         alarmeTable.dataSource = self
         
@@ -34,7 +40,10 @@ class DetailActiviteViewController: UIViewController,UITableViewDataSource, UITa
     }
     
     @IBAction func jeViensDenFaire(_ sender: UIButton) {
-        
+        print("hey")
+        activite?.incExperience()
+        exp.text = "Exp : \(String(describing: activite!.experience))/10"
+        nivea.text = "Level : \(String(describing: activite!.niveau))"
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -67,7 +76,7 @@ class DetailActiviteViewController: UIViewController,UITableViewDataSource, UITa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == self.alarmeTable {
             let cell = self.alarmeTable.dequeueReusableCell(withIdentifier: "activiteAlarmeCell", for: indexPath) as! ActiviteDetailAlarmeTableViewCell
-            var text : DateHandler = DateHandler(date: (self.activite?.alarmes[indexPath.row].date)! as! Date, formatter: "MMM dd, yyyy HH:mm")
+            var text : DateHandler = DateHandler(date: (self.activite?.alarmes.get(i: indexPath.row)!.date)! as! Date, formatter: "MMM dd, yyyy HH:mm")
             cell.labelCell.text = text.currentDate
             return cell
         }
@@ -77,6 +86,14 @@ class DetailActiviteViewController: UIViewController,UITableViewDataSource, UITa
             return cell
         }
         return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            self.activite?.deleteAlarme(date:(self.activite?.alarmes.get(i: indexPath.row)?.date)!)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
     }
     
 }

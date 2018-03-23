@@ -83,24 +83,44 @@ class CoreDataActiviteDAO : ActiviteDAO{
         
     }
     
-    func _getExperience() -> Int16? {
-        return instanceCoreData?.experience
+    func _getExperience() -> Int16 {
+        return (instanceCoreData?.experience)!
     }
     
     func _setExperience(experience: Int16) {
-        
+        do{
+            instanceCoreData?.experience = experience
+            try CoreDataDAO.context.save()
+        }
+        catch let error as NSError{
+            print(error)
+        }
     }
     
-    func _getNiveau() -> Int16? {
-        return instanceCoreData?.niveau
+    func _getNiveau() -> Int16 {
+        return (instanceCoreData?.niveau)!
     }
     
     func _setNiveau(niveau: Int16) {
-        
+        do{
+            instanceCoreData?.niveau = niveau
+            try CoreDataDAO.context.save()
+        }
+        catch let error as NSError{
+            print(error)
+        }
     }
     
-    func _getAlarmes() -> [AlarmeActivite]? {
-        return instanceCoreData?.concerner?.allObjects as! [AlarmeActivite]
+    func _getAlarmes() -> AlarmeSet? {
+        var result : AlarmeSet = AlarmeSet()
+        guard var alarme = instanceCoreData?.concerner?.allObjects as? [AlarmeActivite], alarme != nil else {
+            return AlarmeSet()
+        }
+        alarme = alarme.sorted(by: { $0.date?.compare($1.date as! Date) == .orderedAscending})
+        for a in alarme {
+            result.insert(alarme: AlarmeModel(alarme: CoreDataAlarmeDAO(alarme:a)))
+        }
+        return result
     }
     
     func _addAlarme(date: Date) {
@@ -116,7 +136,20 @@ class CoreDataActiviteDAO : ActiviteDAO{
     }
     
     func _deleteAlarme(date: Date) {
-        
+        guard  let alarmesAct = instanceCoreData?.concerner?.allObjects as! [AlarmeActivite]?, alarmesAct != nil else{
+            return
+        }
+        for alarme in alarmesAct {
+            if alarme.date?.compare(date) == .orderedSame{
+                do{
+                    CoreDataDAO.context.delete(alarme)
+                    try CoreDataDAO.context.save()
+                }
+                catch let error as NSError{
+                    print(error)
+                }
+            }
+        }
     }
     
 }

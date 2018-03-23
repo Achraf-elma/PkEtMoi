@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import UserNotifications
 
 class ResumeViewController: UIViewController,UITableViewDataSource, UITableViewDelegate{
     
@@ -19,21 +20,22 @@ class ResumeViewController: UIViewController,UITableViewDataSource, UITableViewD
     @IBOutlet weak var dateLabel: UILabel!
     
     var date :DateHandler = DateHandler()
-    var alarmeSet : AlarmeSet = (AbstractDAO.getDAO()._getAlarmeDAO()?._getAllAlarmes())!
+    var alarmeSet : AlarmeSet = (AbstractDAO.getDAO()!._getAlarmeDAO()?._getAllAlarmes())!
 
     
     @IBAction func nextDay(_ sender: UIButton) {
         dateLabel.text = date.nextDay()
-        alarmeSet = (AbstractDAO.getDAO()._getAlarmeDAO()?._getAlarmes(date: date.date))!
+        alarmeSet = (AbstractDAO.getDAO()?._getAlarmeDAO()?._getAlarmes(date: date.date))!
         resumeTable.reloadData()
     }
     @IBAction func previousDay(_ sender: UIButton) {
         dateLabel.text = date.previousDay()
-        alarmeSet = (AbstractDAO.getDAO()._getAlarmeDAO()?._getAlarmes(date: date.date))!
+        alarmeSet = (AbstractDAO.getDAO()?._getAlarmeDAO()?._getAlarmes(date: date.date))!
         resumeTable.reloadData()
     }
    
     override func viewDidAppear(_ animated: Bool) {
+        alarmeSet = (AbstractDAO.getDAO()?._getAlarmeDAO()?._getAlarmes(date: date.date))!
         resumeTable.reloadData()
     }
     
@@ -41,12 +43,20 @@ class ResumeViewController: UIViewController,UITableViewDataSource, UITableViewD
         super.viewDidLoad()
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         if !launchedBefore  {
+
+            let options: UNAuthorizationOptions = [.alert, .sound];
+            AppDelegate.center.requestAuthorization(options: options) {
+                (granted, error) in
+                if !granted {
+                    print("Something went wrong")
+                }
+            }
             ActiviteModel(nom: "Musculation", niveau: 0, experience: 0)
             MedicamentModel(nom: "CoDoliprane", description: "Pour la tete").addAlarme(date: Date())
-            RdvModel(firstname: "Fabrice", lastname: "Monique", adresse: "68 rue dupone", date: Date(), telephone: 9837293)
+            RdvModel(firstname: "Fabrice", lastname: "Monique", adresse: "68 rue dupone", date: Date(), telephone: "09837293")
             UserDefaults.standard.set(true, forKey: "launchedBefore")
         }
-        alarmeSet = (AbstractDAO.getDAO()._getAlarmeDAO()?._getAlarmes(date: date.date))!
+        alarmeSet = (AbstractDAO.getDAO()?._getAlarmeDAO()?._getAlarmes(date: date.date))!
         dateLabel.text = date.currentDate
         resumeTable.delegate = self
         resumeTable.dataSource = self
