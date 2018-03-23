@@ -41,7 +41,7 @@ class CoreDataRdvDAO:RdvDAO{
     func _insert(adresse: String, date: Date, nom: String, prenom: String, telephone: String) -> Bool {
         let newRdv = NSEntityDescription.insertNewObject(forEntityName: "RDV", into: CoreDataDAO.context) as! RDV
         newRdv.adresse = adresse
-        newRdv.date = date as NSDate
+        newRdv.date = date
         newRdv.nom = nom
         newRdv.prenom = prenom
         newRdv.telephone = telephone
@@ -124,7 +124,7 @@ class CoreDataRdvDAO:RdvDAO{
     
     func _addAlarme(date: Date) {
         let newAlarme = NSEntityDescription.insertNewObject(forEntityName: "AlarmeRDV", into: CoreDataDAO.context) as! AlarmeRDV
-        newAlarme.date = date as NSDate
+        newAlarme.date = date
         newAlarme.associer = instanceCoreData
         do{
             try CoreDataDAO.context.save()

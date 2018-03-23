@@ -123,7 +123,7 @@ class CoreDataActiviteDAO : ActiviteDAO{
     
     func _addAlarme(date: Date) {
         let newAlarme = NSEntityDescription.insertNewObject(forEntityName: "AlarmeActivite", into: CoreDataDAO.context) as! AlarmeActivite
-        newAlarme.date = date as NSDate
+        newAlarme.date = date
         newAlarme.concerner = instanceCoreData
         do{
             try CoreDataDAO.context.save()

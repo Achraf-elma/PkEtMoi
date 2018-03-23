@@ -103,7 +103,7 @@ class CoreDataMedicamentDAO : MedicamentDAO{
     
     func _addAlarme(date: Date) {
         let newAlarme = NSEntityDescription.insertNewObject(forEntityName: "AlarmeMedicament", into: CoreDataDAO.context) as! AlarmeMedicament
-        newAlarme.date = date as NSDate
+        newAlarme.date = date
         newAlarme.correspondre = instanceCoreData
         do{
             try CoreDataDAO.context.save()
