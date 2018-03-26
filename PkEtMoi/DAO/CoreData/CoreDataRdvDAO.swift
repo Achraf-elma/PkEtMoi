@@ -38,13 +38,23 @@ class CoreDataRdvDAO:RdvDAO{
         return result
     }
     
-    func _insert(adresse: String, date: Date, nom: String, prenom: String, telephone: String) -> Bool {
+    func _getType() -> String? {
+        return instanceCoreData?.type
+    }
+    
+    func _setType(forname: String) {
+        instanceCoreData?.type = forname
+    }
+    
+    
+    func _insert(adresse: String, date: Date, nom: String, prenom: String, telephone: String,type:String) -> Bool {
         let newRdv = NSEntityDescription.insertNewObject(forEntityName: "RDV", into: CoreDataDAO.context) as! RDV
         newRdv.adresse = adresse
         newRdv.date = date
         newRdv.nom = nom
         newRdv.prenom = prenom
         newRdv.telephone = telephone
+        newRdv.type = type
         do{
             try CoreDataDAO.context.save()
             self.instanceCoreData = newRdv
@@ -117,7 +127,19 @@ class CoreDataRdvDAO:RdvDAO{
         var alarme = instanceCoreData?.associer?.allObjects as! [AlarmeRDV]
         alarme = alarme.sorted(by: { $0.date?.compare($1.date! as Date) == .orderedAscending})
         for a in alarme {
-            result.insert(alarme: AlarmeModel(alarme: CoreDataAlarmeDAO(alarme:a)))
+            let interval = a.date?.timeIntervalSince(Date())
+            if(interval?.isLessThanOrEqualTo(0))!{
+                do{
+                    CoreDataDAO.context.delete(a)
+                    try CoreDataDAO.context.save()
+                }
+                catch let error as NSError{
+                    print(error)
+                }
+            }
+            else{
+                result.insert(alarme: AlarmeModel(alarme: CoreDataAlarmeDAO(alarme:a)))
+            }
         }
         return result
     }
@@ -154,8 +176,8 @@ class CoreDataRdvDAO:RdvDAO{
         return instanceCoreData?.peutAvoir
     }
     
-    func _setSynthese(debut:Int16,fin:Int16,etat:[Etat]) {
-        
+    func _setSynthese(synthese:Synthese) {
+        instanceCoreData?.peutAvoir = synthese
     }
     
     func _getMedecin() -> Medecin? {
@@ -164,5 +186,24 @@ class CoreDataRdvDAO:RdvDAO{
     
     func _setMedecin(nom:String,prenom:String,adresse:String,telephone:Int32,specialite:Specialite) {
         
+    }
+    
+    func _getNextNeurologueRdv()->RdvModel?{
+        var rdv  = [RDV]()
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "RDV")
+        do{
+            try rdv = CoreDataDAO.context.fetch(fetchRequest) as! [RDV]
+        }
+        catch let error as NSError{
+            print(error)
+            return nil
+        }
+        for r in rdv {
+            if r.type == "Neurologue"{
+                return RdvModel(rdv: CoreDataRdvDAO(rdv:r))
+            }
+        }
+        return nil
     }
 }

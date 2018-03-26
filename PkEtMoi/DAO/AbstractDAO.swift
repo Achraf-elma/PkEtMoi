@@ -41,4 +41,16 @@ class AbstractDAO: NSObject {
     func _getAlarmeDAO()->AlarmeDAO?{
         fatalError(#function + "Must be overridden");
     }
+    
+    func _getEtatDAO()->EtatDAO?{
+        fatalError(#function + "Must be overridden");
+    }
+    
+    func _getSyntheseDAO()->SyntheseDAO?{
+        fatalError(#function + "Must be overridden");
+    }
+    
+    func _getSpecialiteDAO()->SpecialiteDAO?{
+        fatalError(#function + "Must be overridden");
+    }
 }

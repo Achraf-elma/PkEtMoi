@@ -32,4 +32,15 @@ class CoreDataDAO : AbstractDAO{
         return CoreDataAlarmeDAO()
     }
     
+    override func _getEtatDAO()->EtatDAO?{
+        return CoreDataEtatDAO()
+    }
+    
+    override func _getSyntheseDAO()->SyntheseDAO?{
+        return CoreDataSyntheseDAO()
+    }
+    
+    override func _getSpecialiteDAO()->SpecialiteDAO?{
+        return CoreDataSpecialiteDAO()
+    }
 }

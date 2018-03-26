@@ -40,10 +40,15 @@ class CoreDataMedicamentDAO : MedicamentDAO{
         return result
     }
     
-    func _insertMedicament(nom:String,description:String)->Bool    {
+    func _insertMedicament(nom:String,description:String,dosage:[Int])->Bool    {
         let newMedicament = NSEntityDescription.insertNewObject(forEntityName: "Medicament", into: CoreDataDAO.context) as! Medicament
         newMedicament.nom = nom
         newMedicament.presentation = description
+        for dose in dosage {
+            let newDose = NSEntityDescription.insertNewObject(forEntityName: "Dosage", into: CoreDataDAO.context) as! Dosage
+            newDose.dose = Int16(dose)
+            newDose.contenir = newMedicament
+        }
         do{
             try CoreDataDAO.context.save()
             self.instanceCoreData = newMedicament
@@ -83,11 +88,16 @@ class CoreDataMedicamentDAO : MedicamentDAO{
         
     }
     
-    func _getDoses() -> [DosesModel]? {
-        return instanceCoreData?.contenir?.allObjects as? [DosesModel]
+    func _getDoses() -> [Int] {
+        var doses = instanceCoreData?.contenir?.allObjects as? [Dosage]
+        var result = [Int]()
+        for dose in doses! {
+            result.append(Int(dose.dose))
+        }
+        return result
     }
     
-    func _setDoses(forname: [DosesModel]) {
+    func _setDoses(forname: [Int]) {
         
     }
     
@@ -96,7 +106,19 @@ class CoreDataMedicamentDAO : MedicamentDAO{
         var alarme = instanceCoreData?.correspondre?.allObjects as! [AlarmeMedicament]
         alarme = alarme.sorted(by: { $0.date?.compare($1.date! as Date) == .orderedAscending})
         for a in alarme {
-            result.insert(alarme: AlarmeModel(alarme: CoreDataAlarmeDAO(alarme:a)))
+            let interval = a.date?.timeIntervalSince(Date())
+            if(interval?.isLessThanOrEqualTo(0))!{
+                do{
+                    CoreDataDAO.context.delete(a)
+                    try CoreDataDAO.context.save()
+                }
+                catch let error as NSError{
+                    print(error)
+                }
+            }
+            else{
+                result.insert(alarme: AlarmeModel(alarme: CoreDataAlarmeDAO(alarme:a)))
+            }
         }
         return result
     }

@@ -61,9 +61,21 @@ class RdvModel:EventModel{
         }
     }
     
+    var synthese : Synthese?{
+        get{
+            return dao._getSynthese()
+        }
+        set{
+            dao._setSynthese(synthese: newValue as! Synthese)
+        }
+    }
+    
     var type:String?{
         get{
-            return dao._getMedecin()?.exercer?.nom
+            return dao._getType()
+        }
+        set{
+            dao._setType(forname:newValue as! String)
         }
     }
     
@@ -83,9 +95,9 @@ class RdvModel:EventModel{
         return firstname! + " " + lastname! + dateFormatter.string(from: date!)
     }
     
-    init(firstname:String,lastname:String,adresse:String,date:Date,telephone:String){
+    init(firstname:String,lastname:String,adresse:String,date:Date,telephone:String,type:String){
         dao = (AbstractDAO.getDAO()?._getRdvDAO()!)!
-        dao._insert(adresse: adresse, date: date, nom: lastname, prenom: firstname, telephone: telephone)
+        dao._insert(adresse: adresse, date: date, nom: lastname, prenom: firstname, telephone: telephone,type:type)
     }
     
     @discardableResult  func delete() ->Bool{

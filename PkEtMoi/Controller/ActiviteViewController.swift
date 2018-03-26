@@ -17,6 +17,10 @@ class ActiviteViewController: UIViewController,UITableViewDataSource, UITableVie
     @IBOutlet weak var activiteTable: UITableView!
 
     
+    @IBAction func ajoutActivite(_ sender: UIButton) {
+        let myVC = storyboard?.instantiateViewController(withIdentifier: "ajoutActivite") as! AjoutActiviteViewController
+        navigationController?.pushViewController(myVC, animated: true)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.eventSet = EventSet(activiteSet:(AbstractDAO.getDAO()?._getActiviteDAO()?._getAll())!)

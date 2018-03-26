@@ -14,6 +14,10 @@ class RdvViewController: UIViewController,UITableViewDataSource, UITableViewDele
     
     var eventSet : EventSet? = nil
     
+    @IBAction func ajoutRdv(_ sender: UIButton) {
+        let myVC = storyboard?.instantiateViewController(withIdentifier: "ajoutRdv") as! AjoutRdvViewController
+        navigationController?.pushViewController(myVC, animated: true)
+    }
     @IBOutlet weak var rdvTable: UITableView!
     
     override func viewDidLoad() {

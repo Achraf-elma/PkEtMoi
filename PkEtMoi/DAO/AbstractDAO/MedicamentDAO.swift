@@ -11,7 +11,7 @@ protocol MedicamentDAO {
 
     func _getAll()-> MedicamentSet?
     
-    @discardableResult func _insertMedicament(nom:String,description:String)->Bool
+    @discardableResult func _insertMedicament(nom:String,description:String,dosage:[Int])->Bool
     @discardableResult func _deleteMedicament()->Bool
     
     func _getName()->String?
@@ -21,8 +21,8 @@ protocol MedicamentDAO {
     func _setDescription(forname:String)
 
     
-    func _getDoses()->[DosesModel]?
-    func _setDoses(forname:[DosesModel])
+    func _getDoses()->[Int]
+    func _setDoses(forname:[Int])
     
     func _getAlarmes()->AlarmeSet?
     func _addAlarme(date:Date)

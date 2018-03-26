@@ -16,6 +16,12 @@ class MedicamentViewController: UIViewController,UITableViewDataSource, UITableV
     
     @IBOutlet weak var medicamentTable: UITableView!
     
+
+    @IBAction func ajoutMedicamentd(_ sender: UIButton) {
+        let myVC = storyboard?.instantiateViewController(withIdentifier: "ajoutMedicament") as! AjoutMedicamentViewController
+        navigationController?.pushViewController(myVC, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.eventSet = EventSet(medicamentSet:(AbstractDAO.getDAO()?._getMedicamentDAO()?._getAll()))
@@ -44,7 +50,7 @@ class MedicamentViewController: UIViewController,UITableViewDataSource, UITableV
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
 
             let myVC = storyboard.instantiateViewController(withIdentifier: "detailMedicament") as! DetailMedicamentViewController
-        myVC.medicament = eventSet?.get(i: indexPath.row) as? MedicamentModel
+        myVC.medicament = (eventSet?.get(i: indexPath.row) as? MedicamentModel)!
             navigationController?.pushViewController(myVC, animated: true)
     }
     

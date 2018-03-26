@@ -20,13 +20,13 @@
     </entity>
     <entity name="Dosage" representedClassName="Dosage" syncable="YES" codeGenerationType="class">
         <attribute name="dose" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="contenir" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Medicament" inverseName="contenir" inverseEntity="Medicament" syncable="YES"/>
+        <relationship name="contenir" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Medicament" inverseName="contenir" inverseEntity="Medicament" syncable="YES"/>
     </entity>
     <entity name="Etat" representedClassName="Etat" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="evenementParticulier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="reponseEtat" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="renseigner" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Synthese" inverseName="renseigner" inverseEntity="Synthese" syncable="YES"/>
+        <relationship name="renseigner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Synthese" inverseName="renseigner" inverseEntity="Synthese" syncable="YES"/>
     </entity>
     <entity name="Medecin" representedClassName="Medecin" syncable="YES" codeGenerationType="class">
         <attribute name="adresse" optional="YES" attributeType="String" syncable="YES"/>
@@ -48,6 +48,7 @@
         <attribute name="nom" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="prenom" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="telephone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="associer" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="AlarmeRDV" inverseName="associer" inverseEntity="AlarmeRDV" syncable="YES"/>
         <relationship name="peutAvoir" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Synthese" inverseName="correspond" inverseEntity="Synthese" syncable="YES"/>
         <relationship name="planifier" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Medecin" inverseName="planifier" inverseEntity="Medecin" syncable="YES"/>
@@ -57,6 +58,7 @@
         <relationship name="exercer" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Medecin" inverseName="exercer" inverseEntity="Medecin" syncable="YES"/>
     </entity>
     <entity name="Synthese" representedClassName="Synthese" syncable="YES" codeGenerationType="class">
+        <attribute name="archive" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="debutPlageHoraire" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="finPlageHoraire" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="correspond" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RDV" inverseName="peutAvoir" inverseEntity="RDV" syncable="YES"/>
@@ -69,11 +71,11 @@
         <element name="AlarmeMedicament" positionX="133" positionY="-153" width="128" height="58"/>
         <element name="AlarmeRDV" positionX="360" positionY="-156" width="128" height="58"/>
         <element name="Dosage" positionX="108" positionY="221" width="128" height="73"/>
-        <element name="Etat" positionX="360" positionY="491" width="128" height="103"/>
+        <element name="Etat" positionX="360" positionY="491" width="128" height="105"/>
         <element name="Medecin" positionX="585" positionY="12" width="128" height="135"/>
         <element name="Medicament" positionX="124" positionY="5" width="128" height="103"/>
-        <element name="RDV" positionX="369" positionY="3" width="128" height="165"/>
+        <element name="RDV" positionX="369" positionY="3" width="128" height="180"/>
         <element name="Specialite" positionX="610" positionY="260" width="128" height="73"/>
-        <element name="Synthese" positionX="322" positionY="270" width="128" height="103"/>
+        <element name="Synthese" positionX="322" positionY="270" width="128" height="120"/>
     </elements>
 </model>

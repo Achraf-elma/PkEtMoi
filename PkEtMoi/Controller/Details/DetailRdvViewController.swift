@@ -12,6 +12,7 @@ class DetailRdvViewController: UIViewController,UITableViewDataSource, UITableVi
     
     func pass(nom:String,date: Date) {
         rdv?.addAlarme(date: date)
+        AppDelegate.notification.addNotification(title: "Rdv", body: (rdv?.fullname)!, date: date, identifier: "rdv" + DateHandler.toString(date: date))
         alarmeTable.reloadData()
     }
     
@@ -37,6 +38,7 @@ class DetailRdvViewController: UIViewController,UITableViewDataSource, UITableVi
         self.date.text = rdv?.getDateString()
         self.type.text = rdv!.type
         self.telephone.text = rdv?.telephone
+        self.type.text = rdv?.type
         alarmeTable.delegate = self
         alarmeTable.dataSource = self
         // Do any additional setup after loading the view.
@@ -68,7 +70,9 @@ class DetailRdvViewController: UIViewController,UITableViewDataSource, UITableVi
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {
-            self.rdv?.deleteAlarme(date:(self.rdv?.alarmes.get(i: indexPath.row)?.date)!)
+            var date = (self.rdv?.alarmes.get(i: indexPath.row)?.date)!
+            AppDelegate.notification.removeNotification(identifier: ["rdv"+DateHandler.toString(date: date)])
+            self.rdv?.deleteAlarme(date:date)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }

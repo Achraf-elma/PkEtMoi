@@ -81,8 +81,20 @@ class CoreDataAlarmeDAO : AlarmeDAO{
         alarme = alarme.sorted(by: { $0.date?.compare($1.date! as Date) == .orderedAscending})
         let result = AlarmeSet()
         for a in alarme {
-            if(Calendar.current.isDate(a.date! as Date, inSameDayAs:date)){
-                result.insert(alarme: AlarmeModel(alarme: CoreDataAlarmeDAO(alarme:a)))
+            let interval = a.date?.timeIntervalSince(Date())
+            if(interval?.isLessThanOrEqualTo(0))!{
+                do{
+                    CoreDataDAO.context.delete(a)
+                    try CoreDataDAO.context.save()
+                }
+                catch let error as NSError{
+                    print(error)
+                }
+            }
+            else{
+                if(Calendar.current.isDate(a.date! as Date, inSameDayAs:date)){
+                    result.insert(alarme: AlarmeModel(alarme: CoreDataAlarmeDAO(alarme:a)))
+                }
             }
         }
         return result

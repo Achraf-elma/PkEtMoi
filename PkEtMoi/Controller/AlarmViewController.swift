@@ -25,11 +25,13 @@ class AlarmViewController: UIViewController{
     }
     
     @IBAction func validate(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        if(self.datePicker.date.timeIntervalSince(Date()) > 0){
+            self.navigationController?.popViewController(animated: true)
+        }
     }
 
     override func viewWillDisappear(_ animated: Bool) {
-        self.delegate?.pass(nom:"dummy",date: self.datePicker.date)
+        self.delegate?.pass(nom:"alarme",date: self.datePicker.date)
     }
 
 }

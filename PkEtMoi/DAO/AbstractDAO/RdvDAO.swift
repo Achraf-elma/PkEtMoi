@@ -10,7 +10,7 @@ import Foundation
 protocol RdvDAO{
     
     func _getAll() -> RdvSet?
-    @discardableResult func _insert(adresse:String,date:Date,nom:String,prenom:String,telephone:String)->Bool
+    @discardableResult func _insert(adresse:String,date:Date,nom:String,prenom:String,telephone:String,type:String)->Bool
     @discardableResult func _delete()->Bool
     @discardableResult func _update(rdv : RdvModel)->RdvModel?
     
@@ -22,6 +22,9 @@ protocol RdvDAO{
     
     func _getPhone()->String?
     func _setPhone(forname:String)
+
+    func _getType()->String?
+    func _setType(forname:String)
     
     func _getAdresse()->String?
     func _setAdresse(forname:String)
@@ -34,9 +37,9 @@ protocol RdvDAO{
     func _deleteAlarme(date:Date)
     
     func _getSynthese()->Synthese?
-    func _setSynthese(debut:Int16,fin:Int16,etat:[Etat])
+    func _setSynthese(synthese:Synthese)
     
     func _getMedecin()->Medecin?
     func _setMedecin(nom:String,prenom:String,adresse:String,telephone:Int32,specialite:Specialite)
- 
+    func _getNextNeurologueRdv()->RdvModel?
 }

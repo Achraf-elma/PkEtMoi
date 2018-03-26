@@ -12,10 +12,6 @@ import UserNotifications
 
 class ResumeViewController: UIViewController,UITableViewDataSource, UITableViewDelegate{
     
-    func pass(data: String) {
-        print(data)
-    }
-    
     @IBOutlet weak var resumeTable: UITableView!
     @IBOutlet weak var dateLabel: UILabel!
     
@@ -51,9 +47,29 @@ class ResumeViewController: UIViewController,UITableViewDataSource, UITableViewD
                     print("Something went wrong")
                 }
             }
+            
+            SpecialiteModel(nom:"Kinésithérapeute")
+            SpecialiteModel(nom:"Orthophoniste")
+            SpecialiteModel(nom:"Infirmier")
+            SpecialiteModel(nom:"Psychologue clinicien")
+            SpecialiteModel(nom:"Neuropsychologue")
+            SpecialiteModel(nom:"Neurologue")
+            SpecialiteModel(nom:"Ergothérapeute")
+            SpecialiteModel(nom:"Psychomotricien")
+            SpecialiteModel(nom:"Pédicure-podologue")
+            SpecialiteModel(nom:"Diététicien(ne)")
+            SpecialiteModel(nom:"Orthoptiste")
+            SpecialiteModel(nom:"Medecin generaliste")
+            
             ActiviteModel(nom: "Musculation", niveau: 0, experience: 0)
-            MedicamentModel(nom: "CoDoliprane", description: "Pour la tete").addAlarme(date: Date())
-            RdvModel(firstname: "Fabrice", lastname: "Monique", adresse: "68 rue dupone", date: Date(), telephone: "09837293")
+            MedicamentModel(nom: "CoDoliprane", description: "Pour la tete",dosage:[32,63]).addAlarme(date: Date())
+            var currentDate : Date = Date()
+            let rdv = RdvModel(firstname: "Fabrice", lastname: "Monique", adresse: "68 rue dupone", date: currentDate, telephone: "09837293",type:"Neurologue")
+            let synthese = SyntheseModel(debut: 7, fin: 18, rdv: rdv)
+            for index in 1...5 {
+                currentDate = currentDate.addingTimeInterval(-86400)
+                synthese.addEtat(date: currentDate, event: String(index), result: "ON")
+            }
             UserDefaults.standard.set(true, forKey: "launchedBefore")
         }
         alarmeSet = (AbstractDAO.getDAO()?._getAlarmeDAO()?._getAlarmes(date: date.date))!
@@ -73,13 +89,34 @@ class ResumeViewController: UIViewController,UITableViewDataSource, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.resumeTable.dequeueReusableCell(withIdentifier: "resumeCell", for: indexPath) as! ResumeTableViewCell
-        cell.labelCell.text = self.alarmeSet.get(i: indexPath.row)?.getLabel()
+        var type : String = ""
+        if (self.alarmeSet.get(i: indexPath.row)?.isRdvAlarme())! {
+            type = "RDV "
+        }
+        else if (self.alarmeSet.get(i: indexPath.row)?.isMedicamentAlarme())!{
+            type = "Medicament "
+        }
+        else{
+            type = "Activite "
+        }
+        cell.labelCell.text = type + (self.alarmeSet.get(i: indexPath.row)?.getLabel())!
         return cell
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {
+            var type : String = ""
+            if (self.alarmeSet.get(i: indexPath.row)?.isRdvAlarme())! {
+                type = "rdv"
+            }
+            else if (self.alarmeSet.get(i: indexPath.row)?.isMedicamentAlarme())!{
+                type = "medicament"
+            }
+            else{
+                type = "activite"
+            }
+            AppDelegate.notification.removeNotification(identifier: [type+DateHandler.toString(date: (self.alarmeSet.get(i: indexPath.row)?.date)!)])
             alarmeSet.delete(alarme: alarmeSet.get(i: indexPath.row)!)
             tableView.deleteRows(at: [indexPath], with: .fade)
             

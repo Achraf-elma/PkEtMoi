@@ -40,14 +40,20 @@ class DateHandler{
         return currentDate
     }
     
-    func toStringDay(date:Date) -> String{
+    func toStringDay() -> String{
         dateFormatter.dateFormat = "MMM dd, yyyy"
         return currentDate
     }
     
-    func toStringHour(date:Date) -> String{
+    func toStringHour() -> String{
         dateFormatter.dateFormat = "HH:mm"
         return currentDate
+    }
+    
+    static func toString(date:Date)->String{
+        var formatter = DateFormatter()
+        formatter.dateFormat = "MMM dd, yyyy HH:mm"
+        return formatter.string(from: date)
     }
     
 }

@@ -11,6 +11,10 @@ class MedicamentModel:EventModel{
     
     var dao : MedicamentDAO
     
+    init(){
+        dao = (AbstractDAO.getDAO()?._getMedicamentDAO()!)!
+    }
+    
     var nom :String?{
         get{
             return dao._getName()
@@ -29,12 +33,12 @@ class MedicamentModel:EventModel{
         }
     }
     
-    var doses :[DosesModel]?{
+    var doses :[Int]{
         get{
             return dao._getDoses()
         }
         set{
-            dao._setDoses(forname : newValue!)
+            dao._setDoses(forname : newValue)
         }
     }
     
@@ -52,9 +56,9 @@ class MedicamentModel:EventModel{
         return nom
     }
     
-    init(nom:String, description:String){
+    init(nom:String, description:String,dosage:[Int]){
         dao = (AbstractDAO.getDAO()?._getMedicamentDAO()!)!
-        dao._insertMedicament(nom:nom, description:description)
+        dao._insertMedicament(nom:nom, description:description,dosage:dosage)
     }
     
     @discardableResult  func delete() ->Bool{
@@ -66,6 +70,7 @@ class MedicamentModel:EventModel{
     }
     
     func deleteAlarme(date:Date){
+        
         dao._deleteAlarme(date: date)
     }
     

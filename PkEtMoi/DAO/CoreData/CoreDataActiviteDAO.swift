@@ -116,7 +116,19 @@ class CoreDataActiviteDAO : ActiviteDAO{
         var alarme = instanceCoreData?.concerner?.allObjects as! [AlarmeActivite]
         alarme = alarme.sorted(by: { $0.date?.compare($1.date! as Date) == .orderedAscending})
         for a in alarme {
-            result.insert(alarme: AlarmeModel(alarme: CoreDataAlarmeDAO(alarme:a)))
+            let interval = a.date?.timeIntervalSince(Date())
+            if(interval?.isLessThanOrEqualTo(0))!{
+                do{
+                    CoreDataDAO.context.delete(a)
+                    try CoreDataDAO.context.save()
+                }
+                catch let error as NSError{
+                    print(error)
+                }
+            }
+            else{
+                result.insert(alarme: AlarmeModel(alarme: CoreDataAlarmeDAO(alarme:a)))
+            }
         }
         return result
     }
