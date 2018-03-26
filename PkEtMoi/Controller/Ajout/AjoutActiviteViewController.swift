@@ -10,6 +10,15 @@ import UIKit
 
 class AjoutActiviteViewController: UIViewController {
 
+    @IBOutlet weak var nomActivitéTF: UITextField!
+    var nouvelleActivite : ActiviteModel?
+    
+    @IBAction func ajoutActivite(_ sender: UIButton) {
+        if nomActivitéTF.text != nil{
+            nouvelleActivite=ActiviteModel(nom:nomActivitéTF.text!,niveau:0,experience:0)
+        self.navigationController?.popViewController(animated: true)
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 

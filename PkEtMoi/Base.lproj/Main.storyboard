@@ -525,6 +525,10 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="2gd-yl-rve" secondAttribute="height" multiplier="375:71" id="teS-GR-Anp"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="cy0-qY-vGE" id="08I-GK-iWm"/>
+                                    <outlet property="delegate" destination="cy0-qY-vGE" id="dlS-Cg-HJN"/>
+                                </connections>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prénom :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hlG-Vv-GUN">
                                 <rect key="frame" x="151.5" y="149" width="72" height="21"/>
@@ -542,6 +546,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Ajouter RDV"/>
+                                <connections>
+                                    <action selector="ajoutRDV:" destination="cy0-qY-vGE" eventType="touchUpInside" id="nj7-YU-08I"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lm2-MY-Vc1">
                                 <rect key="frame" x="66" y="175" width="243" height="30"/>
@@ -607,6 +614,14 @@
                     <navigationItem key="navigationItem" title="Ajout RDV" id="x3P-E8-6i6">
                         <barButtonItem key="rightBarButtonItem" title="Ajout état" id="egP-ZK-PGq"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="adresse" destination="LKH-dV-xnn" id="oUz-CF-c3P"/>
+                        <outlet property="date" destination="T5W-x1-GLq" id="ctJ-sH-BG2"/>
+                        <outlet property="nom" destination="mSQ-zZ-1fc" id="Hg0-fo-sqw"/>
+                        <outlet property="prenom" destination="lm2-MY-Vc1" id="xIL-yH-TcZ"/>
+                        <outlet property="specialite" destination="2gd-yl-rve" id="MUH-Mq-Z1B"/>
+                        <outlet property="telephone" destination="MEM-Ba-eWG" id="TWl-Ue-KYw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dFM-AL-3k8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2080,6 +2095,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Ajouter activité"/>
+                                <connections>
+                                    <action selector="ajoutActivite:" destination="mbi-n2-zWQ" eventType="touchUpInside" id="YbK-3j-lnP"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2098,6 +2116,9 @@
                     <navigationItem key="navigationItem" title="Ajout Activité" id="pTG-hR-bcX">
                         <barButtonItem key="rightBarButtonItem" title="Ajout état" id="Nud-ya-Egv"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="nomActivitéTF" destination="DKw-1i-qzF" id="qD3-6z-4yf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q83-89-cC1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

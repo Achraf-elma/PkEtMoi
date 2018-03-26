@@ -27,6 +27,11 @@ class RdvViewController: UIViewController,UITableViewDataSource, UITableViewDele
         rdvTable?.dataSource = self
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        self.eventSet = EventSet(rdvSet:(AbstractDAO.getDAO()?._getRdvDAO()?._getAll())!)
+        rdvTable.reloadData()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

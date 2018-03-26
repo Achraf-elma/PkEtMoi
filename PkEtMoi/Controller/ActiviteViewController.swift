@@ -21,6 +21,12 @@ class ActiviteViewController: UIViewController,UITableViewDataSource, UITableVie
         let myVC = storyboard?.instantiateViewController(withIdentifier: "ajoutActivite") as! AjoutActiviteViewController
         navigationController?.pushViewController(myVC, animated: true)
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.eventSet = EventSet(activiteSet:(AbstractDAO.getDAO()?._getActiviteDAO()?._getAll())!)
+        activiteTable.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.eventSet = EventSet(activiteSet:(AbstractDAO.getDAO()?._getActiviteDAO()?._getAll())!)
