@@ -12,5 +12,6 @@ protocol SpecialiteDAO{
     func _getNom()->String
     func _setNom(nom:String)
     func _getAll()->SpecialiteSet
+
     
 }

@@ -14,6 +14,12 @@ class RdvViewController: UIViewController,UITableViewDataSource, UITableViewDele
     
     var eventSet : EventSet? = nil
     
+    @IBOutlet weak var ajoutEtatOutlet: UIBarButtonItem!
+    @IBAction func ajoutEtat(_ sender: UIBarButtonItem) {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let myVC = storyboard.instantiateViewController(withIdentifier: "etat") as! EtatViewController
+        navigationController?.pushViewController(myVC, animated: true)
+    }
     @IBAction func ajoutRdv(_ sender: UIButton) {
         let myVC = storyboard?.instantiateViewController(withIdentifier: "ajoutRdv") as! AjoutRdvViewController
         navigationController?.pushViewController(myVC, animated: true)
@@ -22,12 +28,24 @@ class RdvViewController: UIViewController,UITableViewDataSource, UITableViewDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if !(AbstractDAO.getDAO()?._getSyntheseDAO()?._shouldSyntheseBeFilled())! {
+            ajoutEtatOutlet.isEnabled = false
+        }
+        else{
+            ajoutEtatOutlet.isEnabled = true
+        }
         self.eventSet = EventSet(rdvSet:(AbstractDAO.getDAO()?._getRdvDAO()?._getAll())!)
         rdvTable?.delegate = self
         rdvTable?.dataSource = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        if !(AbstractDAO.getDAO()?._getSyntheseDAO()?._shouldSyntheseBeFilled())! {
+            ajoutEtatOutlet.isEnabled = false
+        }
+        else{
+            ajoutEtatOutlet.isEnabled = true
+        }
         self.eventSet = EventSet(rdvSet:(AbstractDAO.getDAO()?._getRdvDAO()?._getAll())!)
         rdvTable.reloadData()
     }

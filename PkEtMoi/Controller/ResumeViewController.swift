@@ -18,6 +18,12 @@ class ResumeViewController: UIViewController,UITableViewDataSource, UITableViewD
     var date :DateHandler = DateHandler()
     var alarmeSet : AlarmeSet = (AbstractDAO.getDAO()!._getAlarmeDAO()?._getAllAlarmes())!
 
+    @IBOutlet weak var ajouEtatOutlet: UIBarButtonItem!
+    @IBAction func ajoutEtat(_ sender: UIBarButtonItem) {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let myVC = storyboard.instantiateViewController(withIdentifier: "etat") as! EtatViewController
+        navigationController?.pushViewController(myVC, animated: true)
+    }
     
     @IBAction func nextDay(_ sender: UIButton) {
         dateLabel.text = date.nextDay()
@@ -25,12 +31,20 @@ class ResumeViewController: UIViewController,UITableViewDataSource, UITableViewD
         resumeTable.reloadData()
     }
     @IBAction func previousDay(_ sender: UIButton) {
-        dateLabel.text = date.previousDay()
-        alarmeSet = (AbstractDAO.getDAO()?._getAlarmeDAO()?._getAlarmes(date: date.date))!
-        resumeTable.reloadData()
+        if !Calendar.current.isDate(date.date as Date, inSameDayAs:Date()){
+            dateLabel.text = date.previousDay()
+            alarmeSet = (AbstractDAO.getDAO()?._getAlarmeDAO()?._getAlarmes(date: date.date))!
+            resumeTable.reloadData()
+        }
     }
    
     override func viewDidAppear(_ animated: Bool) {
+        if !(AbstractDAO.getDAO()?._getSyntheseDAO()?._shouldSyntheseBeFilled())! {
+            ajouEtatOutlet.isEnabled = false
+        }
+        else{
+            ajouEtatOutlet.isEnabled = true
+        }
         alarmeSet = (AbstractDAO.getDAO()?._getAlarmeDAO()?._getAlarmes(date: date.date))!
         resumeTable.reloadData()
     }
@@ -64,13 +78,22 @@ class ResumeViewController: UIViewController,UITableViewDataSource, UITableViewD
             ActiviteModel(nom: "Musculation", niveau: 0, experience: 0)
             MedicamentModel(nom: "CoDoliprane", description: "Pour la tete",dosage:[32,63]).addAlarme(date: Date())
             var currentDate : Date = Date()
+            for index in 1...5 {
+                currentDate = currentDate.addingTimeInterval(86400)
+            }
             let rdv = RdvModel(firstname: "Fabrice", lastname: "Monique", adresse: "68 rue dupone", date: currentDate, telephone: "09837293",type:"Neurologue")
             let synthese = SyntheseModel(debut: 7, fin: 18, rdv: rdv)
             for index in 1...5 {
                 currentDate = currentDate.addingTimeInterval(-86400)
-                synthese.addEtat(date: currentDate, event: String(index), result: "ON")
+                synthese.addEtat(date: currentDate, result: "ON")
             }
             UserDefaults.standard.set(true, forKey: "launchedBefore")
+        }
+        if !(AbstractDAO.getDAO()?._getSyntheseDAO()?._shouldSyntheseBeFilled())! {
+            ajouEtatOutlet.isEnabled = false
+        }
+        else{
+            ajouEtatOutlet.isEnabled = true
         }
         alarmeSet = (AbstractDAO.getDAO()?._getAlarmeDAO()?._getAlarmes(date: date.date))!
         dateLabel.text = date.currentDate
@@ -92,12 +115,15 @@ class ResumeViewController: UIViewController,UITableViewDataSource, UITableViewD
         var type : String = ""
         if (self.alarmeSet.get(i: indexPath.row)?.isRdvAlarme())! {
             type = "RDV "
+            cell.backgroundColor = UIColor.red
         }
         else if (self.alarmeSet.get(i: indexPath.row)?.isMedicamentAlarme())!{
             type = "Medicament "
+            cell.backgroundColor = UIColor.green
         }
         else{
             type = "Activite "
+            cell.backgroundColor = UIColor.yellow
         }
         cell.labelCell.text = type + (self.alarmeSet.get(i: indexPath.row)?.getLabel())!
         return cell

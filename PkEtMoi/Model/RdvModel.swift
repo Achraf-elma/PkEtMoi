@@ -92,7 +92,7 @@ class RdvModel:EventModel{
     func getLabel() -> String? {
         let dateFormatter  = DateFormatter()
         dateFormatter.dateFormat = "MMM dd, yyyy HH:mm"
-        return firstname! + " " + lastname! + dateFormatter.string(from: date!)
+        return firstname! + " " + lastname! + " " + dateFormatter.string(from: date!)
     }
     
     init(firstname:String,lastname:String,adresse:String,date:Date,telephone:String,type:String){

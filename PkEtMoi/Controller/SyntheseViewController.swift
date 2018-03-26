@@ -16,6 +16,12 @@ class SyntheseViewController: UIViewController,UITableViewDataSource, UITableVie
     
     @IBOutlet weak var etatTable: UITableView!
     
+    @IBOutlet weak var ajoutEtatOutlet: UIBarButtonItem!
+    @IBAction func ajoutEtat(_ sender: UIBarButtonItem) {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let myVC = storyboard.instantiateViewController(withIdentifier: "etat") as! EtatViewController
+        navigationController?.pushViewController(myVC, animated: true)
+    }
     @IBOutlet weak var jourLabel: UILabel!
     var currentDay : Int16 = 1
     var currentDate : Date? = nil
@@ -53,6 +59,12 @@ class SyntheseViewController: UIViewController,UITableViewDataSource, UITableVie
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        if !(AbstractDAO.getDAO()?._getSyntheseDAO()?._shouldSyntheseBeFilled())! {
+            ajoutEtatOutlet.isEnabled = false
+        }
+        else{
+            ajoutEtatOutlet.isEnabled = true
+        }
         synthese = AbstractDAO.getDAO()?._getSyntheseDAO()?._getCurrentSynthese()
         if synthese == nil{
             let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
@@ -60,7 +72,8 @@ class SyntheseViewController: UIViewController,UITableViewDataSource, UITableVie
             let myVC = storyboard.instantiateViewController(withIdentifier: "ancienSynthese") as! AncienSyntheseViewController
             myVC.navigationItem.hidesBackButton = true
             self.navigationController?.pushViewController(myVC, animated: false)
-        }else{
+        }
+        else{
             currentDate = synthese?.rdv.date
             for _ in 1...5 {
                 currentDate = currentDate?.addingTimeInterval(-86400)
@@ -74,6 +87,12 @@ class SyntheseViewController: UIViewController,UITableViewDataSource, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if !(AbstractDAO.getDAO()?._getSyntheseDAO()?._shouldSyntheseBeFilled())! {
+            ajoutEtatOutlet.isEnabled = false
+        }
+        else{
+            ajoutEtatOutlet.isEnabled = true
+        }
         jourLabel.text = "Jour " + String(currentDay)
         synthese = AbstractDAO.getDAO()?._getSyntheseDAO()?._getCurrentSynthese()
         if synthese == nil{
@@ -82,7 +101,8 @@ class SyntheseViewController: UIViewController,UITableViewDataSource, UITableVie
             let myVC = storyboard.instantiateViewController(withIdentifier: "ancienSynthese") as! AncienSyntheseViewController
             myVC.navigationItem.hidesBackButton = true
             self.navigationController?.pushViewController(myVC, animated: false)
-        }else{
+        }
+        else{
             currentDate = synthese?.rdv.date
             for _ in 1...5 {
                 currentDate = currentDate?.addingTimeInterval(-86400)
@@ -109,6 +129,13 @@ class SyntheseViewController: UIViewController,UITableViewDataSource, UITableVie
         dateFormatter.dateFormat = "MMM dd, yyyy HH:mm"
         cell.dateLabel.text = dateFormatter.string(from: (self.etatSet?.get(i: indexPath.row)?.date)!)
         cell.etatLabel.text =  self.etatSet?.get(i: indexPath.row)?.reponseEtat
+        if cell.etatLabel.text == "ON"{
+            cell.backgroundColor = UIColor.yellow
+        }else if cell.etatLabel.text == "OFF"{
+            cell.backgroundColor = UIColor.red
+        }else{
+            cell.backgroundColor = UIColor.green
+        }
         return cell
         
     }

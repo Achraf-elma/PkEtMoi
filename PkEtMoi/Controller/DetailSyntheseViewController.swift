@@ -80,14 +80,19 @@ class DetailSyntheseViewController: UIViewController,UITableViewDataSource, UITa
         var currentDate = self.etatSet?.get(i: indexPath.row)?.date
         cell.dateLabel.text = dateFormatter.string(from:currentDate!)
         cell.etatLabel.text =  self.etatSet?.get(i: indexPath.row)?.reponseEtat
+        if cell.etatLabel.text == "ON"{
+            cell.backgroundColor = UIColor.yellow
+        }else if cell.etatLabel.text == "OFF"{
+            cell.backgroundColor = UIColor.red
+        }else{
+            cell.backgroundColor = UIColor.green
+        }
         return cell
         
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //var cell = tableView.cellForRow(at: indexPath)
         tableView.deselectRow(at: indexPath, animated: true)
-
     }
     
 }

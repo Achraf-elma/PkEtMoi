@@ -32,7 +32,9 @@ class RdvSet{
     
     @discardableResult func delete(rdv : RdvModel)->Bool{
         if let i = self.rdv.index(where: {$0.adresse == rdv.adresse}) {
-             self.rdv[i].delete()
+            if rdv.type != "Neurologue"{
+                self.rdv[i].delete()
+            }
             self.rdv.remove(at: i)
             return true
         }

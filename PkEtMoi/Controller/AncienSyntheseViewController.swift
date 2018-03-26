@@ -16,6 +16,13 @@ class AncienSyntheseViewController: UIViewController,UITableViewDataSource, UITa
     
     @IBOutlet weak var syntheseTable: UITableView!
     
+    override func viewDidAppear(_ animated: Bool) {
+        /*var synthese = AbstractDAO.getDAO()?._getSyntheseDAO()?._getCurrentSynthese()
+        if synthese != nil{
+            self.navigationController?.popViewController(animated: true)
+        }*/
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         synthese = AbstractDAO.getDAO()?._getSyntheseDAO()?._getAll()

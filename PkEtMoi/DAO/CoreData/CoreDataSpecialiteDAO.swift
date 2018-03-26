@@ -9,6 +9,7 @@
 import Foundation
 import CoreData
 class CoreDataSpecialiteDAO : SpecialiteDAO{
+  
 
     var instanceCoreData: Specialite? = nil
     

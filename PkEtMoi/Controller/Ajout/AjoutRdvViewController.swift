@@ -24,9 +24,18 @@ class AjoutRdvViewController: UIViewController,UIPickerViewDataSource, UIPickerV
     
     @IBAction func ajoutRDV(_ sender: UIButton) {
      
-        nouveauRDV=RdvModel(firstname:prenom.text!, lastname:nom.text!,adresse:adresse.text!,date:date.date,telephone:telephone.text!,type:(specialites.get(i: selectedValue)?.nom)!)
+        nouveauRDV = RdvModel(firstname:prenom.text!, lastname:nom.text!,adresse:adresse.text!,date:date.date,telephone:telephone.text!,type:(specialites.get(i: selectedValue)?.nom)!)
+        var currentDate = date.date
+        currentDate.addTimeInterval(-86400)
+        AppDelegate.notification.addNotification(title: "Rdv", body: (nouveauRDV?.fullname)!, date:currentDate , identifier: "rdv" + DateHandler.toString(date: currentDate))
+        nouveauRDV?.addAlarme(date: currentDate)
+        currentDate.addTimeInterval(82800)
+        AppDelegate.notification.addNotification(title: "Rdv", body: (nouveauRDV?.fullname)!, date: currentDate, identifier: "rdv" + DateHandler.toString(date: currentDate))
+        nouveauRDV?.addAlarme(date: currentDate)
+        if (specialites.get(i: selectedValue)?.nom)! == "Neurologue"{
+            SyntheseModel(debut: 8, fin: 18, rdv: nouveauRDV!)
+        }
         self.navigationController?.popViewController(animated: true)
-        
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -60,15 +69,5 @@ class AjoutRdvViewController: UIViewController,UIPickerViewDataSource, UIPickerV
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         selectedValue = specialite.selectedRow(inComponent: component)
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

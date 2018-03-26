@@ -14,6 +14,12 @@ class ActiviteViewController: UIViewController,UITableViewDataSource, UITableVie
 
     var eventSet : EventSet? = nil
     
+    @IBOutlet weak var ajoutEtatOutlet: UIBarButtonItem!
+    @IBAction func ajoutEtat(_ sender: UIBarButtonItem) {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let myVC = storyboard.instantiateViewController(withIdentifier: "etat") as! EtatViewController
+        navigationController?.pushViewController(myVC, animated: true)
+    }
     @IBOutlet weak var activiteTable: UITableView!
 
     
@@ -23,12 +29,24 @@ class ActiviteViewController: UIViewController,UITableViewDataSource, UITableVie
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        if !(AbstractDAO.getDAO()?._getSyntheseDAO()?._shouldSyntheseBeFilled())! {
+            ajoutEtatOutlet.isEnabled = false
+        }
+        else{
+            ajoutEtatOutlet.isEnabled = true
+        }
         self.eventSet = EventSet(activiteSet:(AbstractDAO.getDAO()?._getActiviteDAO()?._getAll())!)
         activiteTable.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if !(AbstractDAO.getDAO()?._getSyntheseDAO()?._shouldSyntheseBeFilled())! {
+            ajoutEtatOutlet.isEnabled = false
+        }
+        else{
+            ajoutEtatOutlet.isEnabled = true
+        }
         self.eventSet = EventSet(activiteSet:(AbstractDAO.getDAO()?._getActiviteDAO()?._getAll())!)
         activiteTable?.delegate = self
         activiteTable?.dataSource = self

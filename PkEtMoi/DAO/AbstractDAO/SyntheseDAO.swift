@@ -18,9 +18,10 @@ protocol SyntheseDAO{
     func _setRdv(rdv:RdvModel)
     func _getEtats()->EtatSet
     func _getEtats(date:Date)->EtatSet
-    func _addEtat(date:Date,event:String,result:String)
+    func _addEtat(date:Date,result:String)
     func _getCurrentSynthese()->SyntheseModel?
     func _getArchive()->Bool
     func _setArchive(archive:Bool)
+    func _shouldSyntheseBeFilled()->Bool
     
 }

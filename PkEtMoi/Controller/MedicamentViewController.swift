@@ -14,6 +14,12 @@ class MedicamentViewController: UIViewController,UITableViewDataSource, UITableV
     
     var eventSet : EventSet? = nil
     
+    @IBOutlet weak var ajoutEtatOutlet: UIBarButtonItem!
+    @IBAction func ajoutEtat(_ sender: UIBarButtonItem) {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let myVC = storyboard.instantiateViewController(withIdentifier: "etat") as! EtatViewController
+        navigationController?.pushViewController(myVC, animated: true)
+    }
     @IBOutlet weak var medicamentTable: UITableView!
     
 
@@ -22,8 +28,25 @@ class MedicamentViewController: UIViewController,UITableViewDataSource, UITableV
         navigationController?.pushViewController(myVC, animated: true)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        if !(AbstractDAO.getDAO()?._getSyntheseDAO()?._shouldSyntheseBeFilled())! {
+            ajoutEtatOutlet.isEnabled = false
+        }
+        else{
+            ajoutEtatOutlet.isEnabled = true
+        }
+        self.eventSet = EventSet(medicamentSet:(AbstractDAO.getDAO()?._getMedicamentDAO()?._getAll()))
+        medicamentTable.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        if !(AbstractDAO.getDAO()?._getSyntheseDAO()?._shouldSyntheseBeFilled())! {
+            ajoutEtatOutlet.isEnabled = false
+        }
+        else{
+            ajoutEtatOutlet.isEnabled = true
+        }
         self.eventSet = EventSet(medicamentSet:(AbstractDAO.getDAO()?._getMedicamentDAO()?._getAll()))
         medicamentTable?.delegate = self
         medicamentTable?.dataSource = self

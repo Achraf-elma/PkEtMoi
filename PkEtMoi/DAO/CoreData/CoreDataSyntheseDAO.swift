@@ -35,10 +35,9 @@ class CoreDataSyntheseDAO:SyntheseDAO{
         }
     }
     
-    func _addEtat(date: Date, event: String, result: String) {
+    func _addEtat(date: Date, result: String) {
         let newEtat = NSEntityDescription.insertNewObject(forEntityName: "Etat", into: CoreDataDAO.context) as! Etat
         newEtat.date = date
-        newEtat.evenementParticulier = event
         newEtat.reponseEtat = result
         newEtat.renseigner = instanceCoreData
         do{
@@ -113,6 +112,16 @@ class CoreDataSyntheseDAO:SyntheseDAO{
             }
         }
         return result
+    }
+    
+    func _shouldSyntheseBeFilled()->Bool{
+        var synthese = _getCurrentSynthese()
+        if synthese != nil{
+            if Int((synthese?.rdv.date?.timeIntervalSinceNow)!) < 432000{
+                return true
+            }
+        }
+        return false
     }
     
     func _getArchive() -> Bool {

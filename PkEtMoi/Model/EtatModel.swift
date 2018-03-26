@@ -35,6 +35,12 @@ class EtatModel{
         }
     }
     
+    init(date:Date, reponse:String){
+        var synthese = AbstractDAO.getDAO()?._getSyntheseDAO()?._getCurrentSynthese()
+        synthese?.addEtat(date: date,result: reponse)
+        dao = (AbstractDAO.getDAO()?._getEtatDAO())!
+    }
+    
     init(etat: EtatDAO){
         self.dao = etat
     }

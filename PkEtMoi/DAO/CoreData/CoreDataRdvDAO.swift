@@ -31,6 +31,7 @@ class CoreDataRdvDAO:RdvDAO{
             print(error)
             return nil
         }
+        rdv = rdv.sorted(by: { $0.date?.compare($1.date! as Date) == .orderedAscending})
         let result = RdvSet()
         for r in rdv {
             result.insert(rdv: RdvModel(rdv: CoreDataRdvDAO(rdv:r)))

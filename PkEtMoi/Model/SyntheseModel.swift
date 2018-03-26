@@ -62,10 +62,21 @@ class SyntheseModel : EventModel{
     init(debut:Int16, fin:Int16,rdv:RdvModel){
         dao = (AbstractDAO.getDAO()?._getSyntheseDAO()!)!
         dao._insert(archive:false,debut:debut, fin: fin,rdv:rdv)
+        var currentDate = rdv.date
+        currentDate?.addingTimeInterval(-86400)
+        for i in 1...5{
+            for index in debut...fin {
+                var tmp = currentDate
+                var time:Double = Double((24 - fin + index)) * 3600.0
+                tmp?.addingTimeInterval(time)
+                AppDelegate.notification.addNotification(title: "Synthese", body: "Rentrez votre etat", date: tmp!, identifier: "synthese")
+            }
+            currentDate?.addingTimeInterval(-86400)
+        }
     }
     
-    func addEtat(date: Date, event: String, result: String){
-        dao._addEtat(date: date, event: event, result: result)
+    func addEtat(date: Date, result: String){
+        dao._addEtat(date: date, result: result)
     }
     
     @discardableResult  func delete() ->Bool{
