@@ -132,9 +132,9 @@ class SyntheseViewController: UIViewController,UITableViewDataSource, UITableVie
         if cell.etatLabel.text == "ON"{
             cell.backgroundColor = UIColor.green
         }else if cell.etatLabel.text == "OFF"{
-            cell.backgroundColor = UIColor(red: (231/255.0), green: (86/255.0), blue: (86/255.0), alpha: 1.0)
+            cell.backgroundColor = UIColor.red
         }else{
-            cell.backgroundColor = UIColor(red: (76/255.0), green: (190/255.0), blue: (192/255.0), alpha: 1.0)
+            cell.backgroundColor = UIColor.yellow
         }
         return cell
         
