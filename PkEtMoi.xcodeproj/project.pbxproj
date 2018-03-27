@@ -80,6 +80,7 @@
 		1598F2A020468D060076BD66 /* PkEtMoiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1598F29F20468D060076BD66 /* PkEtMoiUITests.swift */; };
 		15B16D6B2064FFA300585D1C /* MedicamentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B16D6A2064FFA300585D1C /* MedicamentViewController.swift */; };
 		15B16D6D2064FFB800585D1C /* RdvViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B16D6C2064FFB800585D1C /* RdvViewController.swift */; };
+		63124D50206AA1BD00F4CFA0 /* medicine.png in Resources */ = {isa = PBXBuildFile; fileRef = 63124D4F206AA1BC00F4CFA0 /* medicine.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -180,6 +181,7 @@
 		15B16D6A2064FFA300585D1C /* MedicamentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicamentViewController.swift; sourceTree = "<group>"; };
 		15B16D6C2064FFB800585D1C /* RdvViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RdvViewController.swift; sourceTree = "<group>"; };
 		38F36E57205920D600854EB7 /* PkEtMoi-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PkEtMoi-Bridging-Header.h"; sourceTree = "<group>"; };
+		63124D4F206AA1BC00F4CFA0 /* medicine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = medicine.png; path = ../../../Downloads/medicine.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -403,6 +405,7 @@
 		1598F27B20468D050076BD66 /* PkEtMoi */ = {
 			isa = PBXGroup;
 			children = (
+				63124D4F206AA1BC00F4CFA0 /* medicine.png */,
 				036A4C8B206A91FA005AD4F9 /* Helper */,
 				03F699CB206033950037904A /* DAO */,
 				03A0384D205FF3DF00EA9BDE /* Model */,
@@ -548,6 +551,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1598F28A20468D050076BD66 /* LaunchScreen.storyboard in Resources */,
+				63124D50206AA1BD00F4CFA0 /* medicine.png in Resources */,
 				1598F28720468D050076BD66 /* Assets.xcassets in Resources */,
 				1598F28220468D050076BD66 /* Main.storyboard in Resources */,
 			);

@@ -115,15 +115,15 @@ class ResumeViewController: UIViewController,UITableViewDataSource, UITableViewD
         var type : String = ""
         if (self.alarmeSet.get(i: indexPath.row)?.isRdvAlarme())! {
             type = "RDV "
-            cell.backgroundColor = UIColor.red
+            cell.backgroundColor = UIColor(red: (76/255.0), green: (190/255.0), blue: (192/255.0), alpha: 1.0)
         }
         else if (self.alarmeSet.get(i: indexPath.row)?.isMedicamentAlarme())!{
             type = "Medicament "
-            cell.backgroundColor = UIColor.green
+            cell.backgroundColor = UIColor(red: (231/255.0), green: (86/255.0), blue: (86/255.0), alpha: 1.0)
         }
         else{
             type = "Activite "
-            cell.backgroundColor = UIColor.yellow
+            cell.backgroundColor = UIColor(red: (251/255.0), green: (178/255.0), blue: (92/255.0), alpha: 1.0)
         }
         cell.labelCell.text = type + (self.alarmeSet.get(i: indexPath.row)?.getLabel())!
         return cell

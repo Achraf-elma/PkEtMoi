@@ -82,9 +82,9 @@ class DetailSyntheseViewController: UIViewController,UITableViewDataSource, UITa
         if cell.etatLabel.text == "ON"{
             cell.backgroundColor = UIColor.green
         }else if cell.etatLabel.text == "OFF"{
-            cell.backgroundColor = UIColor.yellow
-        }else{
             cell.backgroundColor = UIColor.red
+        }else{
+            cell.backgroundColor = UIColor.yellow
         }
         return cell
         
