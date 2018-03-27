@@ -80,11 +80,11 @@ class DetailSyntheseViewController: UIViewController,UITableViewDataSource, UITa
         cell.dateLabel.text = dateFormatter.string(from:currentDate!)
         cell.etatLabel.text =  self.etatSet?.get(i: indexPath.row)?.reponseEtat
         if cell.etatLabel.text == "ON"{
-            cell.backgroundColor = UIColor.yellow
-        }else if cell.etatLabel.text == "OFF"{
-            cell.backgroundColor = UIColor.red
-        }else{
             cell.backgroundColor = UIColor.green
+        }else if cell.etatLabel.text == "OFF"{
+            cell.backgroundColor = UIColor.yellow
+        }else{
+            cell.backgroundColor = UIColor.red
         }
         return cell
         
