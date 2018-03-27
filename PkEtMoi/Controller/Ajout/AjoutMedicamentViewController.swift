@@ -31,6 +31,14 @@ class AjoutMedicamentViewController: UIViewController,UITableViewDelegate,UITabl
         }
     }
     @IBAction func ajouterMedicament(_ sender: UIButton) {
+        if (nom.text?.isEmpty)!{
+            nom.backgroundColor = UIColor.red
+            return
+        }
+        if (presentation.text?.isEmpty)!{
+            presentation.backgroundColor = UIColor.red
+            return
+        }
         MedicamentModel(nom: nom.text!, description: presentation.text!, dosage: doses)
         self.navigationController?.popViewController(animated: true)
     }

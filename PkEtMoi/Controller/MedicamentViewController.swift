@@ -20,6 +20,13 @@ class MedicamentViewController: UIViewController,UITableViewDataSource, UITableV
         let myVC = storyboard.instantiateViewController(withIdentifier: "etat") as! EtatViewController
         navigationController?.pushViewController(myVC, animated: true)
     }
+    
+    @IBAction func ajoutTraitement(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let myVC = storyboard.instantiateViewController(withIdentifier: "traitement") as! TraitementViewController
+        navigationController?.pushViewController(myVC, animated: true)
+    }
+    
     @IBOutlet weak var medicamentTable: UITableView!
     
 

@@ -22,7 +22,6 @@ class MyNotificationCenter {
             content.title = title
             content.body = body
             content.sound = UNNotificationSound.default()
-            print(date.timeIntervalSince(Date()))
             let trigger = UNTimeIntervalNotificationTrigger(timeInterval: date.timeIntervalSince(Date()), repeats: false)
             let identifier = identifier
             let request = UNNotificationRequest(identifier: identifier,

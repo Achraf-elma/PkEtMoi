@@ -36,7 +36,6 @@ class AncienSyntheseViewController: UIViewController,UITableViewDataSource, UITa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(self.synthese!.count)
         return self.synthese!.count
     }
     

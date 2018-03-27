@@ -23,7 +23,22 @@ class AjoutRdvViewController: UIViewController,UIPickerViewDataSource, UIPickerV
     var specialites : SpecialiteSet!
     
     @IBAction func ajoutRDV(_ sender: UIButton) {
-     
+        if (nom.text?.isEmpty)!{
+            nom.backgroundColor = UIColor.red
+            return
+        }
+        if (prenom.text?.isEmpty)!{
+            prenom.backgroundColor = UIColor.red
+            return
+        }
+        if (adresse.text?.isEmpty)!{
+            adresse.backgroundColor = UIColor.red
+            return
+        }
+        if (telephone.text?.isEmpty)!{
+            telephone.backgroundColor = UIColor.red
+            return
+        }
         nouveauRDV = RdvModel(firstname:prenom.text!, lastname:nom.text!,adresse:adresse.text!,date:date.date,telephone:telephone.text!,type:(specialites.get(i: selectedValue)?.nom)!)
         var currentDate = date.date
         currentDate.addTimeInterval(-86400)

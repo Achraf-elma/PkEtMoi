@@ -11,6 +11,7 @@
 		0334F4532063E77F004C3C5E /* AlarmeDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0334F4522063E77F004C3C5E /* AlarmeDAO.swift */; };
 		036A4C8420697BF5005AD4F9 /* EtatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036A4C8320697BF5005AD4F9 /* EtatViewController.swift */; };
 		036A4C86206985C2005AD4F9 /* AjoutMedicamentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036A4C85206985C2005AD4F9 /* AjoutMedicamentTableViewCell.swift */; };
+		036A4C88206A8012005AD4F9 /* TraitementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036A4C87206A8012005AD4F9 /* TraitementViewController.swift */; };
 		0385600320640EBA00493840 /* ActivitePerformanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0385600220640EBA00493840 /* ActivitePerformanceTableViewCell.swift */; };
 		0386C7FC20629016006454AB /* PkEtMoi.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0386C7FA20629015006454AB /* PkEtMoi.xcdatamodeld */; };
 		0386C7FE20629FAE006454AB /* rdvTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0386C7FD20629FAE006454AB /* rdvTableViewCell.swift */; };
@@ -79,7 +80,6 @@
 		1598F2A020468D060076BD66 /* PkEtMoiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1598F29F20468D060076BD66 /* PkEtMoiUITests.swift */; };
 		15B16D6B2064FFA300585D1C /* MedicamentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B16D6A2064FFA300585D1C /* MedicamentViewController.swift */; };
 		15B16D6D2064FFB800585D1C /* RdvViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B16D6C2064FFB800585D1C /* RdvViewController.swift */; };
-		38F36E5A205920D700854EB7 /* DLRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F36E59205920D700854EB7 /* DLRadioButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +104,7 @@
 		0334F4522063E77F004C3C5E /* AlarmeDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmeDAO.swift; sourceTree = "<group>"; };
 		036A4C8320697BF5005AD4F9 /* EtatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EtatViewController.swift; sourceTree = "<group>"; };
 		036A4C85206985C2005AD4F9 /* AjoutMedicamentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AjoutMedicamentTableViewCell.swift; sourceTree = "<group>"; };
+		036A4C87206A8012005AD4F9 /* TraitementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitementViewController.swift; sourceTree = "<group>"; };
 		0385600220640EBA00493840 /* ActivitePerformanceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitePerformanceTableViewCell.swift; sourceTree = "<group>"; };
 		0386C7FB20629015006454AB /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		0386C7FD20629FAE006454AB /* rdvTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rdvTableViewCell.swift; sourceTree = "<group>"; };
@@ -179,8 +180,6 @@
 		15B16D6A2064FFA300585D1C /* MedicamentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicamentViewController.swift; sourceTree = "<group>"; };
 		15B16D6C2064FFB800585D1C /* RdvViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RdvViewController.swift; sourceTree = "<group>"; };
 		38F36E57205920D600854EB7 /* PkEtMoi-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PkEtMoi-Bridging-Header.h"; sourceTree = "<group>"; };
-		38F36E58205920D700854EB7 /* DLRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRadioButton.h; sourceTree = "<group>"; };
-		38F36E59205920D700854EB7 /* DLRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRadioButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,9 +207,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		036A4C89206A9199005AD4F9 /* Synthese */ = {
+			isa = PBXGroup;
+			children = (
+				03EA48BA20665B2200E7ED17 /* SyntheseTableViewCell.swift */,
+				03FBF25720669A8C00410D75 /* AncienSyntheseTableViewCell.swift */,
+				03FBF25D20669F9700410D75 /* DetailSyntheseTableViewCell.swift */,
+			);
+			path = Synthese;
+			sourceTree = "<group>";
+		};
+		036A4C8A206A91DA005AD4F9 /* Synthese */ = {
+			isa = PBXGroup;
+			children = (
+				03EA48B820665AC300E7ED17 /* SyntheseViewController.swift */,
+				03FBF25520669A3700410D75 /* AncienSyntheseViewController.swift */,
+				03FBF25B20669DCF00410D75 /* DetailSyntheseViewController.swift */,
+			);
+			path = Synthese;
+			sourceTree = "<group>";
+		};
+		036A4C8B206A91FA005AD4F9 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				03AB95EA2062E8E200FFE431 /* NotificationCenter.swift */,
+				03A038642060071D00EA9BDE /* DateHandler.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		03A0384B205FF3B900EA9BDE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				036A4C8A206A91DA005AD4F9 /* Synthese */,
 				03FEE8E9206841B700DF61BA /* Ajout */,
 				03AB95DC2062D6C200FFE431 /* Details */,
 				03A0385C205FF59800EA9BDE /* ResumeViewController.swift */,
@@ -219,10 +248,8 @@
 				03F8E15D2061CFCA001FB8D5 /* ActiviteViewController.swift */,
 				15B16D6A2064FFA300585D1C /* MedicamentViewController.swift */,
 				15B16D6C2064FFB800585D1C /* RdvViewController.swift */,
-				03EA48B820665AC300E7ED17 /* SyntheseViewController.swift */,
-				03FBF25520669A3700410D75 /* AncienSyntheseViewController.swift */,
-				03FBF25B20669DCF00410D75 /* DetailSyntheseViewController.swift */,
 				036A4C8320697BF5005AD4F9 /* EtatViewController.swift */,
+				036A4C87206A8012005AD4F9 /* TraitementViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -266,14 +293,12 @@
 		03AB95DD2062DA2800FFE431 /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				036A4C89206A9199005AD4F9 /* Synthese */,
 				03EBFCF8206400B20083433E /* Detail */,
 				03A03860206001F900EA9BDE /* ResumeTableViewCell.swift */,
 				0386C7FD20629FAE006454AB /* rdvTableViewCell.swift */,
 				03F8E14A2061C422001FB8D5 /* MedicamentTableViewCell.swift */,
 				03F8E1612061D19F001FB8D5 /* ActiviteTableViewCell.swift */,
-				03EA48BA20665B2200E7ED17 /* SyntheseTableViewCell.swift */,
-				03FBF25720669A8C00410D75 /* AncienSyntheseTableViewCell.swift */,
-				03FBF25D20669F9700410D75 /* DetailSyntheseTableViewCell.swift */,
 				036A4C85206985C2005AD4F9 /* AjoutMedicamentTableViewCell.swift */,
 			);
 			path = TableViewCell;
@@ -378,21 +403,18 @@
 		1598F27B20468D050076BD66 /* PkEtMoi */ = {
 			isa = PBXGroup;
 			children = (
+				036A4C8B206A91FA005AD4F9 /* Helper */,
 				03F699CB206033950037904A /* DAO */,
 				03A0384D205FF3DF00EA9BDE /* Model */,
 				03A0384C205FF3D400EA9BDE /* View */,
 				03A0384B205FF3B900EA9BDE /* Controller */,
-				38F36E58205920D700854EB7 /* DLRadioButton.h */,
-				38F36E59205920D700854EB7 /* DLRadioButton.m */,
 				1598F27C20468D050076BD66 /* AppDelegate.swift */,
-				03AB95EA2062E8E200FFE431 /* NotificationCenter.swift */,
 				1598F28020468D050076BD66 /* Main.storyboard */,
 				1598F28620468D050076BD66 /* Assets.xcassets */,
 				1598F28820468D050076BD66 /* LaunchScreen.storyboard */,
 				1598F28B20468D050076BD66 /* Info.plist */,
 				0386C7FA20629015006454AB /* PkEtMoi.xcdatamodeld */,
 				38F36E57205920D600854EB7 /* PkEtMoi-Bridging-Header.h */,
-				03A038642060071D00EA9BDE /* DateHandler.swift */,
 			);
 			path = PkEtMoi;
 			sourceTree = "<group>";
@@ -558,7 +580,6 @@
 				1598F27F20468D050076BD66 /* ViewController.swift in Sources */,
 				03FEE8E62068417F00DF61BA /* AjoutRdvViewController.swift in Sources */,
 				03F699D82060449F0037904A /* AlarmViewController.swift in Sources */,
-				38F36E5A205920D700854EB7 /* DLRadioButton.m in Sources */,
 				03EBFCF52063E94B0083433E /* CoreDataAlarmDAO.swift in Sources */,
 				0386C7FC20629016006454AB /* PkEtMoi.xcdatamodeld in Sources */,
 				03AB95EB2062E8E200FFE431 /* NotificationCenter.swift in Sources */,
@@ -569,6 +590,7 @@
 				036A4C86206985C2005AD4F9 /* AjoutMedicamentTableViewCell.swift in Sources */,
 				03F8E14E2061CA34001FB8D5 /* RdvSet.swift in Sources */,
 				15B16D6D2064FFB800585D1C /* RdvViewController.swift in Sources */,
+				036A4C88206A8012005AD4F9 /* TraitementViewController.swift in Sources */,
 				03EA48B52066524000E7ED17 /* CoreDataSyntheseDAO.swift in Sources */,
 				03896B35206844CC00886232 /* CoreDataSpecialiteDAO.swift in Sources */,
 				0385600320640EBA00493840 /* ActivitePerformanceTableViewCell.swift in Sources */,

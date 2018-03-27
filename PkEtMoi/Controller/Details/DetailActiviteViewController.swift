@@ -37,7 +37,6 @@ class DetailActiviteViewController: UIViewController,UITableViewDataSource, UITa
     }
     
     @IBAction func jeViensDenFaire(_ sender: UIButton) {
-        print("hey")
         activite?.incExperience()
         exp.text = "Exp : \(String(describing: activite!.experience))/10"
         nivea.text = "Level : \(String(describing: activite!.niveau))"

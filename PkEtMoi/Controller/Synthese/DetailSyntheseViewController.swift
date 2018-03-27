@@ -68,7 +68,6 @@ class DetailSyntheseViewController: UIViewController,UITableViewDataSource, UITa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(self.etatSet!.count)
         return self.etatSet!.count
     }
     

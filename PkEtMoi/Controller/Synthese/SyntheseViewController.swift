@@ -130,11 +130,11 @@ class SyntheseViewController: UIViewController,UITableViewDataSource, UITableVie
         cell.dateLabel.text = dateFormatter.string(from: (self.etatSet?.get(i: indexPath.row)?.date)!)
         cell.etatLabel.text =  self.etatSet?.get(i: indexPath.row)?.reponseEtat
         if cell.etatLabel.text == "ON"{
-            cell.backgroundColor = UIColor.yellow
-        }else if cell.etatLabel.text == "OFF"{
-            cell.backgroundColor = UIColor.red
-        }else{
             cell.backgroundColor = UIColor.green
+        }else if cell.etatLabel.text == "OFF"{
+            cell.backgroundColor = UIColor.yellow
+        }else{
+            cell.backgroundColor = UIColor.red
         }
         return cell
         

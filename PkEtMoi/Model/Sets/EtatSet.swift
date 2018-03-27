@@ -39,12 +39,9 @@ class EtatSet{
     }
     
     func get(i:Int)->EtatModel?{
-        print("lol")
         if(i < 0 || i >= etat.count){
             return nil
         }
-        print("hey")
-        print(self.etat[i].date)
         return self.etat[i]
     }
     

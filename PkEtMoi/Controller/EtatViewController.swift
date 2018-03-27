@@ -10,7 +10,7 @@ import UIKit
 
 class EtatViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource{
 
-    var etat = ["ON","OFF","DISKINESIE"]
+    var etat = ["ON","OFF","DYSKINESIES"]
     var selectedValue:Int = 0
     
     @IBOutlet weak var etats: UIPickerView!
