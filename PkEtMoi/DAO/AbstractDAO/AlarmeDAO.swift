@@ -18,7 +18,7 @@ protocol AlarmeDAO{
     //Supprime l’alarme et renvoie Vrai si la suppression a bien été effectuée, Faux sinon.
     @discardableResult func _deleteAlarm()->Bool
     
-    //Retourne la date
+    //Retourne la date de l'alarme.
     func _getDate()->Date?
     
     //Retourne vrai si l’alarme est pour un médicament.
