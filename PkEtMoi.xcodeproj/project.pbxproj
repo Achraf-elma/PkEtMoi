@@ -185,11 +185,11 @@
 		15B16D6A2064FFA300585D1C /* MedicamentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicamentViewController.swift; sourceTree = "<group>"; };
 		15B16D6C2064FFB800585D1C /* RdvViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RdvViewController.swift; sourceTree = "<group>"; };
 		38F36E57205920D600854EB7 /* PkEtMoi-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PkEtMoi-Bridging-Header.h"; sourceTree = "<group>"; };
-		63C98080206B05B5005712E8 /* pills (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pills (1).png"; path = "../../../Downloads/pills (1).png"; sourceTree = "<group>"; };
-		63C98082206B05F8005712E8 /* medical-history (3).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "medical-history (3).png"; path = "../../../Downloads/medical-history (3).png"; sourceTree = "<group>"; };
-		63C98084206B0654005712E8 /* doctor (2).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "doctor (2).png"; path = "../../../Downloads/doctor (2).png"; sourceTree = "<group>"; };
-		63C98086206B0662005712E8 /* target (2).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "target (2).png"; path = "../../../Downloads/target (2).png"; sourceTree = "<group>"; };
-		63C98088206B069F005712E8 /* calendar (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "calendar (1).png"; path = "../../../Downloads/calendar (1).png"; sourceTree = "<group>"; };
+		63C98080206B05B5005712E8 /* pills (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pills (1).png"; path = "../../Downloads/pills (1).png"; sourceTree = SOURCE_ROOT; };
+		63C98082206B05F8005712E8 /* medical-history (3).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "medical-history (3).png"; path = "../../Downloads/medical-history (3).png"; sourceTree = SOURCE_ROOT; };
+		63C98084206B0654005712E8 /* doctor (2).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "doctor (2).png"; path = "../../Downloads/doctor (2).png"; sourceTree = SOURCE_ROOT; };
+		63C98086206B0662005712E8 /* target (2).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "target (2).png"; path = "../../Downloads/target (2).png"; sourceTree = SOURCE_ROOT; };
+		63C98088206B069F005712E8 /* calendar (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "calendar (1).png"; path = "../../Downloads/calendar (1).png"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
